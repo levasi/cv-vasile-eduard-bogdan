@@ -30,6 +30,7 @@ const skills = [
 const MAX_YEARS = 14;
 
 const portfolioLinks = [
+  { label: "One Man Agency", url: "https://one-man-agency-duf265f37-levasis-projects.vercel.app/" },
   { label: "Zion Builder", url: "https://zionbuilder.io" },
   { label: "Eutron", url: "https://www.eutron.ro" },
   { label: "Web48", url: "https://www.web48.ro" },
