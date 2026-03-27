@@ -10,10 +10,14 @@ interface LanguageContextType {
 
 const translations: Record<Lang, Record<string, string>> = {
   en: {
+    // Nav
+    cv: "CV",
+    portfolio: "Portfolio",
+    portfolioIntro: "Selection of projects and websites I've contributed to.",
+    viewFullPortfolio: "View full portfolio →",
     // Sidebar
     contact: "Contact",
     skills: "Skills",
-    portfolio: "Portfolio",
     yr: "yr",
     yrs: "yrs",
 
@@ -100,10 +104,14 @@ const translations: Record<Lang, Record<string, string>> = {
     "edu3.institution": "High School, Brezoi City, Valcea County",
   },
   ro: {
+    // Nav
+    cv: "CV",
+    portfolio: "Portofoliu",
+    portfolioIntro: "Selecție de proiecte și site-uri la care am contribuit.",
+    viewFullPortfolio: "Vezi portofoliul complet →",
     // Sidebar
     contact: "Contact",
     skills: "Competențe",
-    portfolio: "Portofoliu",
     yr: "an",
     yrs: "ani",
 

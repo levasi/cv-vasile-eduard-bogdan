@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "./language-context";
 
@@ -28,18 +29,6 @@ const skills = [
 ];
 
 const MAX_YEARS = 14;
-
-const portfolioLinks = [
-  { label: "One Man Agency", url: "https://one-man-agency-duf265f37-levasis-projects.vercel.app/" },
-  { label: "Zion Builder", url: "https://zionbuilder.io" },
-  { label: "Eutron", url: "https://www.eutron.ro" },
-  { label: "Web48", url: "https://www.web48.ro" },
-  { label: "CEJ Buc", url: "https://cejbuc.ro" },
-  { label: "Höfats", url: "https://hofats.com" },
-  { label: "Outstand", url: "https://outstand.ro" },
-  { label: "JuristFirme", url: "http://d37.xfactorapp.com/juristfirme" },
-  { label: "ProtectiaMuncii", url: "http://d37.xfactorapp.com/protectiamuncii" },
-];
 
 export function CvSidebar() {
   const { t } = useLanguage();
@@ -119,7 +108,7 @@ export function CvSidebar() {
         </div>
       </div>
 
-      {/* Portfolio Links */}
+      {/* Portfolio link */}
       <div>
         <h3
           className="text-[#e94560] tracking-widest mb-4 pb-2 border-b border-[#e94560]/30"
@@ -127,22 +116,12 @@ export function CvSidebar() {
         >
           {t("portfolio")}
         </h3>
-        <ul className="flex flex-col gap-2">
-          {portfolioLinks.map((link) => (
-            <li key={link.url}>
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-[#e94560] transition-colors group"
-                style={{ fontSize: "0.8rem" }}
-              >
-                <ExternalLink className="w-3 h-3 text-[#e94560]/60 group-hover:text-[#e94560] shrink-0" />
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <Link
+          to="/portfolio"
+          className="text-gray-300 hover:text-[#e94560] transition-colors text-sm"
+        >
+          {t("viewFullPortfolio")}
+        </Link>
       </div>
     </aside>
   );
