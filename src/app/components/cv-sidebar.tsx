@@ -2,6 +2,9 @@ import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "./language-context";
+import React from "react";
+import { portfolioProjects } from "../data/portfolio";
+import { personalProjects } from "../data/personal-projects";
 
 const contactInfo = [
   { icon: MapPin, text: "București 040932" },
@@ -11,28 +14,28 @@ const contactInfo = [
   { icon: Github, text: "github.com/levasi", href: "https://github.com/levasi" },
 ];
 
-const skills = [
-  { name: "JavaScript", years: 12 },
-  { name: "Vue.js", years: 8 },
-  { name: "Nuxt.js", years: 6 },
-  { name: "HTML5", years: 14 },
-  { name: "CSS3 / SCSS", years: 10 },
-  { name: "Shopware", years: 5 },
-  { name: "Shopify", years: 2 },
-  { name: "Storybook", years: 1 },
-  { name: "Webpack", years: 2 },
-  { name: "Git / Bitbucket", years: 8 },
-  { name: "Figma / Adobe XD", years: 6 },
-  { name: "Adobe Photoshop", years: 12 },
-  { name: "Adobe Illustrator", years: 4 },
-  { name: "3ds Max / V-Ray", years: 2 },
-  { name: "Jira", years: 7 },
-];
-
-const MAX_YEARS = 14;
+const skillGroups = [
+  {
+    titleKey: "skillsFrontend",
+    items: ["React", "Next.js", "Vue.js", "Nuxt.js", "JavaScript", "TypeScript", "HTML", "SCSS"],
+  },
+  {
+    titleKey: "skillsEcommerce",
+    items: ["Shopify", "Shopware", "WordPress"],
+  },
+  {
+    titleKey: "skillsUiDesign",
+    items: ["Figma", "Storybook", "Adobe XD", "Photoshop"],
+  },
+  {
+    titleKey: "skillsTools",
+    items: ["Git", "Webpack", "Jira"],
+  },
+] as const;
 
 export function CvSidebar() {
   const { t } = useLanguage();
+  const projects = portfolioProjects;
 
   return (
     <aside className="w-full lg:w-[340px] bg-[#1a1a2e] text-white p-8 flex flex-col gap-8 shrink-0">
@@ -87,22 +90,22 @@ export function CvSidebar() {
         >
           {t("skills")}
         </h3>
-        <div className="flex flex-col gap-3">
-          {skills.map((skill) => (
-            <div key={skill.name}>
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-gray-200" style={{ fontSize: "0.8rem" }}>
-                  {skill.name}
-                </span>
-                <span className="text-[#e94560]/80" style={{ fontSize: "0.7rem", fontWeight: 500 }}>
-                  {skill.years} {skill.years === 1 ? t("yr") : t("yrs")}
-                </span>
+        <div className="flex flex-col gap-5">
+          {skillGroups.map((group) => (
+            <div key={group.titleKey}>
+              <div className="text-xs font-semibold text-white/80 mb-2 tracking-wide">
+                {t(group.titleKey)}
               </div>
-              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-[#e94560] to-[#e94560]/60 rounded-full"
-                  style={{ width: `${(skill.years / MAX_YEARS) * 100}%` }}
-                />
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-200"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
@@ -123,7 +126,55 @@ export function CvSidebar() {
         >
           {t("viewFullPortfolio")}
         </Link>
+
+        {projects.length > 0 && (
+          <ul className="mt-4 flex flex-col gap-2">
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#e94560] transition-colors"
+                  style={{ fontSize: "0.85rem", lineHeight: 1.4 }}
+                >
+                  {p.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
+
+      {/* Personal projects */}
+      {personalProjects.length > 0 && (
+        <div>
+          <h3
+            className="text-[#e94560] tracking-widest mb-4 pb-2 border-b border-[#e94560]/30"
+            style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+          >
+            <Link to="/personal-projects" className="hover:text-white transition-colors">
+              {t("personalProjects")}
+            </Link>
+          </h3>
+
+          <ul className="flex flex-col gap-2">
+            {personalProjects.map((p) => (
+              <li key={p.url}>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#e94560] transition-colors"
+                  style={{ fontSize: "0.85rem", lineHeight: 1.4 }}
+                >
+                  {p.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </aside>
   );
 }

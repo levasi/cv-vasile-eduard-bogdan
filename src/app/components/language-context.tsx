@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import React, { createContext, useContext, useState, type ReactNode } from "react";
 
 export type Lang = "en" | "ro";
 
@@ -15,16 +15,44 @@ const translations: Record<Lang, Record<string, string>> = {
     portfolio: "Portfolio",
     portfolioIntro: "Selection of projects and websites I've contributed to.",
     viewFullPortfolio: "View full portfolio →",
+    all: "All",
+    personalProjects: "Personal projects",
+    personalProjectsTitle: "Small builds, shipped fast.",
+    personalProjectsLead: "A few side projects and experiments—built end-to-end and maintained over time.",
+
+    // Portfolio page
+    portfolioKicker: "Selected work",
+    portfolioTitle: "Premium UI, clean architecture, performance-first delivery.",
+    portfolioLead:
+      "Senior frontend developer with a design background. I build responsive interfaces with strong hierarchy, deliberate motion, and codebases that stay maintainable after launch.",
+    openToRemote: "Open to remote opportunities",
+    rolesHeadline: "Senior frontend roles · Premium agency work",
+    contactPitch:
+      "If you need a senior frontend developer who can execute design with precision, ship fast UI, and keep performance in check—let’s talk.",
+    emailMe: "Email me",
+
+    // Portfolio project page
+    backToPortfolio: "Back to portfolio",
+    projectNotFound: "Project not found.",
+    roleLabel: "Role",
+    technicalHighlightsLabel: "Technical highlights",
+    caseStudyLabel: "Case study",
+    nextStepLabel: "Next step",
+    sameQualityHeadline: "Want the same level of UI quality?",
+    sameQualityPitch:
+      "I’m available for senior frontend roles and premium agency work—shipping fast, polished interfaces with clean architecture.",
     // Sidebar
     contact: "Contact",
     skills: "Skills",
-    yr: "yr",
-    yrs: "yrs",
+    skillsFrontend: "Frontend",
+    skillsEcommerce: "Ecommerce",
+    skillsUiDesign: "UI & Design",
+    skillsTools: "Tools",
 
     // Main header
-    jobTitle: "Front-End Developer",
+    jobTitle: "Senior Frontend Developer",
     summary:
-      "Creative and detail-oriented Front-End Developer with 8+ years of experience building responsive, user-friendly web interfaces using HTML, CSS, JavaScript, and modern frameworks like Vue.js and Nuxt. Proven ability to translate design systems into scalable UI components, optimize performance, and collaborate with cross-functional teams to deliver clean, maintainable code. Passionate about intuitive design, consistent user experience, and continuous learning.",
+      "Frontend Developer with 8+ years of experience building scalable ecommerce and product interfaces using Vue.js, Nuxt, and any modern frontend technologies. Specialized in responsive UI systems, interactive experiences, and performance-focused frontend architecture with a strong design and UX foundation.",
 
     // Section titles
     workExperience: "Work Experience",
@@ -36,10 +64,10 @@ const translations: Record<Lang, Record<string, string>> = {
     generatingPdf: "Generating PDF...",
 
     // Experience 1
-    "exp1.title": "Expert Javascript Programmer",
+    "exp1.title": "Senior Frontend Developer",
     "exp1.period": "Jun 2021 — Present",
     "exp1.resp1":
-      "Implemented user interfaces for online shops using the Shopware platform, ensuring responsive and visually engaging e-commerce experiences.",
+      "Built scalable ecommerce interfaces for high-traffic Shopware storefronts with focus on performance, UX consistency, and maintainable component architecture.",
     "exp1.resp2":
       "Extended the administration of Shopware stores by developing new CMS components, elements, and features.",
 
@@ -109,19 +137,47 @@ const translations: Record<Lang, Record<string, string>> = {
     portfolio: "Portofoliu",
     portfolioIntro: "Selecție de proiecte și site-uri la care am contribuit.",
     viewFullPortfolio: "Vezi portofoliul complet →",
+    all: "Toate",
+    personalProjects: "Proiecte personale",
+    personalProjectsTitle: "Proiecte mici, livrate rapid.",
+    personalProjectsLead: "Câteva proiecte și experimente personale—construite end-to-end și întreținute în timp.",
+
+    // Portfolio page
+    portfolioKicker: "Proiecte selectate",
+    portfolioTitle: "UI premium, arhitectură curată, livrare orientată pe performanță.",
+    portfolioLead:
+      "Senior frontend developer cu background în design. Construiesc interfețe responsive cu ierarhie clară, animații deliberate și codebase-uri ușor de întenținut după lansare.",
+    openToRemote: "Disponibil pentru oportunități remote",
+    rolesHeadline: "Roluri senior frontend · Proiecte premium în agenții",
+    contactPitch:
+      "Dacă ai nevoie de un frontend developer senior care execută design-ul cu precizie, livrează UI rapid și ține performanța sub control—hai să discutăm.",
+    emailMe: "Trimite-mi un email",
+
+    // Portfolio project page
+    backToPortfolio: "Înapoi la portofoliu",
+    projectNotFound: "Proiectul nu a fost găsit.",
+    roleLabel: "Rol",
+    technicalHighlightsLabel: "Repere tehnice",
+    caseStudyLabel: "Studiu de caz",
+    nextStepLabel: "Pasul următor",
+    sameQualityHeadline: "Vrei același nivel de calitate UI?",
+    sameQualityPitch:
+      "Sunt disponibil pentru roluri senior frontend și proiecte premium în agenții—livrând interfețe rapide, finisate și cu arhitectură curată.",
     // Sidebar
     contact: "Contact",
     skills: "Competențe",
-    yr: "an",
-    yrs: "ani",
+    skillsFrontend: "Frontend",
+    skillsEcommerce: "E-commerce",
+    skillsUiDesign: "UI & Design",
+    skillsTools: "Instrumente",
 
     // Main header
-    jobTitle: "Dezvoltator Front-End",
+    jobTitle: "Senior Frontend Developer",
     summary:
-      "Dezvoltator Front-End creativ și orientat spre detalii, cu peste 8 ani de experiență în construirea de interfețe web responsive și prietenoase, utilizând HTML, CSS, JavaScript și framework-uri moderne precum Vue.js și Nuxt. Capacitate dovedită de a transpune sisteme de design în componente UI scalabile, de a optimiza performanța și de a colabora cu echipe multidisciplinare pentru a livra cod curat și ușor de întreținut. Pasionat de design intuitiv, experiență consistentă a utilizatorului și învățare continuă.",
+      "Dezvoltator Frontend cu peste 8 ani de experiență în construirea de interfețe e-commerce și de produs scalabile, folosind Vue.js, Nuxt și orice tehnologii frontend moderne. Specializat în sisteme UI responsive, experiențe interactive și arhitectură frontend orientată pe performanță, cu o bază solidă în design și UX.",
 
     // Section titles
-    workExperience: "Experiență Profesională",
+    workExperience: "Experiență profesională",
     education: "Educație",
     tools: "Instrumente:",
 
@@ -130,12 +186,12 @@ const translations: Record<Lang, Record<string, string>> = {
     generatingPdf: "Se generează PDF...",
 
     // Experience 1
-    "exp1.title": "Programator Expert Javascript",
+    "exp1.title": "Dezvoltator Frontend Senior",
     "exp1.period": "Iun 2021 — Prezent",
     "exp1.resp1":
-      "Am implementat interfețe utilizator pentru magazine online folosind platforma Shopware, asigurând experiențe e-commerce responsive și atractive vizual.",
+      "Am construit interfețe e-commerce scalabile pentru magazine Shopware cu trafic ridicat, cu focus pe performanță, consistență UX și arhitectură de componente ușor de întenținut.",
     "exp1.resp2":
-      "Am extins administrarea magazinelor Shopware prin dezvoltarea de noi componente CMS, elemente și funcționalități.",
+      "Am extins administrarea magazinelor Shopware prin dezvoltarea de noi componente, elemente și funcționalități CMS.",
 
     // Experience 2
     "exp2.title": "Dezvoltator Frontend",
@@ -143,9 +199,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp2.desc":
       "Am contribuit la dezvoltarea unei aplicații de dating online, concentrându-mă pe experiența utilizatorului, funcționalitate și optimizarea performanței.",
     "exp2.resp1":
-      "Am implementat interfața utilizator și fluxul logic al aplicației pentru a asigura o experiență fluidă și intuitivă.",
+      "Am implementat interfața aplicației și fluxul logic pentru a asigura o experiență fluidă și intuitivă.",
     "exp2.resp2":
-      "Am dezvoltat și întreținut un sistem de design scalabil bazat pe Storybook pentru a eficientiza consistența UI și a accelera dezvoltarea.",
+      "Am dezvoltat și întreținut un sistem de design scalabil bazat pe Storybook, pentru a eficientiza consistența UI și a accelera dezvoltarea.",
 
     // Experience 3
     "exp3.title": "Dezvoltator Frontend",
@@ -153,7 +209,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp3.desc":
       "Am contribuit la dezvoltarea Zion Builder, un plugin personalizat de page builder pentru WordPress, axat pe oferirea unei experiențe flexibile și ușor de utilizat pentru construirea de site-uri.",
     "exp3.resp1":
-      "Am implementat funcționalități noi și am îmbunătățit funcționalitățile existente pentru a răspunde nevoilor în evoluție ale utilizatorilor.",
+      "Am implementat funcționalități noi și am îmbunătățit funcționalitățile existente pentru a răspunde nevoilor tot mai diverse ale utilizatorilor.",
     "exp3.resp2":
       "Am transpus design-urile UI/UX în interfețe responsive și interactive.",
     "exp3.resp3":
@@ -169,7 +225,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp5.title": "Designer 3D",
     "exp5.period": "Oct 2014 — Mai 2016",
     "exp5.resp1":
-      "Am realizat randări 3D fotorealiste ale standurilor de expoziție pentru prezentări clienți și materiale de marketing.",
+      "Am realizat randări 3D fotorealiste ale standurilor de expoziție pentru prezentări către clienți și materiale de marketing.",
     "exp5.resp2":
       "Am creat desene tehnice precise pentru a sprijini producția și asamblarea.",
     "exp5.resp3":
@@ -181,21 +237,21 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp6.resp1":
       "Am conceput materiale grafice pentru publicitate în medii print și digitale, aliniate cu brandul și obiectivele campaniilor.",
     "exp6.resp2":
-      "Am dezvoltat emailuri HTML responsive pentru campanii de marketing online, asigurând compatibilitatea cross-client și engagement-ul.",
+      "Am dezvoltat emailuri HTML responsive pentru campanii de marketing online, asigurând compatibilitatea cross-client și un engagement ridicat.",
 
     // Experience 7
-    "exp7.title": "Operator Tipar / Designer Grafic",
+    "exp7.title": "Operator tipar / Designer grafic",
     "exp7.period": "Mai 2010 — Iul 2012",
     "exp7.resp1":
       "Am gestionat designul și personalizarea materialelor promoționale pentru diverși clienți în departamentul digital al unei companii de publicitate.",
 
     // Education
     "edu1.degree": "Web Design",
-    "edu2.degree": "Management și Administrarea Afacerilor",
-    "edu3.degree": "Profil Matematică",
+    "edu2.degree": "Management și administrarea afacerilor",
+    "edu3.degree": "Profil matematică",
     "edu1.institution": "Swiss Web Academy, București",
     "edu2.institution": "Universitatea Româno-Americană, București",
-    "edu3.institution": "Liceu, Orașul Brezoi, Județul Vâlcea",
+    "edu3.institution": "Liceu, orașul Brezoi, județul Vâlcea",
   },
 };
 

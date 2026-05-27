@@ -1,6 +1,7 @@
+import React from "react";
 import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 import { useLanguage } from "./language-context";
-import { LanguageToggle, DownloadButton } from "./cv-controls";
+import { DownloadButton } from "./cv-controls";
 
 interface ExperienceItem {
   titleKey: string;
@@ -19,7 +20,7 @@ const experiences: ExperienceItem[] = [
     location: "București",
     periodKey: "exp1.period",
     respKeys: ["exp1.resp1", "exp1.resp2"],
-    tools: "Shopware, Shopify, JavaScript, Twig Templates, Vue.js, HTML, SCSS, Jira",
+    tools: "Shopware, Shopify, JavaScript, TypeScript, Twig Templates, Vue.js, HTML, SCSS, Jira",
   },
   {
     titleKey: "exp2.title",
@@ -28,7 +29,7 @@ const experiences: ExperienceItem[] = [
     periodKey: "exp2.period",
     descKey: "exp2.desc",
     respKeys: ["exp2.resp1", "exp2.resp2"],
-    tools: "JavaScript, Vue.js, Vuex, Nuxt, Bootstrap-Vue, Storybook, WebSockets, Figma, Nanocosmos",
+    tools: "JavaScript, React, Next.js, Vue.js, Vuex, Nuxt, Bootstrap-Vue, Storybook, WebSockets, Figma, Nanocosmos",
   },
   {
     titleKey: "exp3.title",
@@ -37,7 +38,7 @@ const experiences: ExperienceItem[] = [
     periodKey: "exp3.period",
     descKey: "exp3.desc",
     respKeys: ["exp3.resp1", "exp3.resp2", "exp3.resp3"],
-    tools: "JavaScript, Vue.js, Vuex, Jira, Bitbucket, Git, Adobe Photoshop, Adobe XD, Webpack, AJAX",
+    tools: "JavaScript, Vue.js, Vuex, WordPress, Jira, Bitbucket, Git, Adobe Photoshop, Adobe XD, Webpack, AJAX",
   },
   {
     titleKey: "exp4.title",
@@ -104,7 +105,7 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
     <main className="flex-1 bg-white p-8 lg:p-12 overflow-y-auto">
       {/* Action Bar */}
       <div className="flex items-center justify-between mb-6">
-        <LanguageToggle />
+        <div />
         <DownloadButton downloading={downloading} onClick={onDownload} />
       </div>
 
@@ -190,7 +191,7 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
                         className="text-gray-600 flex items-start gap-2"
                         style={{ fontSize: "0.82rem", lineHeight: 1.6 }}
                       >
-                        <span className="text-[#e94560] mt-1.5 shrink-0">•</span>
+                        <span className="text-[#e94560] shrink-0">•</span>
                         {t(key)}
                       </li>
                     ))}
