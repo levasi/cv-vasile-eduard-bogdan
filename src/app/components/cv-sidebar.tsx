@@ -18,6 +18,7 @@ const skills = [
   { name: "HTML5", years: 14 },
   { name: "CSS3 / SCSS", years: 10 },
   { name: "Shopware", years: 5 },
+  { name: "Shopify", years: 2 },
   { name: "Storybook", years: 1 },
   { name: "Webpack", years: 2 },
   { name: "Git / Bitbucket", years: 8 },
@@ -39,7 +40,7 @@ export function CvSidebar() {
       <div className="flex justify-center">
         <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-[#e94560]/40 shadow-lg">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1617925357736-8a4ea869b800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYWxlJTIwZGV2ZWxvcGVyJTIwaGVhZHNob3QlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzE4MDU2MzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="/images/me.jpg"
             alt="Vasile Bogdan"
             className="w-full h-full object-cover"
           />

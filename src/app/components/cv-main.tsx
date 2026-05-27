@@ -19,7 +19,7 @@ const experiences: ExperienceItem[] = [
     location: "București",
     periodKey: "exp1.period",
     respKeys: ["exp1.resp1", "exp1.resp2"],
-    tools: "Shopware, JavaScript, Twig Templates, Vue.js, HTML, SCSS, Jira",
+    tools: "Shopware, Shopify, JavaScript, Twig Templates, Vue.js, HTML, SCSS, Jira",
   },
   {
     titleKey: "exp2.title",

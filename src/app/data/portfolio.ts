@@ -6,14 +6,13 @@ export type PortfolioItem = {
 };
 
 export const portfolioLinks: PortfolioItem[] = [
-  { label: "One Man Agency", url: "https://one-man-agency-duf265f37-levasis-projects.vercel.app/" },
-  { label: "BrightSmile Dental", url: "https://v0-dental-clinic-website-chi-five.vercel.app/" },
-  { label: "Zion Builder", url: "https://zionbuilder.io" },
-  { label: "Eutron", url: "https://www.eutron.ro" },
-  { label: "Web48", url: "https://www.web48.ro" },
-  { label: "CEJ Buc", url: "https://cejbuc.ro" },
-  { label: "Höfats", url: "https://hofats.com" },
-  { label: "Outstand", url: "https://outstand.ro" },
-  { label: "JuristFirme", url: "http://d37.xfactorapp.com/juristfirme" },
-  { label: "ProtectiaMuncii", url: "http://d37.xfactorapp.com/protectiamuncii" },
+  { label: "One Man Agency", url: "https://one-man-agency-duf265f37-levasis-projects.vercel.app/", screenshot: "/images/onemanagency.png" },
+  { label: "BrightSmile Dental", url: "https://v0-dental-clinic-website-chi-five.vercel.app/", screenshot: "/images/brightsmiledental.png" },
+  { label: "Zion Builder", url: "https://zionbuilder.io", screenshot: "/images/zion-screenshot.png" },
+  { label: "Eutron", url: "https://www.eutron.ro", screenshot: "/images/eutron.png" },
+  { label: "Web48", url: "https://www.web48.ro", screenshot: "/images/web48.png" },
+  { label: "CEJ Buc", url: "https://cejbuc.ro", screenshot: "/images/cejbuc.png" },
+  { label: "Höfats", url: "https://hofats.com", screenshot: "/images/hofats.png" },
+  { label: "Outstand", url: "https://outstand.ro", screenshot: "/images/outstand.png" },
+  { label: "JuristFirme", url: "http://d37.xfactorapp.com/juristfirme", screenshot: "/images/juristfirme.png" },
 ];
