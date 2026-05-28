@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 
 /** Direct screenshot image URL (no API key). Falls back to placeholder if image fails to load. */
@@ -22,7 +23,7 @@ export function PortfolioScreenshot({
   // Custom screenshot or API screenshot URL
   if (src) {
     return (
-      <div className="relative w-full aspect-video bg-neutral-100 overflow-hidden shrink-0">
+      <div className="relative w-full bg-neutral-100 overflow-hidden shrink-0">
         <img
           src={src}
           alt=""
@@ -36,7 +37,7 @@ export function PortfolioScreenshot({
   // Placeholder when no custom image and API failed or not used: first letter + gradient
   return (
     <div
-      className="w-full aspect-video flex items-center justify-center shrink-0 bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] text-white/80"
+      className="w-full flex items-center justify-center shrink-0 bg-gradient-to-br from-foreground to-foreground/80 text-background/80"
       aria-hidden
     >
       <span className="text-4xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>

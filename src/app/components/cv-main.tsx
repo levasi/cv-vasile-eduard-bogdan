@@ -102,7 +102,7 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
   const { t } = useLanguage();
 
   return (
-    <main className="flex-1 bg-white p-8 lg:p-12 overflow-y-auto">
+    <main className="flex-1 bg-background p-8 lg:p-12 overflow-y-auto">
       {/* Action Bar */}
       <div className="flex items-center justify-between mb-6">
         <div />
@@ -112,33 +112,33 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
       {/* Header */}
       <header className="mb-8">
         <h1
-          className="text-[#1a1a2e] mb-1"
+          className="text-foreground mb-1"
           style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.15 }}
         >
           Vasile Bogdan
         </h1>
         <p
-          className="text-[#e94560] mb-4"
+          className="text-primary mb-4"
           style={{ fontSize: "1.1rem", fontWeight: 500, letterSpacing: "0.05em" }}
         >
           {t("jobTitle")}
         </p>
-        <p className="text-gray-600 max-w-2xl" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
+        <p className="text-muted-foreground max-w-2xl" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
           {t("summary")}
         </p>
       </header>
 
       {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-[#e94560]/50 via-[#e94560]/20 to-transparent mb-8" />
+      <div className="w-full h-px bg-gradient-to-r from-primary/40 via-primary/10 to-transparent mb-8" />
 
       {/* Work Experience */}
       <section className="mb-10">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-[#1a1a2e] flex items-center justify-center">
-            <Briefcase className="w-4 h-4 text-[#e94560]" />
+          <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+            <Briefcase className="w-4 h-4 text-background" />
           </div>
           <h2
-            className="text-[#1a1a2e]"
+            className="text-foreground"
             style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 600 }}
           >
             {t("workExperience")}
@@ -147,21 +147,21 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-[11px] top-2 bottom-0 w-px bg-[#e94560]/20" />
+          <div className="absolute left-[11px] top-2 bottom-0 w-px bg-border" />
 
           <div className="flex flex-col gap-8">
             {experiences.map((exp, index) => (
               <div key={index} className="relative pl-8">
                 {/* Timeline dot */}
-                <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-[#e94560] border-2 border-white shadow-sm" />
+                <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-sm" />
 
-                <div className="bg-gray-50/70 rounded-lg p-5 border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-lg p-5 border border-border hover:shadow-md transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
                     <div>
-                      <h3 className="text-[#1a1a2e]" style={{ fontSize: "1rem", fontWeight: 600 }}>
+                      <h3 className="text-foreground" style={{ fontSize: "1rem", fontWeight: 600 }}>
                         {t(exp.titleKey)}
                       </h3>
-                      <p className="text-[#e94560] flex items-center gap-1.5" style={{ fontSize: "0.85rem", fontWeight: 500 }}>
+                      <p className="text-primary flex items-center gap-1.5" style={{ fontSize: "0.85rem", fontWeight: 500 }}>
                         {exp.company}
                         <span className="text-gray-400 flex items-center gap-1">
                           <MapPin className="w-3 h-3" />
@@ -170,7 +170,7 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
                       </p>
                     </div>
                     <span
-                      className="flex items-center gap-1.5 text-gray-500 whitespace-nowrap shrink-0"
+                      className="flex items-center gap-1.5 text-muted-foreground whitespace-nowrap shrink-0"
                       style={{ fontSize: "0.78rem" }}
                     >
                       <Calendar className="w-3 h-3" />
@@ -179,7 +179,7 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
                   </div>
 
                   {exp.descKey && (
-                    <p className="text-gray-600 mb-2" style={{ fontSize: "0.82rem", lineHeight: 1.6 }}>
+                    <p className="text-muted-foreground mb-2" style={{ fontSize: "0.82rem", lineHeight: 1.6 }}>
                       {t(exp.descKey)}
                     </p>
                   )}
@@ -188,10 +188,10 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
                     {exp.respKeys.map((key, i) => (
                       <li
                         key={i}
-                        className="text-gray-600 flex items-start gap-2"
+                        className="text-muted-foreground flex items-start gap-2"
                         style={{ fontSize: "0.82rem", lineHeight: 1.6 }}
                       >
-                        <span className="text-[#e94560] shrink-0">•</span>
+                        <span className="text-primary shrink-0">•</span>
                         {t(key)}
                       </li>
                     ))}
@@ -200,12 +200,12 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
                   {exp.tools && (
                     <div className="flex items-start gap-2">
                       <span
-                        className="text-[#1a1a2e] shrink-0"
+                        className="text-foreground shrink-0"
                         style={{ fontSize: "0.75rem", fontWeight: 600 }}
                       >
                         {t("tools")}
                       </span>
-                      <span className="text-gray-500" style={{ fontSize: "0.75rem" }}>
+                      <span className="text-muted-foreground" style={{ fontSize: "0.75rem" }}>
                         {exp.tools}
                       </span>
                     </div>
@@ -220,11 +220,11 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
       {/* Education */}
       <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-[#1a1a2e] flex items-center justify-center">
-            <GraduationCap className="w-4 h-4 text-[#e94560]" />
+          <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+            <GraduationCap className="w-4 h-4 text-background" />
           </div>
           <h2
-            className="text-[#1a1a2e]"
+            className="text-foreground"
             style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 600 }}
           >
             {t("education")}
@@ -232,24 +232,24 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
         </div>
 
         <div className="relative">
-          <div className="absolute left-[11px] top-2 bottom-0 w-px bg-[#e94560]/20" />
+          <div className="absolute left-[11px] top-2 bottom-0 w-px bg-border" />
 
           <div className="flex flex-col gap-5">
             {education.map((edu, index) => (
               <div key={index} className="relative pl-8">
-                <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-[#e94560]/60 border-2 border-white shadow-sm" />
+                <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary/70 border-2 border-background shadow-sm" />
 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                   <div>
-                    <h3 className="text-[#1a1a2e]" style={{ fontSize: "0.95rem", fontWeight: 600 }}>
+                    <h3 className="text-foreground" style={{ fontSize: "0.95rem", fontWeight: 600 }}>
                       {t(edu.degreeKey)}
                     </h3>
-                    <p className="text-gray-500" style={{ fontSize: "0.82rem" }}>
+                    <p className="text-muted-foreground" style={{ fontSize: "0.82rem" }}>
                       {t(edu.institutionKey)}
                     </p>
                   </div>
                   <span
-                    className="flex items-center gap-1.5 text-gray-500 whitespace-nowrap shrink-0"
+                    className="flex items-center gap-1.5 text-muted-foreground whitespace-nowrap shrink-0"
                     style={{ fontSize: "0.78rem" }}
                   >
                     <Calendar className="w-3 h-3" />

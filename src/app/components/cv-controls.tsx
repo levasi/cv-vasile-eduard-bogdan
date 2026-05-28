@@ -1,8 +1,9 @@
 import { Download, Loader2 } from "lucide-react";
 import { useLanguage, type Lang } from "./language-context";
 
-export function LanguageToggle() {
+export function LanguageToggle({ variant = "light" }: { variant?: "light" | "dark" }) {
   const { lang, setLang } = useLanguage();
+  const isDark = variant === "dark";
 
   const options: { value: Lang; label: string; flag: string }[] = [
     { value: "en", label: "EN", flag: "🇬🇧" },
@@ -10,16 +11,21 @@ export function LanguageToggle() {
   ];
 
   return (
-    <div className="flex items-center bg-[#1a1a2e] rounded-lg overflow-hidden shadow-lg">
+    <div
+      className={`flex items-center rounded-lg overflow-hidden }`}
+    >
       {options.map((opt) => (
         <button
           key={opt.value}
           onClick={() => setLang(opt.value)}
-          className={`flex items-center gap-1.5 px-4 py-2.5 transition-all cursor-pointer ${
-            lang === opt.value
-              ? "bg-[#e94560] text-white"
-              : "text-gray-400 hover:text-white"
-          }`}
+          className={`flex items-center gap-1.5 px-4 py-2.5 transition-all cursor-pointer ${lang === opt.value
+            ? isDark
+              ? "text-white"
+              : "text-primary-foreground"
+            : isDark
+              ? "text-[#94A3B8] hover:text-[#F8FAFC] "
+              : "text-muted-foreground hover:text-foreground"
+            }`}
           style={{ fontSize: "0.82rem", fontWeight: 600 }}
         >
           <span style={{ fontSize: "1rem" }}>{opt.flag}</span>
@@ -37,7 +43,7 @@ export function DownloadButton({ downloading, onClick }: { downloading: boolean;
     <button
       onClick={onClick}
       disabled={downloading}
-      className="flex items-center gap-2 bg-[#1a1a2e] text-white px-5 py-2.5 rounded-lg hover:bg-[#1a1a2e]/90 active:scale-[0.98] transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+      className="flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-lg hover:bg-foreground/90 active:scale-[0.98] transition-all shadow-sm hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
       style={{ fontSize: "0.85rem", fontWeight: 500 }}
     >
       {downloading ? (

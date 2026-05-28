@@ -1,21 +1,30 @@
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "./language-context";
 import { FileText, Briefcase, Sparkles } from "lucide-react";
 import { LanguageToggle } from "./cv-controls";
 
 const navItems = [
-  { path: "/", labelKey: "cv", icon: FileText },
-  { path: "/portfolio", labelKey: "portfolio", icon: Briefcase },
+  { path: "/", labelKey: "portfolio", icon: Briefcase },
+  { path: "/cv", labelKey: "cv", icon: FileText },
   { path: "/personal-projects", labelKey: "personalProjects", icon: Sparkles },
 ] as const;
 
 export function TopBar() {
   const location = useLocation();
   const { t } = useLanguage();
+  const isDarkHero = location.pathname === "/";
+
+  if (location.pathname === "/" || location.pathname === "/cv") {
+    return null;
+  }
 
   return (
     <header
-      className="w-full bg-[#1a1a2e] text-white shadow-md sticky top-0 z-50"
+      className={`w-full sticky top-0 z-50 border-b backdrop-blur-xl ${isDarkHero
+        ? "bg-[#070B14]/28 text-[#F8FAFC] border-white/10"
+        : "bg-background/70 text-foreground border-border"
+        }`}
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <nav className="max-w-[1100px] mx-auto px-4 lg:px-8 h-14 flex items-center justify-between gap-4">
@@ -27,18 +36,24 @@ export function TopBar() {
                 key={path}
                 to={path}
                 className={`
-                  flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors
-                  ${isActive ? "bg-[#e94560] text-white" : "text-gray-300 hover:bg-white/10 hover:text-white"}
+                  flex items-center gap-2 px-4 py-2 rounded-lg text-xs  transition-colors uppercase tracking-widest
+                  ${isActive
+                    ? isDarkHero
+                      ? "text-white"
+                      : "text-primary-foreground"
+                    : isDarkHero
+                      ? "text-[#94A3B8]"
+                      : "text-muted-foreground"
+                  }
                 `}
               >
-                <Icon className="w-4 h-4" />
                 {t(labelKey)}
               </Link>
             );
           })}
         </div>
 
-        <LanguageToggle />
+        <LanguageToggle variant={isDarkHero ? "dark" : "light"} />
       </nav>
     </header>
   );

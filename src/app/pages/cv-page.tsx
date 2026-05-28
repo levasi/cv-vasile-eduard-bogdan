@@ -3,6 +3,7 @@ import { CvMain } from "../components/cv-main";
 import { useRef, useState, useCallback } from "react";
 import html2canvas from "html2canvas-pro";
 import { jsPDF } from "jspdf";
+import { HeroNav } from "../components/hero/HeroNav";
 
 export function CvPage() {
   const cvRef = useRef<HTMLDivElement>(null);
@@ -88,16 +89,20 @@ export function CvPage() {
   }, [downloading]);
 
   return (
-    <div
-      className="min-h-screen w-full bg-gray-100 flex flex-col items-center p-4 lg:p-8"
-      style={{ fontFamily: "'Inter', sans-serif" }}
-    >
-      <div
-        ref={cvRef}
-        className="w-full max-w-[1100px] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
-      >
-        <CvSidebar />
-        <CvMain downloading={downloading} onDownload={handleDownloadPdf} />
+    <div className="min-h-screen w-full bg-gray-100" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="w-full bg-[#070B14] border-b border-white/10">
+        <HeroNav />
+        <div className="h-6" />
+      </div>
+
+      <div className="w-full flex flex-col items-center p-4 lg:p-8">
+        <div
+          ref={cvRef}
+          className="w-full max-w-[1100px] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
+        >
+          <CvSidebar />
+          <CvMain downloading={downloading} onDownload={handleDownloadPdf} />
+        </div>
       </div>
     </div>
   );

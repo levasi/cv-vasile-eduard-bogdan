@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { PortfolioScreenshot } from "../components/portfolio-screenshot";
-import { getPortfolioProject } from "../data/portfolio";
+import { getProject } from "../data/portfolio";
 import { useLanguage } from "../components/language-context";
 
 export function PortfolioProjectPage() {
   const { t } = useLanguage();
   const { slug } = useParams();
-  const project = slug ? getPortfolioProject(slug) : undefined;
+  const project = slug ? getProject(slug) : undefined;
 
   if (!project) {
     return (
@@ -48,7 +48,7 @@ export function PortfolioProjectPage() {
           </a>
         </div>
 
-        <header className="mt-10 lg:mt-14 max-w-[900px]">
+        <header className="mt-10">
           <h1
             className="text-3xl sm:text-4xl font-semibold tracking-tight text-neutral-900"
             style={{ fontFamily: "'Playfair Display', serif" }}

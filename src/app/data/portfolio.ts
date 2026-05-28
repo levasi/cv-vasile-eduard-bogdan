@@ -1,25 +1,29 @@
-export type PortfolioProject = {
+export type ProjectKind = "work" | "personal";
+
+export type Project = {
   slug: string;
+  kind: ProjectKind;
   title: string;
   headline: string;
   url: string;
   screenshot?: string;
   tags: string[];
-
-  // Copy variants
   short: string;
   medium: string;
   premium: string[];
-
   role: string;
   technicalHighlights: string[];
   cta: string;
   featured?: boolean;
 };
 
-export const portfolioProjects: PortfolioProject[] = [
+/** @deprecated Use `Project` */
+export type PortfolioProject = Project;
+
+export const projects: Project[] = [
   {
     slug: "zion-builder",
+    kind: "work",
     title: "Zion Builder",
     headline: "Complex product UI, built to stay fast.",
     url: "https://zionbuilder.io",
@@ -44,7 +48,46 @@ export const portfolioProjects: PortfolioProject[] = [
     featured: true,
   },
   {
+    slug: "raw-beats",
+    kind: "personal",
+    title: "Raw Beats",
+    headline: "Community-first beat marketplace for MCs and producers.",
+    url: "https://rawbeats.ro/",
+    screenshot: "/images/rawbeats.png",
+    tags: ["Personal project", "Community", "Marketplace"],
+    short: "Community-first beat marketplace for MCs and producers.",
+    medium:
+      "A marketplace-style experience focused on discovery, previews, and a clear path from browsing beats to contacting creators.",
+    premium: [
+      "Built around fast scanning: strong cards, clear metadata, and a UI that supports repeat visits.",
+      "Prioritized mobile usability and performance for media-heavy listings.",
+    ],
+    role: "Personal build (design + frontend)",
+    technicalHighlights: ["Listing-first UX", "Media-heavy responsive UI", "Conversion-friendly contact flows"],
+    cta: "View live",
+  },
+  {
+    slug: "poetryhub",
+    kind: "personal",
+    title: "PoetryHub",
+    headline: "Typography-first poetry reading and discovery.",
+    url: "https://poetryhub.ro/",
+    screenshot: "/images/poetryhub.png",
+    tags: ["Personal project", "Reading", "Typography"],
+    short: "Read, discover, and share poetry—clean typography-first reading experience.",
+    medium:
+      "A reading-focused product built around calm layouts, clear hierarchy, and a lightweight publishing flow for poems and authors.",
+    premium: [
+      "Designed for long-form reading: generous spacing, strong typographic rhythm, and minimal UI noise.",
+      "Built end-to-end with a focus on discoverability and a simple path from browsing to saving or sharing.",
+    ],
+    role: "Personal build (design + frontend)",
+    technicalHighlights: ["Reading-first layout system", "Responsive typography", "Lightweight content browsing"],
+    cta: "View live",
+  },
+  {
     slug: "hofats",
+    kind: "work",
     title: "Höfats",
     headline: "Premium e-commerce UI with real performance constraints.",
     url: "https://hofats.com",
@@ -70,6 +113,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "outstand",
+    kind: "work",
     title: "Outstand",
     headline: "Turning dense services into a clear, credible funnel.",
     url: "https://outstand.ro",
@@ -95,6 +139,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "web48",
+    kind: "work",
     title: "Web48",
     headline: "A lightweight agency site built to convert.",
     url: "https://www.web48.ro",
@@ -119,6 +164,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "cej-buc",
+    kind: "work",
     title: "CEJ Buc",
     headline: "Structured UI for complex information.",
     url: "https://cejbuc.ro",
@@ -143,6 +189,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "eutron",
+    kind: "work",
     title: "Eutron",
     headline: "Structured content with a clean, maintainable UI system.",
     url: "https://www.eutron.ro",
@@ -167,6 +214,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "juristfirme",
+    kind: "work",
     title: "JuristFirme",
     headline: "High-clarity UI for a trust-sensitive service.",
     url: "http://d37.xfactorapp.com/juristfirme",
@@ -189,8 +237,56 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     cta: "View live",
   },
+  {
+    slug: "one-man-agency",
+    kind: "personal",
+    title: "One Man Agency",
+    headline: "A minimal portfolio built to feel confident, not loud.",
+    url: "https://one-man-agency-duf265f37-levasis-projects.vercel.app/",
+    screenshot: "/images/onemanagency.png",
+    tags: ["Personal project", "Portfolio", "Landing UX"],
+    short: "A minimal portfolio built to feel confident, not loud.",
+    medium:
+      "A compact marketing site with strong hierarchy, restrained motion, and a layout that stays readable with real copy.",
+    premium: [
+      "Focused on positioning and proof: short sections, confident typography, and a contact path that stays visible.",
+      "Built as a reusable page system so content can evolve without redesign.",
+    ],
+    role: "Personal build (design + frontend)",
+    technicalHighlights: ["Minimal marketing layout", "Reusable sections", "Responsive hierarchy"],
+    cta: "View live",
+  },
+  {
+    slug: "brightsmile-dental",
+    kind: "personal",
+    title: "BrightSmile Dental",
+    headline: "A calm, high-trust marketing site built for bookings.",
+    url: "https://v0-dental-clinic-website-chi-five.vercel.app/",
+    screenshot: "/images/brightsmiledental.png",
+    tags: ["Personal project", "Healthcare", "Landing UX"],
+    short: "A calm, high-trust marketing site built for bookings.",
+    medium:
+      "A clinic marketing layout focused on trust signals, service clarity, and a booking-oriented structure that reads well on mobile.",
+    premium: [
+      "Trust-first design: calm palette, clear service sections, and approachable CTAs.",
+      "Structured for quick scanning so patients can understand offerings and take action fast.",
+    ],
+    role: "Personal build (design + frontend)",
+    technicalHighlights: ["Trust-focused layout", "Service section system", "Mobile-first readability"],
+    cta: "View live",
+  },
 ];
 
+export const workProjects = projects.filter((p) => p.kind === "work");
+export const personalProjects = projects.filter((p) => p.kind === "personal");
+
+/** Work projects only (legacy export) */
+export const portfolioProjects = workProjects;
+
+export function getProject(slug: string) {
+  return projects.find((p) => p.slug === slug);
+}
+
 export function getPortfolioProject(slug: string) {
-  return portfolioProjects.find((p) => p.slug === slug);
+  return getProject(slug);
 }
