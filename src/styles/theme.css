@@ -186,6 +186,7 @@
   margin-inline: auto;
   width: 100%;
   max-width: 80rem;
+  padding: 0 0.5rem;
 }
 
 /* --- Cinematic portfolio grid --- */
@@ -193,7 +194,16 @@
   position: relative;
   margin-inline: auto;
   width: 100%;
-  padding: 3rem 0;
+  padding: 52px 0;
+}
+
+.portfolio-work-canvas-slot {
+  display: block;
+  width: 100%;
+}
+
+.portfolio-work-canvas {
+  display: block;
 }
 
 .portfolio-items {
@@ -210,8 +220,15 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .portfolio-items {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .portfolio-item-section {
   min-height: 0;
+  opacity: 0.7;
 }
 
 .portfolio-item-section .cine-card {
@@ -345,6 +362,7 @@
   line-height: 1.35;
   padding-block: 0.12em 0.4em;
   padding-inline: 0.08em;
+  opacity: 0.7;
 }
 
 .hero-accent-text.hero-script-text {
@@ -357,6 +375,7 @@
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   letter-spacing: 0.06em;
+  opacity: 0.7;
 }
 
 /* Headline letters — frosted glass fill (not a tile behind) */
@@ -389,4 +408,8 @@
 .hero-headline-letter--space {
   width: 0.35em;
   margin-inline: 0.1em;
+}
+
+.footer {
+  position: relative;
 }

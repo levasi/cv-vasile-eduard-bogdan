@@ -43,9 +43,8 @@ export function useHeroIntroAnimation(
 
         gsap.set(el, {
           opacity: 0,
-          x: r1 * 200,
-          y: r2 * 60,
-          scale: 0.5 + r3 * 0.55,
+          x: r1 * 100,
+          scale: 0.1 + r3 * 0.55,
           rotateZ: r4 * 24,
         });
       });
@@ -75,7 +74,7 @@ export function useHeroIntroAnimation(
       tl.fromTo(
         q("[data-hero-accent]"),
         { opacity: 0, y: 18, filter: "blur(6px)", x: 100 },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, x: 0 },
+        { opacity: 0.7, y: 0, filter: "blur(0px)", duration: 0.7, x: 0 },
         START_AT
       );
 

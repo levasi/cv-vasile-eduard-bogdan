@@ -12,7 +12,7 @@ const contact = {
 export function Footer() {
   return (
     <footer
-      className="footer"
+      className="footer py-8"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <div className="portfolio-container py-10">

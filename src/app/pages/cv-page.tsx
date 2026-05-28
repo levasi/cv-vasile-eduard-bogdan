@@ -98,7 +98,7 @@ export function CvPage() {
       <div className="w-full flex flex-col items-center p-4 lg:p-8">
         <div
           ref={cvRef}
-          className="w-full max-w-[1100px] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
+          className="w-full bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row portfolio-container"
         >
           <CvSidebar />
           <CvMain downloading={downloading} onDownload={handleDownloadPdf} />

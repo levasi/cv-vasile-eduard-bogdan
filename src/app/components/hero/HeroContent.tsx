@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
-import { Play } from "lucide-react";
 import { useLanguage } from "../language-context";
+import { useLenisScrollApi } from "./useLenisScroll";
 
 function HeroLetters({ text, lineIndex }: { text: string; lineIndex: number }) {
   return (
@@ -37,6 +37,7 @@ function HeroLetters({ text, lineIndex }: { text: string; lineIndex: number }) {
 
 export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_props, ref) {
   const { t } = useLanguage();
+  const { scrollTo } = useLenisScrollApi() ?? {};
   const lines = [t("heroLine1"), t("heroLine2"), t("heroLine3"), t("heroLine4")];
   const fullHeadline = `${lines.join(" ")} ${t("heroAccent")}`;
 
@@ -70,28 +71,15 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
       <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
         <a
           data-hero-cta
-          className="inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:text-xs"
+          href="#portfolio-work"
+          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:text-xs"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo?.("#portfolio-work");
+          }}
         >
           {t("heroExploreCta")}
         </a>
-        <button
-          type="button"
-          data-hero-cta
-          className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 transition-colors hover:text-white sm:text-xs"
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/5">
-            <Play className="h-3 w-3 fill-current" />
-          </span>
-          {t("heroPlayReel")}
-        </button>
-      </div>
-
-      <div className="mt-8 block text-sm text-white/70 lg:hidden" data-hero-quote>
-        <p className="italic leading-relaxed">“{t("heroQuote")}”</p>
-        <p className="hero-script-text mt-2 text-xl" style={{ fontFamily: "'Caveat', cursive" }}>
-          → {t("heroQuoteBy")}
-        </p>
       </div>
     </div>
   );

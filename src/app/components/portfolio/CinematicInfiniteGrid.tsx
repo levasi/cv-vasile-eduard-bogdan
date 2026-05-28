@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../language-context";
 import { projects, type Project } from "../../data/portfolio";
 import { PortfolioScreenshot } from "../portfolio-screenshot";
+import { useCineCardStagger } from "./useCineCardStagger";
+import { PortfolioWorkCanvas } from "./PortfolioWorkCanvas";
 
 function CinematicCard({ item, tagLabel }: { item: Project; tagLabel: string }) {
   return (
@@ -29,10 +31,13 @@ function CinematicCard({ item, tagLabel }: { item: Project; tagLabel: string }) 
 
 export function CinematicInfiniteGrid() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  useCineCardStagger(sectionRef);
 
   return (
-    <section id="portfolio-work" className="portfolio-section relative">
-      <div className="portfolio-container">
+    <section ref={sectionRef} id="portfolio-work" className="portfolio-section relative">
+      <div ref={contentRef} className="portfolio-container">
         <div className="portfolio-items">
           {projects.map((it) => (
             <section key={it.slug} className="portfolio-item-section">
@@ -44,6 +49,7 @@ export function CinematicInfiniteGrid() {
           ))}
         </div>
       </div>
+      <PortfolioWorkCanvas sectionRef={sectionRef} contentRef={contentRef} />
     </section>
   );
 }

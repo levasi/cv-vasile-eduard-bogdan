@@ -7,6 +7,7 @@ import {
   useRef,
   type ReactNode,
 } from "react";
+import { useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -25,6 +26,7 @@ export function useLenisScrollApi() {
 
 export function LenisScrollProvider({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const location = useLocation();
 
   const scrollTo = useCallback<LenisScrollApi["scrollTo"]>((target, options) => {
     const lenis = lenisRef.current;
@@ -96,9 +98,30 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("hashchange", scrollFromHash);
       lenis.destroy();
       lenisRef.current = null;
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [scrollTo]);
+
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+
+    const hash = location.hash;
+
+    if (hash) {
+      const id = window.setTimeout(() => scrollTo(hash), 120);
+      const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 400);
+      return () => {
+        window.clearTimeout(id);
+        window.clearTimeout(refreshId);
+      };
+    }
+
+    lenis.scrollTo(0, { immediate: true });
+    window.scrollTo(0, 0);
+    ScrollTrigger.refresh();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(refreshId);
+  }, [location.pathname, location.hash, scrollTo]);
 
   return createElement(LenisScrollContext.Provider, { value: { scrollTo } }, children);
 }

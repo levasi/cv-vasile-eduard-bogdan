@@ -12,7 +12,7 @@ export function HeroSection() {
   useHeroIntroAnimation(heroScopeRef, heroContentRef);
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-x-hidden">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <HeroCanvas />
       </div>
@@ -26,7 +26,7 @@ export function HeroSection() {
 
       <div
         ref={heroScopeRef}
-        className="relative z-10 flex min-h-[100svh] flex-col overflow-x-hidden overflow-y-visible"
+        className="relative z-10 flex min-h-[100svh] flex-col overflow-hidden"
         style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
       >
         <HeroNav />

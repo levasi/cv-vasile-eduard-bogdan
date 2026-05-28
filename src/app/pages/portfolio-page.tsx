@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import { LenisScrollProvider } from "../components/hero/useLenisScroll";
 import { CinematicInfiniteGrid } from "../components/portfolio/CinematicInfiniteGrid";
 
 const HeroSection = lazy(() =>
@@ -16,13 +15,11 @@ function HeroFallback() {
 
 export function PortfolioPage() {
   return (
-    <LenisScrollProvider>
-      <div className="min-h-screen w-full" style={{ fontFamily: "'Inter', sans-serif" }}>
-        <Suspense fallback={<HeroFallback />}>
-          <HeroSection />
-        </Suspense>
-        <CinematicInfiniteGrid />
-      </div>
-    </LenisScrollProvider>
+    <div className="min-h-screen w-full" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <Suspense fallback={<HeroFallback />}>
+        <HeroSection />
+      </Suspense>
+      <CinematicInfiniteGrid />
+    </div>
   );
 }
