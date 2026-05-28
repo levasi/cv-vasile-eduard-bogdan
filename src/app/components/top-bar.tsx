@@ -1,13 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "./language-context";
-import { FileText, Briefcase, Sparkles } from "lucide-react";
+import { FileText, Briefcase } from "lucide-react";
 import { LanguageToggle } from "./cv-controls";
 
 const navItems = [
   { path: "/", labelKey: "portfolio", icon: Briefcase },
   { path: "/cv", labelKey: "cv", icon: FileText },
-  { path: "/personal-projects", labelKey: "personalProjects", icon: Sparkles },
 ] as const;
 
 export function TopBar() {

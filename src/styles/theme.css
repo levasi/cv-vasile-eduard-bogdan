@@ -188,15 +188,6 @@
   max-width: 80rem;
 }
 
-.portfolio-items-container {
-  height: 100vh;
-  overflow: hidden;
-  margin-inline: auto;
-  width: 100%;
-  max-width: 80rem;
-  padding: 3rem;
-}
-
 /* --- Cinematic portfolio grid --- */
 .portfolio-section {
   position: relative;
@@ -227,21 +218,6 @@
   height: 100%;
 }
 
-.cine-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .cine-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.cine-col {
-  will-change: transform;
-}
-
 .cine-card {
   position: relative;
   border-radius: 18px;
@@ -258,18 +234,6 @@
 
 .cine-card__media>div {
   aspect-ratio: auto;
-}
-
-.cine-card--tall .cine-card__media>div {
-  aspect-ratio: 4 / 5;
-}
-
-.cine-card--mid .cine-card__media>div {
-  aspect-ratio: 16 / 12;
-}
-
-.cine-card--short .cine-card__media>div {
-  aspect-ratio: 16 / 9;
 }
 
 .cine-card__media img {
@@ -291,25 +255,6 @@
   pointer-events: none;
 }
 
-.cine-card__content {
-  padding: 14px 14px 16px;
-}
-
-.cine-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.cine-card__kicker {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.55);
-}
-
 .cine-card__tag {
   position: absolute;
   top: 14px;
@@ -326,51 +271,6 @@
   color: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-.cine-card__desc {
-  margin-top: 6px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.62);
-}
-
-.cine-cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 9999;
-  width: 60px;
-  height: 60px;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.cine-cursor[data-state] {
-  opacity: 1;
-}
-
-.cine-cursor__dot {
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), rgba(245, 158, 11, 0.16) 38%, rgba(0, 0, 0, 0) 70%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 18px 55px rgba(245, 158, 11, 0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.cine-cursor__label {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Pulsing warm light — center of hero banner */

@@ -1,33 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
+import React, { useRef } from "react";
 import { HeroCanvas } from "./HeroCanvas";
 import { HeroContent } from "./HeroContent";
 import { HeroNav } from "./HeroNav";
-import { HeroQuote } from "./HeroQuote";
 import { HeroSkillsBar } from "./HeroSkillsBar";
 import { HeroPulsingLight } from "./HeroPulsingLight";
-import { useHeroMotion } from "./HeroMotionProvider";
 import { useHeroIntroAnimation } from "./useHeroIntroAnimation";
 
 export function HeroSection() {
-  const { setIntroProgress } = useHeroMotion();
   const heroScopeRef = useRef<HTMLDivElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
   useHeroIntroAnimation(heroScopeRef, heroContentRef);
-
-  useEffect(() => {
-    const intro = { value: 0 };
-    const tween = gsap.to(intro, {
-      value: 1,
-      duration: 1.4,
-      ease: "power3.out",
-      onUpdate: () => setIntroProgress(intro.value),
-    });
-
-    return () => {
-      tween.kill();
-    };
-  }, [setIntroProgress]);
 
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-x-hidden">
@@ -51,9 +33,6 @@ export function HeroSection() {
 
         <div className="portfolio-container flex flex-1 flex-col py-10 lg:py-14">
           <HeroContent ref={heroContentRef} />
-          <div className="hidden">
-            <HeroQuote />
-          </div>
         </div>
 
         <div className="relative z-10 mt-auto">

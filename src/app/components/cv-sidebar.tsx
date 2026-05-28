@@ -134,7 +134,7 @@ export function CvSidebar() {
             className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
             style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
           >
-            <Link to="/personal-projects" className="hover:text-foreground transition-colors">
+            <Link to="/#portfolio-work" className="hover:text-foreground transition-colors">
               {t("personalProjects")}
             </Link>
           </h3>

@@ -16,7 +16,6 @@ export function HeroNav() {
   const { scrollTo } = useLenisScrollApi() ?? {};
   const isCv = location.pathname === "/cv";
   const brandTo = isCv ? "/" : "/cv";
-  const gridTo = isCv ? "/" : "/cv";
   const resolvedLinks = navLinks.map((l) => {
     if (l.key === "heroNavWork") {
       return { ...l, href: isCv ? "/#portfolio-work" : "#portfolio-work" };

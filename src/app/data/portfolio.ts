@@ -17,9 +17,6 @@ export type Project = {
   featured?: boolean;
 };
 
-/** @deprecated Use `Project` */
-export type PortfolioProject = Project;
-
 export const projects: Project[] = [
   {
     slug: "zion-builder",
@@ -280,13 +277,6 @@ export const projects: Project[] = [
 export const workProjects = projects.filter((p) => p.kind === "work");
 export const personalProjects = projects.filter((p) => p.kind === "personal");
 
-/** Work projects only (legacy export) */
-export const portfolioProjects = workProjects;
-
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
-}
-
-export function getPortfolioProject(slug: string) {
-  return getProject(slug);
 }

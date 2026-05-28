@@ -1,19 +1,15 @@
-import React, { useRef } from "react";
+import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../language-context";
 import { projects, type Project } from "../../data/portfolio";
 import { PortfolioScreenshot } from "../portfolio-screenshot";
 
 function CinematicCard({ item, tagLabel }: { item: Project; tagLabel: string }) {
-  const ref = useRef<HTMLAnchorElement | null>(null);
-
   return (
     <a
-      ref={ref}
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      data-cursor-text="View"
       className="cine-card group relative block [transform-style:preserve-3d]"
     >
       <span className="cine-card__tag">{tagLabel}</span>

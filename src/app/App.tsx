@@ -5,7 +5,6 @@ import { Footer } from "./components/footer";
 import { CvPage } from "./pages/cv-page";
 import { PortfolioPage } from "./pages/portfolio-page";
 import { PortfolioProjectPage } from "./pages/portfolio-project-page";
-import { PersonalProjectsPage } from "./pages/personal-projects-page";
 
 function Layout() {
   return (
@@ -16,7 +15,7 @@ function Layout() {
         <Route path="/portfolio" element={<Navigate to="/" replace />} />
         <Route path="/cv" element={<CvPage />} />
         <Route path="/portfolio/:slug" element={<PortfolioProjectPage />} />
-        <Route path="/personal-projects" element={<PersonalProjectsPage />} />
+        <Route path="/personal-projects" element={<Navigate to="/#portfolio-work" replace />} />
       </Routes>
       <Footer />
     </>
