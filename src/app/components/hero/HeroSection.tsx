@@ -12,7 +12,7 @@ export function HeroSection() {
   useHeroIntroAnimation(heroScopeRef, heroContentRef);
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
+    <section className="relative z-10 flex min-h-[100svh] flex-col overflow-hidden">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <HeroCanvas />
       </div>

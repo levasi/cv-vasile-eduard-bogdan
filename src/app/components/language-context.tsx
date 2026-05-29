@@ -17,6 +17,8 @@ const translations: Record<Lang, Record<string, string>> = {
     personalProjects: "Personal projects",
     projectTagPersonal: "Personal project",
     projectTagWork: "Work project",
+    portfolioExpand: "Expand project details",
+    portfolioClose: "Close project details",
 
     // Hero
     heroName: "Vasile Eduard Bogdan",
@@ -141,6 +143,8 @@ const translations: Record<Lang, Record<string, string>> = {
     personalProjects: "Proiecte personale",
     projectTagPersonal: "Proiect personal",
     projectTagWork: "Proiect profesional",
+    portfolioExpand: "Deschide detaliile proiectului",
+    portfolioClose: "Închide detaliile proiectului",
 
     // Hero
     heroName: "Vasile Eduard Bogdan",

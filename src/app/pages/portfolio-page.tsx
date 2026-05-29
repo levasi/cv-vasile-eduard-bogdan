@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { CinematicInfiniteGrid } from "../components/portfolio/CinematicInfiniteGrid";
+import { PortfolioSection } from "../components/portfolio/PortfolioSection";
 
 const HeroSection = lazy(() =>
   import("../components/hero/HeroSection").then((module) => ({ default: module.HeroSection }))
@@ -19,7 +19,7 @@ export function PortfolioPage() {
       <Suspense fallback={<HeroFallback />}>
         <HeroSection />
       </Suspense>
-      <CinematicInfiniteGrid />
+      <PortfolioSection />
     </div>
   );
 }

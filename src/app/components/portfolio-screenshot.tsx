@@ -10,24 +10,35 @@ interface PortfolioScreenshotProps {
   url: string;
   label: string;
   customScreenshot?: string;
+  /** Fill parent height (masonry cards); image uses object-cover */
+  fill?: boolean;
 }
 
 export function PortfolioScreenshot({
   url,
   label,
   customScreenshot,
+  fill = false,
 }: PortfolioScreenshotProps) {
   const [failed, setFailed] = useState(false);
   const src = customScreenshot ?? (failed ? null : getScreenshotImageUrl(url));
 
+  const shellClass = fill
+    ? "relative h-full w-full overflow-hidden bg-neutral-900"
+    : "relative w-full bg-neutral-100 overflow-hidden shrink-0";
+
+  const imgClass = fill
+    ? "absolute inset-0 h-full w-full object-cover object-center"
+    : "w-full h-full object-cover object-top";
+
   // Custom screenshot or API screenshot URL
   if (src) {
     return (
-      <div className="relative w-full bg-neutral-100 overflow-hidden shrink-0">
+      <div className={shellClass}>
         <img
           src={src}
           alt=""
-          className="w-full h-full object-cover object-top"
+          className={imgClass}
           onError={() => setFailed(true)}
         />
       </div>
@@ -37,7 +48,7 @@ export function PortfolioScreenshot({
   // Placeholder when no custom image and API failed or not used: first letter + gradient
   return (
     <div
-      className="w-full flex items-center justify-center shrink-0 bg-gradient-to-br from-foreground to-foreground/80 text-background/80"
+      className={`${shellClass} flex items-center justify-center bg-gradient-to-br from-foreground to-foreground/80 text-background/80`}
       aria-hidden
     >
       <span className="text-4xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
