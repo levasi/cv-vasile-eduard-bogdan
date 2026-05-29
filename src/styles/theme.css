@@ -223,6 +223,8 @@
   min-width: 0;
   min-height: 0;
   overflow: hidden;
+  border-radius: 20px;
+  padding: 1px;
 }
 
 .portfolio-section__item {
@@ -250,6 +252,11 @@
 }
 
 .portfolio-section__float {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
   animation: portfolio-float var(--float-duration, 5s) ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
 }
@@ -268,9 +275,23 @@
 
 .portfolio-section__card {
   position: relative;
-  border-radius: 18px;
+  flex: 1;
+  min-height: 0;
+  border-radius: 19px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.portfolio-section__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.04);
 }
 
 .portfolio-section__media {
@@ -280,18 +301,21 @@
 }
 
 .portfolio-section__parallax-inner {
-  height: 100%;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
   will-change: transform;
 }
 
 .portfolio-section__media img {
-  transform: scale(1.04);
+  transform: scale(1.1);
+  transform-origin: center center;
   transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .portfolio-section__card:hover .portfolio-section__media img {
-  transform: scale(1.1);
+  transform: scale(1.16);
 }
 
 .portfolio-section__shader {
@@ -363,10 +387,13 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  z-index: 2;
+  z-index: 5;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 4px 16px rgba(0, 0, 0, 0.25);
   padding: 0.35rem 0.75rem;
   font-size: 10px;
   font-weight: 600;
@@ -382,17 +409,22 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 6;
   display: flex;
+  width: 50%;
+  margin-inline: auto;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 1.1rem 1.15rem;
+  border-radius: 0 0 19px 19px;
   font-size: 1.02rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  text-decoration: none;
   color: rgba(255, 255, 255, 0.92);
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.55) 100%);
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {

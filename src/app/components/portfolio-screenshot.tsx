@@ -29,19 +29,18 @@ export function PortfolioScreenshot({
 
   const imgClass = fill
     ? "absolute inset-0 h-full w-full object-cover object-center"
-    : "w-full h-full object-cover object-top";
+    : "w-full h-full object-cover object-center";
 
   // Custom screenshot or API screenshot URL
   if (src) {
     return (
-      <div className={shellClass}>
-        <img
-          src={src}
-          alt=""
-          className={imgClass}
-          onError={() => setFailed(true)}
-        />
-      </div>
+      <img
+        src={src}
+        alt=""
+        style={{ transform: "scale(1.1)" }}
+        className={imgClass}
+        onError={() => setFailed(true)}
+      />
     );
   }
 

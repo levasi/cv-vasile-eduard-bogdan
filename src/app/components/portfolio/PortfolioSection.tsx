@@ -36,53 +36,55 @@ function PortfolioCard({
   };
 
   return (
-    <article className={`portfolio-section__item${isActive ? " is-active" : ""}`}>
-      <div
-        className="portfolio-section__float"
-        style={
-          {
-            "--float-delay": `${floatDelay}s`,
-            "--float-duration": `${floatDuration}s`,
-          } as React.CSSProperties
-        }
-      >
-        <div ref={cardRef} className="portfolio-section__card group relative flex h-full min-h-0 flex-col">
-          <span className="portfolio-section__tag">{tagLabel}</span>
+    <div
+      className="portfolio-section__float"
+      style={
+        {
+          "--float-delay": `${floatDelay}s`,
+          "--float-duration": `${floatDuration}s`,
+        } as React.CSSProperties
+      }
+    >
+      <div ref={cardRef} className="portfolio-section__card group relative flex min-h-0 flex-1 flex-col">
+        <span className="portfolio-section__tag">{tagLabel}</span>
 
-          <div className="portfolio-section__media min-h-0 flex-1">
-            <div
-              className="portfolio-section__parallax-inner"
-              data-portfolio-parallax-inner
-              data-speed={speed}
-            >
-              <PortfolioScreenshot
-                url={item.url}
-                label={item.title}
-                customScreenshot={item.screenshot}
-                fill
-              />
-            </div>
-            <div className="portfolio-section__shader" aria-hidden />
-
-            <button
-              type="button"
-              className="portfolio-section__expand"
-              onClick={handleExpandClick}
-              aria-expanded={isActive}
-              aria-haspopup="dialog"
-              aria-label={`${t("portfolioExpand")}: ${item.title}`}
-            >
-              <Maximize2 className="h-5 w-5" aria-hidden />
-            </button>
-          </div>
-
-          <div className="portfolio-section__title shrink-0">
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-white/55 transition-colors group-hover:text-white/90" />
-            <span>{item.title}</span>
-          </div>
+        <div
+          className="portfolio-section__parallax-inner"
+          data-portfolio-parallax-inner
+          data-speed={speed}
+        >
+          <PortfolioScreenshot
+            url={item.url}
+            label={item.title}
+            customScreenshot={item.screenshot}
+            fill
+          />
         </div>
+        <div className="portfolio-section__shader" aria-hidden />
+
+        <button
+          type="button"
+          className="portfolio-section__expand"
+          onClick={handleExpandClick}
+          aria-expanded={isActive}
+          aria-haspopup="dialog"
+          aria-label={`${t("portfolioExpand")}: ${item.title}`}
+        >
+          <Maximize2 className="h-5 w-5" aria-hidden />
+        </button>
       </div>
-    </article>
+
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="portfolio-section__title shrink-0"
+        aria-label={`${item.cta}: ${item.title}`}
+      >
+        <ArrowUpRight className="h-4 w-4 shrink-0 text-white/55 transition-colors" aria-hidden />
+        <span>{item.title}</span>
+      </a>
+    </div>
   );
 }
 
