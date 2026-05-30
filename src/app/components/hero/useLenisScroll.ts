@@ -16,6 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 type LenisScrollApi = {
   scrollTo: (target: string | HTMLElement, options?: { offset?: number; duration?: number }) => void;
+  stopScroll: () => void;
+  startScroll: () => void;
 };
 
 const LenisScrollContext = createContext<LenisScrollApi | null>(null);
@@ -45,6 +47,18 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
       offset: options?.offset ?? 0,
       duration: options?.duration ?? 1.4,
     });
+  }, []);
+
+  const stopScroll = useCallback(() => {
+    lenisRef.current?.stop();
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  const startScroll = useCallback(() => {
+    lenisRef.current?.start();
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
   }, []);
 
   useEffect(() => {
@@ -123,5 +137,5 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
     return () => cancelAnimationFrame(refreshId);
   }, [location.pathname, location.hash, scrollTo]);
 
-  return createElement(LenisScrollContext.Provider, { value: { scrollTo } }, children);
+  return createElement(LenisScrollContext.Provider, { value: { scrollTo, stopScroll, startScroll } }, children);
 }

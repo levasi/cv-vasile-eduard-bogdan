@@ -37,7 +37,6 @@ export function PortfolioScreenshot({
       <img
         src={src}
         alt=""
-        style={{ transform: "scale(1.1)" }}
         className={imgClass}
         onError={() => setFailed(true)}
       />

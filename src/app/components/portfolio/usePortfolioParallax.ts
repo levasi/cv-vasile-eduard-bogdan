@@ -6,7 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function usePortfolioParallax(
   sectionRef: RefObject<HTMLElement | null>,
-  itemSelector = "[data-portfolio-parallax-inner]"
+  layoutKey = 0,
+  itemSelector = "[data-portfolio-parallax]"
 ) {
   useEffect(() => {
     const section = sectionRef.current;
@@ -15,36 +16,58 @@ export function usePortfolioParallax(
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reducedMotion) return;
 
-    const items = section.querySelectorAll<HTMLElement>(itemSelector);
-    if (!items.length) return;
-
-    const ctx = gsap.context(() => {
-      items.forEach((el) => {
-        const speed = Number.parseFloat(el.dataset.speed ?? "0.35");
-        const travel = 14 + speed * 42;
-
-        gsap.fromTo(
-          el,
-          { y: -travel },
-          {
-            y: travel,
-            ease: "none",
-            scrollTrigger: {
-              trigger: section,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1.4,
-            },
-          }
-        );
+    const scroller = document.documentElement;
+    const refresh = () => {
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
       });
-    }, section);
+    };
 
-    const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 300);
+    let ctx: gsap.Context | null = null;
+
+    const init = () => {
+      ctx?.revert();
+
+      const layers = section.querySelectorAll<HTMLElement>(itemSelector);
+      if (!layers.length) return;
+
+      ctx = gsap.context(() => {
+        layers.forEach((layer) => {
+          const cell = layer.closest<HTMLElement>(".portfolio-section__cell");
+          if (!cell) return;
+
+          const speed = Number.parseFloat(layer.dataset.speed ?? "0.35");
+          const travel = 16 + speed * 36;
+
+          gsap.fromTo(
+            layer,
+            { y: -travel * 0.5, force3D: true },
+            {
+              y: travel * 0.5,
+              ease: "none",
+              force3D: true,
+              scrollTrigger: {
+                trigger: cell,
+                scroller,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.2,
+                invalidateOnRefresh: true,
+              },
+            }
+          );
+        });
+      }, section);
+
+      refresh();
+    };
+
+    init();
+    const refreshId = window.setTimeout(refresh, 350);
 
     return () => {
       window.clearTimeout(refreshId);
-      ctx.revert();
+      ctx?.revert();
     };
-  }, [sectionRef, itemSelector]);
+  }, [sectionRef, itemSelector, layoutKey]);
 }

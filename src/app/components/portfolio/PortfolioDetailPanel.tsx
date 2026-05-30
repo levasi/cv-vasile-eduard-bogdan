@@ -4,6 +4,7 @@ import { ArrowUpRight, X } from "lucide-react";
 import type { Project } from "../../data/portfolio";
 import { PortfolioScreenshot } from "../portfolio-screenshot";
 import { useLanguage } from "../language-context";
+import { useLenisScrollApi } from "../hero/useLenisScroll";
 import type { PanelRect } from "./portfolioDetailTypes";
 import { usePortfolioDetailExpand } from "./usePortfolioDetailExpand";
 
@@ -25,6 +26,7 @@ export function PortfolioDetailPanel({
   onExitComplete,
 }: PortfolioDetailPanelProps) {
   const { t } = useLanguage();
+  const { stopScroll, startScroll } = useLenisScrollApi() ?? {};
   const screenRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -44,6 +46,11 @@ export function PortfolioDetailPanel({
     closeRef,
     handleExitComplete
   );
+
+  useEffect(() => {
+    stopScroll?.();
+    return () => startScroll?.();
+  }, [stopScroll, startScroll]);
 
   useEffect(() => {
     if (!open) return;

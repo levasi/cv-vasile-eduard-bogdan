@@ -13,18 +13,18 @@ import { rectFromDOM, type PanelRect } from "./portfolioDetailTypes";
 function PortfolioCard({
   item,
   tagLabel,
+  isActive,
   speed,
   floatDelay,
   floatDuration,
-  isActive,
   onExpand,
 }: {
   item: Project;
   tagLabel: string;
+  isActive: boolean;
   speed: number;
   floatDelay: number;
   floatDuration: number;
-  isActive: boolean;
   onExpand: (rect: DOMRect) => void;
 }) {
   const { t } = useLanguage();
@@ -37,28 +37,30 @@ function PortfolioCard({
 
   return (
     <div
-      className="portfolio-section__float"
+      className={`portfolio-section__float${isActive ? " is-active" : ""}`}
       style={
         {
-          "--float-delay": `${floatDelay}s`,
           "--float-duration": `${floatDuration}s`,
+          "--float-delay": `${floatDelay}s`,
         } as React.CSSProperties
       }
     >
       <div ref={cardRef} className="portfolio-section__card group relative flex min-h-0 flex-1 flex-col">
         <span className="portfolio-section__tag">{tagLabel}</span>
 
-        <div
-          className="portfolio-section__parallax-inner"
-          data-portfolio-parallax-inner
-          data-speed={speed}
-        >
-          <PortfolioScreenshot
-            url={item.url}
-            label={item.title}
-            customScreenshot={item.screenshot}
-            fill
-          />
+        <div className="portfolio-section__media">
+          <div
+            className="portfolio-section__media-parallax"
+            data-portfolio-parallax
+            data-speed={speed}
+          >
+            <PortfolioScreenshot
+              url={item.url}
+              label={item.title}
+              customScreenshot={item.screenshot}
+              fill
+            />
+          </div>
         </div>
         <div className="portfolio-section__shader" aria-hidden />
 
@@ -72,18 +74,18 @@ function PortfolioCard({
         >
           <Maximize2 className="h-5 w-5" aria-hidden />
         </button>
-      </div>
 
-      <a
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="portfolio-section__title shrink-0"
-        aria-label={`${item.cta}: ${item.title}`}
-      >
-        <ArrowUpRight className="h-4 w-4 shrink-0 text-white/55 transition-colors" aria-hidden />
-        <span>{item.title}</span>
-      </a>
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="portfolio-section__title"
+          aria-label={`${item.cta}: ${item.title}`}
+        >
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-white/55 transition-colors" aria-hidden />
+          <span>{item.title}</span>
+        </a>
+      </div>
     </div>
   );
 }
@@ -103,7 +105,7 @@ export function PortfolioSection() {
   const [originRect, setOriginRect] = useState<PanelRect | null>(null);
   const [panelOpen, setPanelOpen] = useState(false);
 
-  usePortfolioParallax(sectionRef);
+  usePortfolioParallax(sectionRef, columns);
 
   const handleExitComplete = useCallback(() => {
     setActiveProject(null);
