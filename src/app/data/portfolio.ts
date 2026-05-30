@@ -127,6 +127,32 @@ export const projects: Project[] = [
     grid: { columns: 2, rows: 3 },
   },
   {
+    slug: "prym",
+    kind: "work",
+    title: "Prym",
+    headline: "Consumer brand storefront for sewing and craft.",
+    url: "https://www.prym.com/en/",
+    screenshot: "/images/prym.png",
+    tags: ["E-commerce", "Consumer brand", "Responsive", "Catalog UX"],
+    short:
+      "Frontend work on Prym’s consumer shop—collections, brand worlds, and product discovery for sewing and DIY audiences.",
+    medium:
+      "Built customer-facing UI for a heritage craft brand: category browsing, collection pages, and promotional surfaces that stay clear across devices.",
+    premium: [
+      "Consumer craft retail mixes inspiration and utility—users need fast paths to products without losing the brand story.",
+      "Focused on scannable collection layouts, consistent product cards, and stable performance on image-rich pages.",
+      "Reusable patterns so seasonal campaigns and new collections ship without redesigning the storefront shell.",
+    ],
+    role: "Frontend implementation",
+    technicalHighlights: [
+      "Collection- and brand-driven navigation",
+      "Product listing UX for a broad craft catalog",
+      "Responsive layouts for marketing and shop flows",
+    ],
+    cta: "View live",
+    grid: { columns: 4, rows: 6 },
+  },
+  {
     slug: "awg-mode",
     kind: "work",
     title: "AWG Mode",
@@ -150,7 +176,7 @@ export const projects: Project[] = [
       "Responsive, media-heavy layouts with stable performance",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 4, rows: 6 },
   },
   {
     slug: "ingun",
@@ -178,32 +204,7 @@ export const projects: Project[] = [
     cta: "View live",
     grid: { columns: 4, rows: 3 },
   },
-  {
-    slug: "prym",
-    kind: "work",
-    title: "Prym",
-    headline: "Consumer brand storefront for sewing and craft.",
-    url: "https://www.prym.com/en/",
-    screenshot: "/images/prym.png",
-    tags: ["E-commerce", "Consumer brand", "Responsive", "Catalog UX"],
-    short:
-      "Frontend work on Prym’s consumer shop—collections, brand worlds, and product discovery for sewing and DIY audiences.",
-    medium:
-      "Built customer-facing UI for a heritage craft brand: category browsing, collection pages, and promotional surfaces that stay clear across devices.",
-    premium: [
-      "Consumer craft retail mixes inspiration and utility—users need fast paths to products without losing the brand story.",
-      "Focused on scannable collection layouts, consistent product cards, and stable performance on image-rich pages.",
-      "Reusable patterns so seasonal campaigns and new collections ship without redesigning the storefront shell.",
-    ],
-    role: "Frontend implementation",
-    technicalHighlights: [
-      "Collection- and brand-driven navigation",
-      "Product listing UX for a broad craft catalog",
-      "Responsive layouts for marketing and shop flows",
-    ],
-    cta: "View live",
-    grid: { columns: 4, rows: 3 },
-  },
+
   {
     slug: "dr-spiller",
     kind: "work",
@@ -228,7 +229,7 @@ export const projects: Project[] = [
       "Responsive, image-rich layouts with a premium brand feel",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 4, rows: 4 },
   },
   {
     slug: "collectif-mon-amour",
@@ -280,7 +281,7 @@ export const projects: Project[] = [
       "Responsive layouts for catalog-heavy pages",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 4, rows: 5 },
   },
   {
     slug: "funken",
@@ -306,7 +307,7 @@ export const projects: Project[] = [
       "Responsive B2B layouts with clear hierarchy",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 4, rows: 4 },
   },
   {
     slug: "cornelsen",
@@ -335,32 +336,6 @@ export const projects: Project[] = [
     grid: { columns: 4, rows: 3 },
   },
   {
-    slug: "normbau",
-    kind: "work",
-    title: "NORMBAU",
-    headline: "B2B site for barrier-free sanitary and hardware systems.",
-    url: "https://www.normbau.de/en/",
-    screenshot: "/images/normbau.png",
-    tags: ["B2B", "Manufacturing", "Product catalog", "Accessibility"],
-    short:
-      "Frontend work on a German manufacturer portal—product series, planning support, and clear navigation for architects, planners, and facility buyers.",
-    medium:
-      "Implemented customer-facing UI for inclusive bathroom and building hardware: product families, technical content, and structured paths for professional specification.",
-    premium: [
-      "Specification-driven B2B needs trust and standards clarity—product lines, DIN context, and downloads must be easy for planners on any device.",
-      "Focused on series-based navigation, consistent product presentation, and layouts that support bilingual content.",
-      "Maintainable patterns so new product lines and documentation integrate without redesigning the site shell.",
-    ],
-    role: "Frontend implementation",
-    technicalHighlights: [
-      "Product-series navigation for building hardware",
-      "Technical and planning-oriented content layouts",
-      "Responsive B2B UI with clear hierarchy",
-    ],
-    cta: "View live",
-    grid: { columns: 4, rows: 3 },
-  },
-  {
     slug: "tropy",
     kind: "work",
     title: "tropy",
@@ -382,6 +357,32 @@ export const projects: Project[] = [
       "Category-first navigation for perishable products",
       "Seasonal campaign and hero layouts",
       "Responsive, image-forward shop UI",
+    ],
+    cta: "View live",
+    grid: { columns: 5, rows: 3 },
+  },
+  {
+    slug: "normbau",
+    kind: "work",
+    title: "NORMBAU",
+    headline: "B2B site for barrier-free sanitary and hardware systems.",
+    url: "https://www.normbau.de/en/",
+    screenshot: "/images/normbau.png",
+    tags: ["B2B", "Manufacturing", "Product catalog", "Accessibility"],
+    short:
+      "Frontend work on a German manufacturer portal—product series, planning support, and clear navigation for architects, planners, and facility buyers.",
+    medium:
+      "Implemented customer-facing UI for inclusive bathroom and building hardware: product families, technical content, and structured paths for professional specification.",
+    premium: [
+      "Specification-driven B2B needs trust and standards clarity—product lines, DIN context, and downloads must be easy for planners on any device.",
+      "Focused on series-based navigation, consistent product presentation, and layouts that support bilingual content.",
+      "Maintainable patterns so new product lines and documentation integrate without redesigning the site shell.",
+    ],
+    role: "Frontend implementation",
+    technicalHighlights: [
+      "Product-series navigation for building hardware",
+      "Technical and planning-oriented content layouts",
+      "Responsive B2B UI with clear hierarchy",
     ],
     cta: "View live",
     grid: { columns: 4, rows: 3 },
@@ -462,7 +463,7 @@ export const projects: Project[] = [
       "Responsive e-commerce UI with premium visual tone",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 3, rows: 3 },
   },
   {
     slug: "jung",
@@ -514,7 +515,7 @@ export const projects: Project[] = [
       "Responsive B2B UI for a scientific catalog",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 5, rows: 5 },
   },
   {
     slug: "outstand",
@@ -567,7 +568,7 @@ export const projects: Project[] = [
       "Interaction polish with minimal UI noise",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 4, rows: 4 },
   },
   {
     slug: "cej-buc",
@@ -685,7 +686,7 @@ export const projects: Project[] = [
     role: "Personal build (design + frontend)",
     technicalHighlights: ["Minimal marketing layout", "Reusable sections", "Responsive hierarchy"],
     cta: "View live",
-    grid: { columns: 3, rows: 2 },
+    grid: { columns: 4, rows: 3 },
   }
 ];
 

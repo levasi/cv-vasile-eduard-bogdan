@@ -247,6 +247,7 @@
 }
 
 @keyframes portfolio-float {
+
   0%,
   100% {
     transform: translate3d(0, 0, 0);
@@ -400,7 +401,7 @@
   bottom: 0;
   z-index: 6;
   display: flex;
-  width: 50%;
+  width: 80%;
   margin-inline: auto;
   flex-shrink: 0;
   align-items: center;
