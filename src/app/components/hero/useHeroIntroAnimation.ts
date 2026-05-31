@@ -74,7 +74,7 @@ export function useHeroIntroAnimation(
       tl.fromTo(
         q("[data-hero-accent]"),
         { opacity: 0, y: 18, filter: "blur(6px)", x: 100 },
-        { opacity: 0.7, y: 0, filter: "blur(0px)", duration: 0.7, x: 0 },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, x: 0 },
         START_AT
       );
 

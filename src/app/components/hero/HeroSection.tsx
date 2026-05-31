@@ -18,7 +18,7 @@ export function HeroSection() {
       </div>
 
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#120a06]/72 via-[#120a06]/28 to-transparent"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#120a06]/72 via-[#120a06]/28 to-transparent opacity-50"
         aria-hidden
       />
 
