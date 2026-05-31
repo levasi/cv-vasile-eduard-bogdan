@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { lockPageScroll, unlockPageScroll } from "../../lib/scroll-lock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,15 +51,23 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const stopScroll = useCallback(() => {
-    lenisRef.current?.stop();
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    const lenis = lenisRef.current;
+    lenis?.stop();
+
+    const scrollY = lenis?.scroll ?? window.scrollY ?? document.documentElement.scrollTop;
+    lockPageScroll(scrollY);
   }, []);
 
   const startScroll = useCallback(() => {
-    lenisRef.current?.start();
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
+    const scrollY = unlockPageScroll();
+    const lenis = lenisRef.current;
+    lenis?.start();
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollY);
+      lenis?.scrollTo(scrollY, { immediate: true });
+      ScrollTrigger.refresh();
+    });
   }, []);
 
   useEffect(() => {
