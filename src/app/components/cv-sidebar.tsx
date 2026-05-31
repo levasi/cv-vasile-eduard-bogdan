@@ -1,6 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "./language-context";
 import React from "react";
 import { personalProjects, workProjects } from "../data/portfolio";
@@ -19,18 +18,7 @@ export function CvSidebar() {
   const projects = workProjects;
 
   return (
-    <aside className="w-full lg:w-[340px] bg-sidebar text-sidebar-foreground p-8 flex flex-col gap-8 shrink-0 border-b border-border lg:border-b-0 lg:border-r lg:border-border">
-      {/* Photo */}
-      <div className="flex justify-center">
-        <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-sm">
-          <ImageWithFallback
-            src="/images/me.jpg"
-            alt="Vasile Bogdan"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-
+    <aside className="bg-background w-full lg:w-[340px] text-sidebar-foreground p-4 lg:p-8 flex flex-col gap-8 shrink-0 border-b border-border lg:border-b-0 lg:border-r lg:border-border">
       {/* Contact */}
       <div>
         <h3

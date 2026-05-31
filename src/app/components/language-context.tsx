@@ -27,7 +27,7 @@ const translations: Record<Lang, Record<string, string>> = {
     heroLine2: "the tools",
     heroLine3: "It is about",
     heroLine4: "Who is behind them.",
-    heroAccent: "Let's build something together.",
+    heroAccent: "Let's build things together.",
     heroExploreCta: "Explore my work",
     heroPlayReel: "Play reel",
     heroNavWork: "Work",
@@ -64,7 +64,7 @@ const translations: Record<Lang, Record<string, string>> = {
     tools: "Tools:",
 
     // Buttons
-    downloadPdf: "Download PDF",
+    downloadPdf: "Download CV",
     generatingPdf: "Generating PDF...",
 
     // Experience 1
@@ -149,9 +149,11 @@ const translations: Record<Lang, Record<string, string>> = {
     // Hero
     heroName: "Vasile Eduard Bogdan",
     heroBrandTagline: "Dezvoltator creativ",
-    heroLine1: "DESIGN.",
-    heroLine2: "CODEZ.",
-    heroAccent: "în realitate.",
+    heroLine1: "Nu este vorba ",
+    heroLine2: "De unelte",
+    heroLine3: "Ci de cine",
+    heroLine4: "Le foloseste.",
+    heroAccent: "Hai sa construim impreuna.",
     heroExploreCta: "Vezi proiectele",
     heroPlayReel: "Vezi reel",
     heroNavWork: "Proiecte",

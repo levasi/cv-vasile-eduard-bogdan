@@ -1,7 +1,7 @@
 import React from "react";
 import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 import { useLanguage } from "./language-context";
-import { DownloadButton } from "./cv-controls";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface ExperienceItem {
   titleKey: string;
@@ -98,34 +98,41 @@ const education: EducationItem[] = [
   },
 ];
 
-export function CvMain({ downloading, onDownload }: { downloading: boolean; onDownload: () => void }) {
+export function CvMain() {
   const { t } = useLanguage();
 
   return (
-    <main className="flex-1 bg-background p-8 lg:p-12 overflow-y-auto">
-      {/* Action Bar */}
-      <div className="flex items-center justify-between mb-6">
-        <div />
-        <DownloadButton downloading={downloading} onClick={onDownload} />
-      </div>
-
+    <main className="flex-1 bg-background p-2 lg:p-8 lg:p-12 overflow-y-auto">
       {/* Header */}
       <header className="mb-8">
-        <h1
-          className="text-foreground mb-1"
-          style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.15 }}
-        >
-          Vasile Bogdan
-        </h1>
-        <p
-          className="text-primary mb-4"
-          style={{ fontSize: "1.1rem", fontWeight: 500, letterSpacing: "0.05em" }}
-        >
-          {t("jobTitle")}
-        </p>
-        <p className="text-muted-foreground max-w-2xl" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
-          {t("summary")}
-        </p>
+        <div className="flex flex-col gap-6 sm:flex-row items-center">
+          <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 shadow-sm lg:h-40 lg:w-40">
+            <ImageWithFallback
+              src="/images/me.jpg"
+              alt="Vasile Bogdan"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="min-w-0 flex-1 text-center sm:text-left">
+
+            <h1
+              className="text-foreground mb-1"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.15 }}
+            >
+              Vasile Bogdan
+            </h1>
+            <p
+              className="text-primary mb-4"
+              style={{ fontSize: "1.1rem", fontWeight: 500, letterSpacing: "0.05em" }}
+            >
+              {t("jobTitle")}
+            </p>
+            <p className="text-muted-foreground max-w-2xl" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
+              {t("summary")}
+            </p>
+          </div>
+        </div>
       </header>
 
       {/* Divider */}
@@ -149,9 +156,9 @@ export function CvMain({ downloading, onDownload }: { downloading: boolean; onDo
           {/* Timeline line */}
           <div className="absolute left-[11px] top-2 bottom-0 w-px bg-border" />
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-2 lg:gap-8">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-8">
+              <div key={index} className="relative pl-0 lg:pl-8">
                 {/* Timeline dot */}
                 <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-sm" />
 

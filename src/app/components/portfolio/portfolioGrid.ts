@@ -21,7 +21,7 @@ export function scaleGridSpan(
 
   if (colSpan > gridColumns) colSpan = gridColumns;
 
-  if (gridColumns <= 4 && span.columns >= 6) {
+  if (gridColumns <= 2 && span.columns >= 6) {
     colSpan = gridColumns;
     rowSpan = Math.max(rowSpan, 3);
   }

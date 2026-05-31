@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 /** Fine-grained column count for bento packing (12 = desktop gallery grid) */
-export type PortfolioGridColumns = 4 | 8 | 12;
+export type PortfolioGridColumns = 2 | 8 | 12;
 
 function readColumnCount(): PortfolioGridColumns {
   if (typeof window === "undefined") return 12;
-  if (window.matchMedia("(max-width: 767px)").matches) return 4;
+  if (window.matchMedia("(max-width: 767px)").matches) return 2;
   if (window.matchMedia("(max-width: 1099px)").matches) return 8;
   return 12;
 }
