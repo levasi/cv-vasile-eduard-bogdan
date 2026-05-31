@@ -106,44 +106,46 @@ export function PortfolioDetailPanel({
           <X className="h-5 w-5" aria-hidden />
         </button>
 
-        <div ref={contentRef} className="portfolio-detail-panel__body">
-          <span className="portfolio-detail-panel__tag">{tagLabel}</span>
+        <div className="portfolio-detail-panel__body">
+          <div ref={contentRef} className="portfolio-detail-panel__body-inner">
+            <span className="portfolio-detail-panel__tag">{tagLabel}</span>
 
-          <h3 className="portfolio-detail-panel__title">{project.title}</h3>
-          <p className="portfolio-detail-panel__headline">{project.headline}</p>
-          <p className="portfolio-detail-panel__description">{project.medium}</p>
+            <h3 className="portfolio-detail-panel__title">{project.title}</h3>
+            <p className="portfolio-detail-panel__headline">{project.headline}</p>
+            <p className="portfolio-detail-panel__description">{project.medium}</p>
 
-          <p className="portfolio-detail-panel__role">
-            <span className="portfolio-detail-panel__label">{t("roleLabel")}</span>
-            {project.role}
-          </p>
+            <p className="portfolio-detail-panel__role">
+              <span className="portfolio-detail-panel__label">{t("roleLabel")}</span>
+              {project.role}
+            </p>
 
-          <div className="portfolio-detail-panel__highlights">
-            <span className="portfolio-detail-panel__label">{t("technicalHighlightsLabel")}</span>
-            <ul>
-              {project.technicalHighlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
+            <div className="portfolio-detail-panel__highlights">
+              <span className="portfolio-detail-panel__label">{t("technicalHighlightsLabel")}</span>
+              <ul>
+                {project.technicalHighlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="portfolio-detail-panel__tags">
+              {project.tags.slice(0, 8).map((tag) => (
+                <span key={tag} className="portfolio-detail-panel__chip">
+                  {tag}
+                </span>
               ))}
-            </ul>
-          </div>
+            </div>
 
-          <div className="portfolio-detail-panel__tags">
-            {project.tags.slice(0, 8).map((tag) => (
-              <span key={tag} className="portfolio-detail-panel__chip">
-                {tag}
-              </span>
-            ))}
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-detail-panel__cta"
+            >
+              {project.cta}
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </a>
           </div>
-
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="portfolio-detail-panel__cta"
-          >
-            {project.cta}
-            <ArrowUpRight className="h-4 w-4" aria-hidden />
-          </a>
         </div>
       </div>
     </div>,
