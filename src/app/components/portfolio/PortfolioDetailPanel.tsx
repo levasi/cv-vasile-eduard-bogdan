@@ -106,8 +106,9 @@ export function PortfolioDetailPanel({
           <X className="h-5 w-5" aria-hidden />
         </button>
 
-        <div className="portfolio-detail-panel__body">
-          <div ref={contentRef} className="portfolio-detail-panel__body-inner">
+        <div ref={contentRef} className="portfolio-detail-panel__body">
+          <div className="portfolio-detail-panel__body-glass" aria-hidden />
+          <div className="portfolio-detail-panel__body-inner">
             <span className="portfolio-detail-panel__tag">{tagLabel}</span>
 
             <h3 className="portfolio-detail-panel__title">{project.title}</h3>

@@ -5,6 +5,7 @@ import { getPanelTargetRect, type PanelRect } from "./portfolioDetailTypes";
 const EXPAND_DURATION = 0.58;
 const COLLAPSE_DURATION = 0.42;
 const BODY_REVEAL_DURATION = 0.35;
+const BODY_REVEAL_OFFSET = 18;
 
 function applyScreenRect(el: HTMLElement, rect: PanelRect, borderRadius: number) {
   gsap.set(el, {
@@ -20,13 +21,24 @@ function applyScreenRect(el: HTMLElement, rect: PanelRect, borderRadius: number)
   });
 }
 
-function getRevealTargets(
-  contentRef: RefObject<HTMLElement | null>,
-  closeRef: RefObject<HTMLElement | null>
-) {
-  return [contentRef.current, closeRef.current].filter(
-    (el): el is HTMLElement => el !== null
-  );
+function setBodyHidden(body: HTMLElement) {
+  gsap.set(body, {
+    visibility: "hidden",
+    y: BODY_REVEAL_OFFSET,
+    opacity: 1,
+  });
+}
+
+function setBodyRevealed(body: HTMLElement) {
+  gsap.set(body, {
+    visibility: "visible",
+    y: 0,
+    opacity: 1,
+  });
+}
+
+function getBodyInner(body: HTMLElement | null) {
+  return body?.querySelector<HTMLElement>(".portfolio-detail-panel__body-inner") ?? null;
 }
 
 export function usePortfolioDetailExpand(
@@ -43,6 +55,10 @@ export function usePortfolioDetailExpand(
 
   useLayoutEffect(() => {
     const screen = screenRef.current;
+    const body = contentRef.current;
+    const close = closeRef.current;
+    const bodyInner = getBodyInner(body);
+
     if (!screen || !originRect || !projectSlug) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -55,9 +71,16 @@ export function usePortfolioDetailExpand(
       if (backdropRef.current) {
         gsap.set(backdropRef.current, { opacity: open ? 1 : 0 });
       }
-      getRevealTargets(contentRef, closeRef).forEach((el) => {
-        gsap.set(el, { opacity: open ? 1 : 0 });
-      });
+      if (body) {
+        if (open) setBodyRevealed(body);
+        else setBodyHidden(body);
+      }
+      if (bodyInner) {
+        gsap.set(bodyInner, { opacity: open ? 1 : 0 });
+      }
+      if (close) {
+        gsap.set(close, { opacity: open ? 1 : 0 });
+      }
       if (!open) onExitComplete();
       return;
     }
@@ -76,9 +99,15 @@ export function usePortfolioDetailExpand(
       if (backdropRef.current) {
         gsap.set(backdropRef.current, { opacity: 0 });
       }
-      getRevealTargets(contentRef, closeRef).forEach((el) => {
-        gsap.set(el, { opacity: 0 });
-      });
+      if (body) {
+        setBodyHidden(body);
+      }
+      if (bodyInner) {
+        gsap.set(bodyInner, { opacity: 0 });
+      }
+      if (close) {
+        gsap.set(close, { opacity: 0 });
+      }
 
       tl.to(
         backdropRef.current,
@@ -100,18 +129,42 @@ export function usePortfolioDetailExpand(
         0
       );
 
-      const revealTargets = getRevealTargets(contentRef, closeRef);
-      if (revealTargets.length) {
+      if (body) {
+        tl.set(body, { visibility: "visible" }, EXPAND_DURATION);
         tl.to(
-          revealTargets,
+          body,
+          { y: 0, duration: BODY_REVEAL_DURATION, ease: "power2.out" },
+          EXPAND_DURATION
+        );
+      }
+
+      if (bodyInner) {
+        tl.to(
+          bodyInner,
+          { opacity: 1, duration: BODY_REVEAL_DURATION, ease: "power2.out" },
+          EXPAND_DURATION
+        );
+      }
+
+      if (close) {
+        tl.to(
+          close,
           { opacity: 1, duration: BODY_REVEAL_DURATION, ease: "power2.out" },
           EXPAND_DURATION
         );
       }
     } else {
-      const revealTargets = getRevealTargets(contentRef, closeRef);
-      if (revealTargets.length) {
-        tl.to(revealTargets, { opacity: 0, duration: 0.12, ease: "power1.in" }, 0);
+      if (bodyInner) {
+        tl.to(bodyInner, { opacity: 0, duration: 0.12, ease: "power1.in" }, 0);
+      }
+
+      if (body) {
+        tl.to(body, { y: BODY_REVEAL_OFFSET, duration: 0.12, ease: "power1.in" }, 0);
+        tl.set(body, { visibility: "hidden" }, 0.12);
+      }
+
+      if (close) {
+        tl.to(close, { opacity: 0, duration: 0.12, ease: "power1.in" }, 0);
       }
 
       tl.to(
