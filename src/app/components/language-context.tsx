@@ -64,7 +64,7 @@ const translations: Record<Lang, Record<string, string>> = {
     tools: "Tools:",
 
     // Buttons
-    downloadPdf: "Download CV",
+    downloadPdf: "CV",
     generatingPdf: "Generating PDF...",
 
     // Experience 1
@@ -190,7 +190,7 @@ const translations: Record<Lang, Record<string, string>> = {
     tools: "Instrumente:",
 
     // Buttons
-    downloadPdf: "Descarcă PDF",
+    downloadPdf: "CV",
     generatingPdf: "Se generează PDF...",
 
     // Experience 1

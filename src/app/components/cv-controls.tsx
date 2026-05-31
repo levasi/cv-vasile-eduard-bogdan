@@ -13,6 +13,17 @@ const languageOptions: { value: Lang; label: string; code: string; flag: string 
   { value: "ro", label: "Română", code: "RO", flag: "🇷🇴" },
 ];
 
+function controlTriggerClass(isDark: boolean) {
+  return cn(
+    "inline-flex items-center gap-1 rounded-lg px-2 py-1.5 outline-none transition-colors focus-visible:ring-2",
+    isDark
+      ? "border border-white/15 bg-white/8 text-white/85 backdrop-blur-sm hover:bg-white/12 hover:text-white focus-visible:ring-white/25"
+      : "border border-border/80 bg-background/80 text-muted-foreground hover:text-foreground focus-visible:ring-ring/50",
+  );
+}
+
+const controlLabelClass = "text-[11px] font-medium uppercase tracking-[0.12em]";
+
 export function LanguageToggle({ variant = "light" }: { variant?: "light" | "dark" }) {
   const { lang, setLang } = useLanguage();
   const isDark = variant === "dark";
@@ -21,17 +32,10 @@ export function LanguageToggle({ variant = "light" }: { variant?: "light" | "dar
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className={cn(
-          "inline-flex items-center gap-0.5 rounded-lg px-2 py-1.5 outline-none transition-colors focus-visible:ring-2",
-          isDark
-            ? "border border-white/15 bg-white/8 text-white/85 backdrop-blur-sm hover:bg-white/12 hover:text-white focus-visible:ring-white/25"
-            : "border border-border/80 bg-background/80 text-muted-foreground hover:text-foreground focus-visible:ring-ring/50",
-        )}
+        className={controlTriggerClass(isDark)}
         aria-label={`Language: ${current.label}`}
       >
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em]">
-          {current.code}
-        </span>
+        <span className={controlLabelClass}>{current.code}</span>
         <ChevronDown className="size-3 opacity-60" aria-hidden />
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -74,23 +78,22 @@ export function DownloadButton({
 
   return (
     <button
+      type="button"
       onClick={onClick}
       disabled={downloading}
       className={cn(
-        "flex items-center gap-2 rounded-lg px-3 py-2 transition-all active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer sm:px-4 sm:py-2.5",
-        isDark
-          ? "border border-white/20 bg-white/10 text-white shadow-sm hover:bg-white/15 hover:shadow-md"
-          : "bg-foreground text-background shadow-sm hover:bg-foreground/90 hover:shadow-md",
+        controlTriggerClass(isDark),
+        "cursor-pointer disabled:cursor-not-allowed disabled:opacity-70",
       )}
-      style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}
     >
       {downloading ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
+        <Loader2 className="size-3 shrink-0 animate-spin opacity-80" aria-hidden />
       ) : (
-        <Download className="h-4 w-4" />
+        <Download className="size-3 shrink-0 opacity-80" aria-hidden />
       )}
-      <span className="hidden sm:inline">{downloading ? t("generatingPdf") : t("downloadPdf")}</span>
-      <span className="sm:hidden">{downloading ? "…" : "PDF"}</span>
+      <span className={controlLabelClass}>
+        {downloading ? t("generatingPdf") : t("downloadPdf")}
+      </span>
     </button>
   );
 }
