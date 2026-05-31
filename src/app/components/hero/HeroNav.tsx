@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "../language-context";
 import { LanguageToggle, DownloadButton } from "../cv-controls";
 import { useCvPdfDownload } from "../cv/useCvPdfDownload";
+import { cn } from "../ui/utils";
 
 const navLinks = [
   { key: "heroNavWork", href: "/" },
@@ -30,16 +31,29 @@ export function HeroNav() {
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <nav className="hidden items-center gap-0.5 sm:flex lg:gap-2">
-            {navLinks.map(({ key, href }) => (
-              <Link
-                key={key}
-                to={href}
-                className="px-3 py-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white/75 transition-colors hover:text-white lg:px-4"
-              >
-                {t(key)}
-              </Link>
-            ))}
+          <nav className="flex shrink-0 items-center gap-0.5 lg:gap-2">
+            {navLinks.map(({ key, href }) => {
+              const isActive =
+                href === "/"
+                  ? location.pathname === "/"
+                  : location.pathname === href;
+
+              return (
+                <Link
+                  key={key}
+                  to={href}
+                  className={cn(
+                    "shrink-0 px-1.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em] lg:px-4",
+                    isActive
+                      ? "text-white"
+                      : "text-white/75 hover:text-white",
+                  )}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {t(key)}
+                </Link>
+              );
+            })}
           </nav>
 
           <DownloadButton

@@ -78,6 +78,9 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -352,6 +355,14 @@
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
+}
+
+@media (max-width: 767px) {
+  .portfolio-section__expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .portfolio-section__expand:hover {

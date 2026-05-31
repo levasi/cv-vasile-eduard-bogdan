@@ -33,8 +33,9 @@ export function PortfolioDetailPanel({
   const closeRef = useRef<HTMLButtonElement>(null);
 
   const handleExitComplete = useCallback(() => {
+    startScroll?.();
     onExitComplete();
-  }, [onExitComplete]);
+  }, [onExitComplete, startScroll]);
 
   usePortfolioDetailExpand(
     open,
@@ -48,9 +49,17 @@ export function PortfolioDetailPanel({
   );
 
   useEffect(() => {
-    stopScroll?.();
-    return () => startScroll?.();
-  }, [stopScroll, startScroll]);
+    if (open) {
+      stopScroll?.();
+    }
+  }, [open, stopScroll]);
+
+  useEffect(
+    () => () => {
+      startScroll?.();
+    },
+    [startScroll]
+  );
 
   useEffect(() => {
     if (!open) return;

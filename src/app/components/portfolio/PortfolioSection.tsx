@@ -13,7 +13,8 @@ import { rectFromDOM, type PanelRect } from "./portfolioDetailTypes";
 function PortfolioCard({
   item,
   tagLabel,
-  isActive,
+  floatPaused,
+  isExpanded,
   speed,
   floatDelay,
   floatDuration,
@@ -21,7 +22,8 @@ function PortfolioCard({
 }: {
   item: Project;
   tagLabel: string;
-  isActive: boolean;
+  floatPaused: boolean;
+  isExpanded: boolean;
   speed: number;
   floatDelay: number;
   floatDuration: number;
@@ -37,7 +39,7 @@ function PortfolioCard({
 
   return (
     <div
-      className={`portfolio-section__float${isActive ? " is-active" : ""}`}
+      className={`portfolio-section__float${floatPaused ? " is-active" : ""}`}
       style={
         {
           "--float-duration": `${floatDuration}s`,
@@ -68,7 +70,7 @@ function PortfolioCard({
           type="button"
           className="portfolio-section__expand"
           onClick={handleExpandClick}
-          aria-expanded={isActive}
+          aria-expanded={isExpanded}
           aria-haspopup="dialog"
           aria-label={`${t("portfolioExpand")}: ${item.title}`}
         >
@@ -104,10 +106,12 @@ export function PortfolioSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [originRect, setOriginRect] = useState<PanelRect | null>(null);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [lockedProjectSlug, setLockedProjectSlug] = useState<string | null>(null);
 
   usePortfolioParallax(sectionRef, columns);
 
   const handleExitComplete = useCallback(() => {
+    setLockedProjectSlug(null);
     setActiveProject(null);
     setOriginRect(null);
   }, []);
@@ -125,6 +129,7 @@ export function PortfolioSection() {
 
       setOriginRect(rectFromDOM(rect));
       setActiveProject(project);
+      setLockedProjectSlug(project.slug);
       setPanelOpen(true);
     },
     [activeProject, panelOpen, closePanel]
@@ -156,7 +161,8 @@ export function PortfolioSection() {
                   speed={speed}
                   floatDelay={floatDelay}
                   floatDuration={floatDuration}
-                  isActive={activeProject?.slug === item.slug && panelOpen}
+                  floatPaused={lockedProjectSlug !== null}
+                  isExpanded={lockedProjectSlug === item.slug}
                   tagLabel={item.kind === "work" ? t("projectTagWork") : t("projectTagPersonal")}
                   onExpand={(rect) => handleExpand(item, rect)}
                 />
