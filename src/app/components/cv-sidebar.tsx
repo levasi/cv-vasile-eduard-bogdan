@@ -4,6 +4,8 @@ import { useLanguage } from "./language-context";
 import React from "react";
 import { personalProjects, workProjects } from "../data/portfolio";
 import { skillGroups } from "../data/skills";
+import { useCvDesktopLayout } from "./cv/cv-layout-context";
+import { cn } from "./ui/utils";
 
 const contactInfo = [
   { icon: MapPin, text: "București 040932" },
@@ -16,9 +18,17 @@ const contactInfo = [
 export function CvSidebar() {
   const { t } = useLanguage();
   const projects = workProjects;
+  const isDesktopLayout = useCvDesktopLayout();
 
   return (
-    <aside className="bg-background w-full lg:w-[340px] text-sidebar-foreground p-4 lg:p-8 flex flex-col gap-8 shrink-0 border-b border-border lg:border-b-0 lg:border-r lg:border-border">
+    <aside
+      className={cn(
+        "bg-background text-sidebar-foreground flex flex-col gap-8 shrink-0 border-border",
+        isDesktopLayout
+          ? "w-[340px] border-r p-8"
+          : "w-full border-b p-4 lg:w-[340px] lg:border-b-0 lg:border-r lg:p-8",
+      )}
+    >
       {/* Contact */}
       <div>
         <h3
@@ -81,40 +91,6 @@ export function CvSidebar() {
         </div>
       </div>
 
-      {/* Portfolio link */}
-      <div>
-        <h3
-          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
-          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
-        >
-          {t("portfolio")}
-        </h3>
-        <Link
-          to="/portfolio"
-          className="text-muted-foreground hover:text-primary transition-colors text-sm"
-        >
-          {t("viewFullPortfolio")}
-        </Link>
-
-        {projects.length > 0 && (
-          <ul className="mt-4 flex flex-col gap-2">
-            {projects.map((p) => (
-              <li key={p.slug}>
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  style={{ fontSize: "0.85rem", lineHeight: 1.4 }}
-                >
-                  {p.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
       {/* Personal projects */}
       {personalProjects.length > 0 && (
         <div>
@@ -144,6 +120,34 @@ export function CvSidebar() {
           </ul>
         </div>
       )}
+
+      {/* Work projects */}
+      <div>
+        <h3
+          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
+          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+        >
+          {t("workProjects")}
+        </h3>
+
+        {projects.length > 0 && (
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {projects.map((p) => (
+              <li key={p.slug} className="">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  style={{ fontSize: "0.85rem", lineHeight: 1.4 }}
+                >
+                  {p.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </aside>
   );
 }

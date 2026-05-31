@@ -9,7 +9,7 @@ export function CvPage() {
       </div>
 
       <div className="portfolio-container">
-        <div className="my-8 overflow-hidden rounded-xl bg-white shadow-2xl">
+        <div className="my-8 overflow-hidden rounded-xl bg-white sm:shadow-2xl">
           <CvDocument />
         </div>
       </div>

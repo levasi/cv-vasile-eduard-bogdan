@@ -9,6 +9,7 @@ import {
   type ReactNode,
   type RefObject,
 } from "react";
+import { useLocation } from "react-router-dom";
 import html2canvas from "html2canvas-pro";
 import { jsPDF } from "jspdf";
 import { useLanguage, type Lang } from "../language-context";
@@ -16,6 +17,8 @@ import { CvDocument } from "./CvDocument";
 
 const PDF_FILENAME = "Vasile_Bogdan_CV.pdf";
 const PDF_MIME = "application/pdf";
+/** Matches desktop CV width in portfolio-container so the PDF mirrors the on-screen layout. */
+const CV_PDF_CAPTURE_WIDTH = "80rem";
 
 type CvPdfDownloadApi = {
   downloading: boolean;
@@ -66,9 +69,10 @@ async function buildPdfBlob(element: HTMLElement) {
 
   if (wrapper) {
     wrapper.style.position = "fixed";
-    wrapper.style.left = "0";
+    // Keep off-screen during capture — moving to (0, 0) flashes a duplicate CV in the viewport.
+    wrapper.style.left = "-10000px";
     wrapper.style.top = "0";
-    wrapper.style.width = "80rem";
+    wrapper.style.width = CV_PDF_CAPTURE_WIDTH;
     wrapper.style.opacity = "1";
     wrapper.style.zIndex = "-1";
     wrapper.style.pointerEvents = "none";
@@ -214,16 +218,17 @@ function CvPdfSnapshot({ snapshotRef }: { snapshotRef: RefObject<HTMLDivElement 
     <div
       aria-hidden
       data-cv-pdf-snapshot
-      className="pointer-events-none fixed top-0 -left-[10000px] w-[80rem] max-w-none overflow-visible"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      className="pointer-events-none fixed top-0 -left-[10000px] max-w-none overflow-visible"
+      style={{ fontFamily: "'Inter', sans-serif", width: CV_PDF_CAPTURE_WIDTH }}
     >
-      <CvDocument ref={snapshotRef} />
+      <CvDocument ref={snapshotRef} forceDesktopLayout />
     </div>
   );
 }
 
 export function CvPdfDownloadProvider({ children }: { children: ReactNode }) {
   const { lang } = useLanguage();
+  const location = useLocation();
   const [downloading, setDownloading] = useState(false);
   const cvElementRef = useRef<HTMLDivElement | null>(null);
   const pdfCacheRef = useRef<{ lang: Lang; blob: Blob } | null>(null);
@@ -256,12 +261,14 @@ export function CvPdfDownloadProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     pdfCacheRef.current = null;
+    if (location.pathname !== "/cv") return;
+
     const timer = window.setTimeout(() => {
       void warmPdfCache(lang);
     }, 800);
 
     return () => window.clearTimeout(timer);
-  }, [lang, warmPdfCache]);
+  }, [lang, location.pathname, warmPdfCache]);
 
   const downloadCv = useCallback(async () => {
     if (downloading) return;

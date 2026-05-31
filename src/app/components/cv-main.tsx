@@ -2,6 +2,8 @@ import React from "react";
 import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 import { useLanguage } from "./language-context";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useCvDesktopLayout } from "./cv/cv-layout-context";
+import { cn } from "./ui/utils";
 
 interface ExperienceItem {
   titleKey: string;
@@ -100,13 +102,24 @@ const education: EducationItem[] = [
 
 export function CvMain() {
   const { t } = useLanguage();
+  const isDesktopLayout = useCvDesktopLayout();
 
   return (
-    <main className="flex-1 bg-background p-2 lg:p-8 lg:p-12 overflow-y-auto">
+    <main
+      className={cn(
+        "flex-1 overflow-y-auto bg-background",
+        isDesktopLayout ? "p-12" : "p-2 lg:p-8",
+      )}
+    >
       {/* Header */}
       <header className="mb-8">
         <div className="flex flex-col gap-6 sm:flex-row items-center">
-          <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 shadow-sm lg:h-40 lg:w-40">
+          <div
+            className={cn(
+              "h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 shadow-sm",
+              isDesktopLayout ? "h-40 w-40" : "lg:h-40 lg:w-40",
+            )}
+          >
             <ImageWithFallback
               src="/images/me.jpg"
               alt="Vasile Bogdan"
@@ -156,9 +169,9 @@ export function CvMain() {
           {/* Timeline line */}
           <div className="absolute left-[11px] top-2 bottom-0 w-px bg-border" />
 
-          <div className="flex flex-col gap-2 lg:gap-8">
+          <div className={cn("flex flex-col", isDesktopLayout ? "gap-8" : "gap-2 lg:gap-8")}>
             {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-0 lg:pl-8">
+              <div key={index} className={cn("relative", isDesktopLayout ? "pl-8" : "pl-0 lg:pl-8")}>
                 {/* Timeline dot */}
                 <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-sm" />
 

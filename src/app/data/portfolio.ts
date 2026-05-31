@@ -648,46 +648,6 @@ export const projects: Project[] = [
     cta: "View live",
     grid: { columns: 6, rows: 4 },
   },
-  {
-    slug: "brightsmile-dental",
-    kind: "personal",
-    title: "BrightSmile Dental",
-    headline: "A calm, high-trust marketing site built for bookings.",
-    url: "https://v0-dental-clinic-website-chi-five.vercel.app/",
-    screenshot: "/images/brightsmiledental.png",
-    tags: ["Personal project", "Healthcare", "Landing UX"],
-    short: "A calm, high-trust marketing site built for bookings.",
-    medium:
-      "A clinic marketing layout focused on trust signals, service clarity, and a booking-oriented structure that reads well on mobile.",
-    premium: [
-      "Trust-first design: calm palette, clear service sections, and approachable CTAs.",
-      "Structured for quick scanning so patients can understand offerings and take action fast.",
-    ],
-    role: "Personal build (design + frontend)",
-    technicalHighlights: ["Trust-focused layout", "Service section system", "Mobile-first readability"],
-    cta: "View live",
-    grid: { columns: 3, rows: 5 },
-  },
-  {
-    slug: "one-man-agency",
-    kind: "personal",
-    title: "One Man Agency",
-    headline: "A minimal portfolio built to feel confident, not loud.",
-    url: "https://one-man-agency-duf265f37-levasis-projects.vercel.app/",
-    screenshot: "/images/onemanagency.png",
-    tags: ["Personal project", "Portfolio", "Landing UX"],
-    short: "A minimal portfolio built to feel confident, not loud.",
-    medium:
-      "A compact marketing site with strong hierarchy, restrained motion, and a layout that stays readable with real copy.",
-    premium: [
-      "Focused on positioning and proof: short sections, confident typography, and a contact path that stays visible.",
-      "Built as a reusable page system so content can evolve without redesign.",
-    ],
-    role: "Personal build (design + frontend)",
-    technicalHighlights: ["Minimal marketing layout", "Reusable sections", "Responsive hierarchy"],
-    cta: "View live",
-    grid: { columns: 4, rows: 3 },
-  }
 ];
 
 export const workProjects = projects.filter((p) => p.kind === "work");

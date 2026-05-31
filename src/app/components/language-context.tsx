@@ -13,6 +13,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Nav
     cv: "CV",
     portfolio: "Portfolio",
+    workProjects: "Work projects",
     viewFullPortfolio: "View full portfolio →",
     personalProjects: "Personal projects",
     projectTagPersonal: "Personal project",
@@ -139,6 +140,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Nav
     cv: "CV",
     portfolio: "Portofoliu",
+    workProjects: "Proiecte profesionale",
     viewFullPortfolio: "Vezi portofoliul complet →",
     personalProjects: "Proiecte personale",
     projectTagPersonal: "Proiect personal",
