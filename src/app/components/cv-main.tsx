@@ -113,7 +113,14 @@ export function CvMain() {
     >
       {/* Header */}
       <header className="mb-8">
-        <div className="flex flex-col gap-6 sm:flex-row items-center">
+        <div
+          className={cn(
+            "flex gap-6",
+            isDesktopLayout
+              ? "flex-row items-start"
+              : "flex-col items-center sm:flex-row sm:items-center",
+          )}
+        >
           <div
             className={cn(
               "h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 shadow-sm",
@@ -127,7 +134,12 @@ export function CvMain() {
             />
           </div>
 
-          <div className="min-w-0 flex-1 text-center sm:text-left">
+          <div
+            className={cn(
+              "min-w-0 flex-1",
+              isDesktopLayout ? "text-left" : "text-center sm:text-left",
+            )}
+          >
 
             <h1
               className="text-foreground mb-1"
