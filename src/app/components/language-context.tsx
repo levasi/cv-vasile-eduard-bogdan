@@ -57,7 +57,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Main header
     jobTitle: "Senior Frontend Developer",
     summary:
-      "Frontend Developer with 8+ years of experience building scalable ecommerce and product interfaces using Vue.js, Nuxt, and any modern frontend technologies. Specialized in responsive UI systems, interactive experiences, and performance-focused frontend architecture with a strong design and UX foundation.",
+      "Frontend Developer with 10+ years of experience building scalable ecommerce and product interfaces using Vue.js, Nuxt, and any modern frontend technologies. Specialized in responsive UI systems, interactive experiences, and performance-focused frontend architecture with a strong design and UX foundation.",
 
     // Section titles
     workExperience: "Work Experience",

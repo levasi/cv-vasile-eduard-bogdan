@@ -9,7 +9,7 @@ export type SkillGroup = {
 export const skillGroups: readonly SkillGroup[] = [
   {
     titleKey: "skillsFrontend",
-    items: ["Vue.js", "Nuxt.js", "React", "Next.js", "JavaScript", "TypeScript", "HTML", "SCSS"],
+    items: ["Vue.js", "Nuxt.js", "React", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "GSAP", "HTML", "SCSS"],
     icon: Code2,
   },
   {

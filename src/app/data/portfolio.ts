@@ -515,7 +515,7 @@ export const projects: Project[] = [
       "Responsive B2B UI for a scientific catalog",
     ],
     cta: "View live",
-    grid: { columns: 5, rows: 5 },
+    grid: { columns: 3, rows: 5 },
   },
   {
     slug: "outstand",
@@ -542,7 +542,7 @@ export const projects: Project[] = [
     ],
     cta: "View live",
     featured: true,
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 5, rows: 4 },
   },
   {
     slug: "web48",
@@ -594,7 +594,7 @@ export const projects: Project[] = [
       "Responsive behavior designed for dense pages",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 3 },
+    grid: { columns: 5, rows: 5 },
   },
   {
     slug: "eutron",
@@ -620,7 +620,7 @@ export const projects: Project[] = [
       "Maintainable structure for long-term updates",
     ],
     cta: "View live",
-    grid: { columns: 6, rows: 4 },
+    grid: { columns: 5, rows: 4 },
   },
   {
     slug: "juristfirme",
@@ -646,7 +646,7 @@ export const projects: Project[] = [
       "Maintainable sections for evolving content",
     ],
     cta: "View live",
-    grid: { columns: 6, rows: 4 },
+    grid: { columns: 2, rows: 4 },
   },
 ];
 
