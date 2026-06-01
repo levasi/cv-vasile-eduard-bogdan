@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import { ArrowDown } from "lucide-react";
 import { useLanguage } from "../language-context";
 import { useLenisScrollApi } from "./useLenisScroll";
 
@@ -72,13 +73,14 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
         <a
           data-hero-cta
           href="#portfolio-work"
-          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:text-xs"
+          className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-white/70 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:text-xs"
           onClick={(e) => {
             e.preventDefault();
             scrollTo?.("#portfolio-work");
           }}
         >
           {t("heroExploreCta")}
+          <ArrowDown className="size-3.5 shrink-0 opacity-90" aria-hidden />
         </a>
       </div>
     </div>
