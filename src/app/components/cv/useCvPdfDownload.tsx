@@ -17,8 +17,23 @@ import { CvDocument } from "./CvDocument";
 
 const PDF_FILENAME = "Vasile_Bogdan_CV.pdf";
 const PDF_MIME = "application/pdf";
-/** Matches desktop CV width in portfolio-container so the PDF mirrors the on-screen layout. */
-const CV_PDF_CAPTURE_WIDTH = "80rem";
+/** A4 width — keeps capture pixel count aligned with output (avoids 80rem × 2× PNG bloat). */
+const CV_PDF_CAPTURE_WIDTH = "210mm";
+const PDF_WIDTH_MM = 210;
+const PDF_HEIGHT_MM = 297;
+/** ~150 DPI — sharp enough for screen/print without multi‑MB pages */
+const PDF_CAPTURE_DPI = 150;
+const PDF_JPEG_QUALITY = 0.88;
+
+function getCaptureScale(elementWidth: number) {
+  if (elementWidth <= 0) return 1;
+  const targetWidthPx = (PDF_WIDTH_MM / 25.4) * PDF_CAPTURE_DPI;
+  return Math.max(1, Math.min(2, targetWidthPx / elementWidth));
+}
+
+function canvasToJpegDataUrl(canvas: HTMLCanvasElement) {
+  return canvas.toDataURL("image/jpeg", PDF_JPEG_QUALITY);
+}
 
 type CvPdfDownloadApi = {
   downloading: boolean;
@@ -88,8 +103,9 @@ async function buildPdfBlob(element: HTMLElement) {
   try {
     await waitForImages(element);
 
+    const captureScale = getCaptureScale(element.offsetWidth);
     const canvas = await html2canvas(element, {
-      scale: 2,
+      scale: captureScale,
       useCORS: true,
       allowTaint: true,
       backgroundColor: "#ffffff",
@@ -98,25 +114,22 @@ async function buildPdfBlob(element: HTMLElement) {
       scrollY: 0,
     });
 
-    const imgData = canvas.toDataURL("image/png");
     const imgWidth = canvas.width;
     const imgHeight = canvas.height;
-
-    const pdfWidth = 210;
-    const pdfHeight = 297;
-    const ratio = pdfWidth / imgWidth;
+    const ratio = PDF_WIDTH_MM / imgWidth;
     const scaledHeight = imgHeight * ratio;
 
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "mm",
       format: "a4",
+      compress: true,
     });
 
-    if (scaledHeight <= pdfHeight) {
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, scaledHeight);
+    if (scaledHeight <= PDF_HEIGHT_MM) {
+      pdf.addImage(canvasToJpegDataUrl(canvas), "JPEG", 0, 0, PDF_WIDTH_MM, scaledHeight);
     } else {
-      const pageCanvasHeight = pdfHeight / ratio;
+      const pageCanvasHeight = PDF_HEIGHT_MM / ratio;
       let yOffset = 0;
       let page = 0;
 
@@ -129,12 +142,20 @@ async function buildPdfBlob(element: HTMLElement) {
         pageCanvas.height = sliceHeight;
         const ctx = pageCanvas.getContext("2d");
         if (ctx) {
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, imgWidth, sliceHeight);
           ctx.drawImage(canvas, 0, -yOffset);
         }
 
-        const pageImgData = pageCanvas.toDataURL("image/png");
         const pageScaledHeight = sliceHeight * ratio;
-        pdf.addImage(pageImgData, "PNG", 0, 0, pdfWidth, pageScaledHeight);
+        pdf.addImage(
+          canvasToJpegDataUrl(pageCanvas),
+          "JPEG",
+          0,
+          0,
+          PDF_WIDTH_MM,
+          pageScaledHeight
+        );
 
         yOffset += sliceHeight;
         page += 1;
