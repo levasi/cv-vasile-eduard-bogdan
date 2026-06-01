@@ -16,7 +16,8 @@ function applyScreenRect(el: HTMLElement, rect: PanelRect, borderRadius: number)
     height: rect.height,
     borderRadius,
     margin: 0,
-    transform: "none",
+    x: 0,
+    y: 0,
     opacity: 1,
   });
 }
@@ -52,25 +53,27 @@ export function usePortfolioDetailExpand(
   onExitComplete: () => void
 ) {
   const tweenRef = useRef<gsap.core.Timeline | null>(null);
+  const onExitCompleteRef = useRef(onExitComplete);
+  onExitCompleteRef.current = onExitComplete;
 
   useLayoutEffect(() => {
     const screen = screenRef.current;
+    const backdrop = backdropRef.current;
     const body = contentRef.current;
     const close = closeRef.current;
     const bodyInner = getBodyInner(body);
 
-    if (!screen || !originRect || !projectSlug) return;
+    if (!screen || !backdrop || !originRect || !projectSlug) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const target = getPanelTargetRect();
 
     tweenRef.current?.kill();
+    tweenRef.current = null;
 
     if (reducedMotion) {
       applyScreenRect(screen, open ? target : originRect, open ? 20 : 18);
-      if (backdropRef.current) {
-        gsap.set(backdropRef.current, { opacity: open ? 1 : 0 });
-      }
+      gsap.set(backdrop, { opacity: open ? 1 : 0 });
       if (body) {
         if (open) setBodyRevealed(body);
         else setBodyHidden(body);
@@ -81,13 +84,13 @@ export function usePortfolioDetailExpand(
       if (close) {
         gsap.set(close, { opacity: open ? 1 : 0 });
       }
-      if (!open) onExitComplete();
+      if (!open) onExitCompleteRef.current();
       return;
     }
 
     const tl = gsap.timeline({
       onComplete: () => {
-        if (!open) onExitComplete();
+        if (!open) onExitCompleteRef.current();
       },
     });
 
@@ -96,21 +99,13 @@ export function usePortfolioDetailExpand(
     if (open) {
       applyScreenRect(screen, originRect, 18);
 
-      if (backdropRef.current) {
-        gsap.set(backdropRef.current, { opacity: 0 });
-      }
-      if (body) {
-        setBodyHidden(body);
-      }
-      if (bodyInner) {
-        gsap.set(bodyInner, { opacity: 0 });
-      }
-      if (close) {
-        gsap.set(close, { opacity: 0 });
-      }
+      gsap.set(backdrop, { opacity: 0 });
+      if (body) setBodyHidden(body);
+      if (bodyInner) gsap.set(bodyInner, { opacity: 0 });
+      if (close) gsap.set(close, { opacity: 0 });
 
       tl.to(
-        backdropRef.current,
+        backdrop,
         { opacity: 1, duration: EXPAND_DURATION * 0.85, ease: "power2.out" },
         0
       );
@@ -168,7 +163,7 @@ export function usePortfolioDetailExpand(
       }
 
       tl.to(
-        backdropRef.current,
+        backdrop,
         { opacity: 0, duration: COLLAPSE_DURATION * 0.75, ease: "power2.in" },
         0
       );
@@ -190,17 +185,9 @@ export function usePortfolioDetailExpand(
 
     return () => {
       tweenRef.current?.kill();
+      tweenRef.current = null;
     };
-  }, [
-    open,
-    originRect,
-    projectSlug,
-    screenRef,
-    backdropRef,
-    contentRef,
-    closeRef,
-    onExitComplete,
-  ]);
+  }, [open, originRect, projectSlug, screenRef, backdropRef, contentRef, closeRef]);
 
   useEffect(() => {
     const screen = screenRef.current;
