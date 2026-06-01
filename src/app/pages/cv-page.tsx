@@ -8,11 +8,12 @@ export function CvPage() {
         <HeroNav />
       </div>
 
-      <div className="portfolio-container">
-        <div className="my-8 overflow-hidden rounded-xl bg-white sm:shadow-2xl">
+      <div className="max-w-[80rem] mx-auto sm:px-2">
+        <div className="overflow-hidden rounded-xl">
           <CvDocument />
         </div>
       </div>
+
     </div>
   );
 }

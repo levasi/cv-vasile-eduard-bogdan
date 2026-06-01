@@ -823,3 +823,7 @@ html {
   position: relative;
   background-color: #271b16;
 }
+
+.header {
+  background-color: transparent;
+}

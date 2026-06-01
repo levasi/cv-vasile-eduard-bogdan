@@ -12,10 +12,11 @@ const contact = {
 export function Footer() {
   return (
     <footer
-      className="footer py-8"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      className="footer py-8 border-t-1"
+      style={{ fontFamily: "'Inter', sans-serif", borderTopColor: "rgba(255,255,255,0.1)" }}
+
     >
-      <div className="portfolio-container py-10">
+      <div className="portfolio-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div>
             <div className="text-xs uppercase tracking-widest text-white/60">Contact</div>

@@ -20,7 +20,7 @@ export function HeroNav() {
   return (
     <header
       data-hero-nav
-      className="relative z-20 py-3"
+      className="relative z-20 py-3 header"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <div className="portfolio-container flex items-center justify-between gap-6">

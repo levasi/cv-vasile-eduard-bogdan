@@ -71,18 +71,20 @@ const translations: Record<Lang, Record<string, string>> = {
     // Experience 1
     "exp1.title": "Senior Frontend Developer",
     "exp1.period": "Jun 2021 — Jun 2026",
+    "exp1.desc":
+      "Delivered scalable ecommerce solutions across Shopware and Shopify for enterprise clients, focusing on storefront performance, custom platform extensions, and maintainable frontend architecture.",
     "exp1.resp1":
       "Built scalable ecommerce interfaces for high-traffic Shopware storefronts with focus on performance, UX consistency, and maintainable component architecture.",
     "exp1.resp2":
-      "Extended the administration of Shopware stores by developing new CMS components, elements, and features.",
+      "Developed and maintained custom Shopware plugins, CMS components, and scalable ecommerce features to extend platform functionality and improve content management workflows.",
 
     // Experience 2
     "exp2.title": "Frontend Developer",
     "exp2.period": "Mar 2020 — Apr 2021",
     "exp2.desc":
-      "Contributed to the development of an online dating application, focusing on user experience, functionality, and performance optimization.",
+      "Contributed to the development of an online dating platform, focusing on intuitive user experiences, frontend functionality, and performance optimization.",
     "exp2.resp1":
-      "Implemented the application's user interface and logical workflow to ensure a seamless and intuitive user experience.",
+      "Implemented responsive user interfaces and application workflows focused on delivering seamless, intuitive, and engaging user experiences",
     "exp2.resp2":
       "Developed and maintained a scalable Storybook-based design system to streamline UI consistency and accelerate development.",
 
@@ -101,12 +103,16 @@ const translations: Record<Lang, Record<string, string>> = {
     // Experience 4
     "exp4.title": "Frontend Developer",
     "exp4.period": "May 2016 — Feb 2018",
+    "exp4.desc":
+      "Developed responsive front-end prototypes for web applications, turning business requirements and design specifications into functional user interfaces.",
     "exp4.resp1":
       "Developed fully functional, responsive front-end prototypes aligned with business requirements and design specifications.",
 
     // Experience 5
     "exp5.title": "3D Designer",
     "exp5.period": "Oct 2014 — May 2016",
+    "exp5.desc":
+      "Designed exhibition stands and promotional visuals for clients, combining 3D visualization, technical documentation, and brand-consistent marketing assets.",
     "exp5.resp1":
       "Produced photorealistic 3D renders of exhibition stands for client presentations and marketing materials.",
     "exp5.resp2":
@@ -198,6 +204,8 @@ const translations: Record<Lang, Record<string, string>> = {
     // Experience 1
     "exp1.title": "Dezvoltator Frontend Senior",
     "exp1.period": "Iun 2021 — Iun 2026",
+    "exp1.desc":
+      "Am livrat soluții e-commerce scalabile pe Shopware și Shopify pentru clienți enterprise, cu focus pe performanța magazinelor, extensii personalizate ale platformei și arhitectură frontend ușor de întenținut.",
     "exp1.resp1":
       "Am construit interfețe e-commerce scalabile pentru magazine Shopware cu trafic ridicat, cu focus pe performanță, consistență UX și arhitectură de componente ușor de întenținut.",
     "exp1.resp2":
@@ -228,12 +236,16 @@ const translations: Record<Lang, Record<string, string>> = {
     // Experience 4
     "exp4.title": "Dezvoltator Frontend",
     "exp4.period": "Mai 2016 — Feb 2018",
+    "exp4.desc":
+      "Am dezvoltat prototipuri front-end responsive pentru aplicații web, transformând cerințele de business și specificațiile de design în interfețe funcționale.",
     "exp4.resp1":
       "Am dezvoltat prototipuri front-end complet funcționale și responsive, aliniate cu cerințele de business și specificațiile de design.",
 
     // Experience 5
     "exp5.title": "Designer 3D",
     "exp5.period": "Oct 2014 — Mai 2016",
+    "exp5.desc":
+      "Am proiectat standuri de expoziție și materiale promoționale pentru clienți, combinând vizualizare 3D, documentație tehnică și resurse de marketing aliniate brandului.",
     "exp5.resp1":
       "Am realizat randări 3D fotorealiste ale standurilor de expoziție pentru prezentări către clienți și materiale de marketing.",
     "exp5.resp2":

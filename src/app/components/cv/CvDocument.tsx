@@ -18,8 +18,9 @@ export const CvDocument = forwardRef<HTMLDivElement, CvDocumentProps>(function C
       <div
         ref={ref}
         className={cn(
-          "flex w-full overflow-hidden bg-white",
+          "flex w-full overflow-hidden bg-white my-8 rounded-xl border-2 border-white",
           forceDesktopLayout ? "flex-row" : "flex-col-reverse lg:flex-row",
+
         )}
       >
         <CvSidebar />
