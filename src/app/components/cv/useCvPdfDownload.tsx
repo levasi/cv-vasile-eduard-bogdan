@@ -17,18 +17,19 @@ import { CvDocument } from "./CvDocument";
 
 const PDF_FILENAME = "Vasile_Bogdan_CV.pdf";
 const PDF_MIME = "application/pdf";
-/** A4 width — keeps capture pixel count aligned with output (avoids 80rem × 2× PNG bloat). */
-const CV_PDF_CAPTURE_WIDTH = "210mm";
+/** Same width as desktop CV so layout matches the on-screen version. */
+const CV_PDF_CAPTURE_WIDTH = "80rem";
 const PDF_WIDTH_MM = 210;
 const PDF_HEIGHT_MM = 297;
-/** ~150 DPI — sharp enough for screen/print without multi‑MB pages */
+/** Output sharpness target (~150 DPI on A4). Scale stays at 1 for 80rem — no 2× PNG bloat. */
 const PDF_CAPTURE_DPI = 150;
-const PDF_JPEG_QUALITY = 0.88;
+const PDF_MAX_CAPTURE_SCALE = 1.35;
+const PDF_JPEG_QUALITY = 0.92;
 
 function getCaptureScale(elementWidth: number) {
   if (elementWidth <= 0) return 1;
   const targetWidthPx = (PDF_WIDTH_MM / 25.4) * PDF_CAPTURE_DPI;
-  return Math.max(1, Math.min(2, targetWidthPx / elementWidth));
+  return Math.max(1, Math.min(PDF_MAX_CAPTURE_SCALE, targetWidthPx / elementWidth));
 }
 
 function canvasToJpegDataUrl(canvas: HTMLCanvasElement) {

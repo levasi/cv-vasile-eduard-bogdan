@@ -148,6 +148,25 @@ export function CvSidebar() {
           </ul>
         )}
       </div>
+
+      {/* Online portfolio */}
+      <div>
+        <h3
+          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
+          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+        >
+          {t("onlinePortfolio")}
+        </h3>
+        <a
+          href="https://cv-vasile-eduard-bogdan.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground hover:text-primary transition-colors break-all"
+          style={{ fontSize: "0.85rem", lineHeight: 1.4 }}
+        >
+          cv-vasile-eduard-bogdan.vercel.app
+        </a>
+      </div>
     </aside>
   );
 }
