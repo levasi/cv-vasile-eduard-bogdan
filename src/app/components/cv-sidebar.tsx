@@ -23,7 +23,7 @@ export function CvSidebar() {
   return (
     <aside
       className={cn(
-        "bg-background text-sidebar-foreground flex flex-col gap-8 shrink-0 border-border",
+        "text-sidebar-foreground flex flex-col gap-8 shrink-0 border-border",
         isDesktopLayout
           ? "w-[340px] border-r p-8"
           : "w-full border-b p-4 lg:w-[340px] lg:border-b-0 lg:border-r lg:p-8",
@@ -79,7 +79,7 @@ export function CvSidebar() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="px-2.5 py-1 rounded-full bg-white border border-border text-secondary-foreground"
+                    className="px-2.5 py-1 rounded-full bg-white border border-border"
                     style={{ fontSize: "0.75rem" }}
                   >
                     {item}

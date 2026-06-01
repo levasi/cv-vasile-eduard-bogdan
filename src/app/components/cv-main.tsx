@@ -110,7 +110,7 @@ export function CvMain() {
   return (
     <main
       className={cn(
-        "flex-1 overflow-y-auto bg-background",
+        "flex-1 overflow-y-auto",
         isDesktopLayout ? "p-12" : "p-2 lg:p-8",
       )}
     >

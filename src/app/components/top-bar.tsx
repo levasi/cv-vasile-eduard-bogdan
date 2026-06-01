@@ -21,7 +21,7 @@ export function TopBar() {
   return (
     <header
       className={`w-full sticky top-0 z-50 border-b backdrop-blur-xl ${isDarkHero
-        ? "bg-[#070B14]/28 text-[#F8FAFC] border-white/10"
+        ? "bg-[var(--espresso)]/90 text-[var(--cream)] border-white/10"
         : "bg-background/70 text-foreground border-border"
         }`}
       style={{ fontFamily: "'Inter', sans-serif" }}

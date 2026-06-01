@@ -7,8 +7,8 @@ const HeroSection = lazy(() =>
 
 function HeroFallback() {
   return (
-    <div className="min-h-[100svh] bg-[#070B14] flex items-center justify-center">
-      <div className="h-10 w-10 rounded-full border-2 border-[#7C3AED]/30 border-t-[#7C3AED] animate-spin" />
+    <div className="min-h-[100svh] bg-[var(--espresso)] flex items-center justify-center">
+      <div className="h-10 w-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
     </div>
   );
 }
