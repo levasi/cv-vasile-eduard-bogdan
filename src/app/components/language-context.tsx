@@ -50,8 +50,9 @@ const translations: Record<Lang, Record<string, string>> = {
       "I’m available for senior frontend roles and premium agency work—shipping fast, polished interfaces with clean architecture.",
     // Sidebar
     contact: "Contact",
-    skills: "Skills",
-    skillsFrontend: "Frontend",
+    skillsHeading: "Skills",
+    toolsHeading: "Tools",
+    skillsFrontend: "Frontend development",
     skillsEcommerce: "Ecommerce",
     skillsUiDesign: "UI & Design",
     skillsMotionDesign: "Motion design",
@@ -64,7 +65,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Section titles
     workExperience: "Work Experience",
     education: "Education",
-    tools: "Tools:",
+    technologies: "Technologies:",
 
     // Buttons
     downloadPdf: "CV",
@@ -185,8 +186,9 @@ const translations: Record<Lang, Record<string, string>> = {
       "Sunt disponibil pentru roluri senior frontend și proiecte premium în agenții—livrând interfețe rapide, finisate și cu arhitectură curată.",
     // Sidebar
     contact: "Contact",
-    skills: "Competențe",
-    skillsFrontend: "Frontend",
+    skillsHeading: "Competențe",
+    toolsHeading: "Instrumente",
+    skillsFrontend: "Dezvoltare frontend",
     skillsEcommerce: "E-commerce",
     skillsUiDesign: "UI & Design",
     skillsMotionDesign: "Motion design",
@@ -199,7 +201,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Section titles
     workExperience: "Experiență profesională",
     education: "Educație",
-    tools: "Instrumente:",
+    technologies: "Tehnologii:",
 
     // Buttons
     downloadPdf: "CV",

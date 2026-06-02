@@ -1,107 +1,10 @@
 import React from "react";
-import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
+import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { useLanguage } from "./language-context";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { experiences } from "../data/experience";
 import { useCvDesktopLayout } from "./cv/cv-layout-context";
 import { cn } from "./ui/utils";
-
-interface ExperienceItem {
-  titleKey: string;
-  company: string;
-  location: string;
-  periodKey: string;
-  descKey?: string;
-  respKeys: string[];
-  tools: string;
-}
-
-const experiences: ExperienceItem[] = [
-  {
-    titleKey: "exp1.title",
-    company: "Valantic Romania",
-    location: "București",
-    periodKey: "exp1.period",
-    descKey: "exp1.desc",
-    respKeys: ["exp1.resp1", "exp1.resp2"],
-    tools: "Shopware, Shopify, JavaScript, TypeScript, Meteor, Twig Templates, Vue.js, HTML, SCSS, Jira",
-  },
-  {
-    titleKey: "exp2.title",
-    company: "Encode Expert",
-    location: "București",
-    periodKey: "exp2.period",
-    descKey: "exp2.desc",
-    respKeys: ["exp2.resp1", "exp2.resp2"],
-    tools: "JavaScript, Vue.js, Vuex, Nuxt, Bootstrap-Vue, Storybook, WebSockets, Figma, Nanocosmos",
-  },
-  {
-    titleKey: "exp3.title",
-    company: "STEP TO WEB Agency",
-    location: "București",
-    periodKey: "exp3.period",
-    descKey: "exp3.desc",
-    respKeys: ["exp3.resp1", "exp3.resp2", "exp3.resp3"],
-    tools: "JavaScript, Vue.js, Vuex, WordPress, Jira, Bitbucket, Git, Adobe Photoshop, Adobe XD, Webpack, AJAX",
-  },
-  {
-    titleKey: "exp4.title",
-    company: "SC XFACTORAPP SRL",
-    location: "București",
-    periodKey: "exp4.period",
-    descKey: "exp4.desc",
-    respKeys: ["exp4.resp1"],
-    tools: "HTML/HTML5, CSS3, SCSS, Bootstrap, JavaScript, jQuery",
-  },
-  {
-    titleKey: "exp5.title",
-    company: "Connect Promotions",
-    location: "București",
-    periodKey: "exp5.period",
-    descKey: "exp5.desc",
-    respKeys: ["exp5.resp1", "exp5.resp2", "exp5.resp3"],
-    tools: "3ds Max, V-Ray, KeyShot, AutoCAD, Adobe Photoshop, Adobe Illustrator",
-  },
-  {
-    titleKey: "exp6.title",
-    company: "Ferca Medical",
-    location: "Bucharest, Ilfov",
-    periodKey: "exp6.period",
-    respKeys: ["exp6.resp1", "exp6.resp2"],
-    tools: "Adobe Photoshop, Adobe Illustrator, CorelDRAW, InDesign, HTML, CSS, JavaScript",
-  },
-  {
-    titleKey: "exp7.title",
-    company: "Easy-Print (Digital Department)",
-    location: "Bucharest, Romania",
-    periodKey: "exp7.period",
-    respKeys: ["exp7.resp1"],
-    tools: "",
-  },
-];
-
-interface EducationItem {
-  degreeKey: string;
-  institutionKey: string;
-  period: string;
-}
-
-const education: EducationItem[] = [
-  {
-    degreeKey: "edu1.degree",
-    institutionKey: "edu1.institution",
-    period: "2015 — 2016",
-  },
-  {
-    degreeKey: "edu2.degree",
-    institutionKey: "edu2.institution",
-    period: "2007 — 2011",
-  },
-  {
-    degreeKey: "edu3.degree",
-    institutionKey: "edu3.institution",
-    period: "2002 — 2006",
-  },
-];
 
 export function CvMain() {
   const { t } = useLanguage();
@@ -238,58 +141,13 @@ export function CvMain() {
                         className="text-foreground shrink-0"
                         style={{ fontSize: "0.75rem", fontWeight: 600 }}
                       >
-                        {t("tools")}
+                        {t("technologies")}
                       </span>
                       <span className="text-muted-foreground" style={{ fontSize: "0.75rem" }}>
                         {exp.tools}
                       </span>
                     </div>
                   )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Education */}
-      <section>
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
-            <GraduationCap className="w-4 h-4 text-background" />
-          </div>
-          <h2
-            className="text-foreground"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 600 }}
-          >
-            {t("education")}
-          </h2>
-        </div>
-
-        <div className="relative">
-          <div className="absolute left-[11px] top-2 bottom-0 w-px bg-border" />
-
-          <div className="flex flex-col gap-5">
-            {education.map((edu, index) => (
-              <div key={index} className="relative pl-8">
-                <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary/70 border-2 border-background shadow-sm" />
-
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <div>
-                    <h3 className="text-foreground" style={{ fontSize: "0.95rem", fontWeight: 600 }}>
-                      {t(edu.degreeKey)}
-                    </h3>
-                    <p className="text-muted-foreground" style={{ fontSize: "0.82rem" }}>
-                      {t(edu.institutionKey)}
-                    </p>
-                  </div>
-                  <span
-                    className="flex items-center gap-1.5 text-muted-foreground whitespace-nowrap shrink-0"
-                    style={{ fontSize: "0.78rem" }}
-                  >
-                    <Calendar className="w-3 h-3" />
-                    {edu.period}
-                  </span>
                 </div>
               </div>
             ))}

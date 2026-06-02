@@ -2,10 +2,35 @@ import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "./language-context";
 import React from "react";
-import { personalProjects, workProjects } from "../data/portfolio";
+import { cvToolsByFrequency } from "../data/cv-tools";
 import { skillGroups } from "../data/skills";
+import { personalProjects, workProjects } from "../data/portfolio";
 import { useCvDesktopLayout } from "./cv/cv-layout-context";
 import { cn } from "./ui/utils";
+
+interface EducationItem {
+  degreeKey: string;
+  institutionKey: string;
+  period: string;
+}
+
+const education: EducationItem[] = [
+  {
+    degreeKey: "edu1.degree",
+    institutionKey: "edu1.institution",
+    period: "2015 — 2016",
+  },
+  {
+    degreeKey: "edu2.degree",
+    institutionKey: "edu2.institution",
+    period: "2007 — 2011",
+  },
+  {
+    degreeKey: "edu3.degree",
+    institutionKey: "edu3.institution",
+    period: "2002 — 2006",
+  },
+];
 
 const contactInfo = [
   { icon: MapPin, text: "București 040932" },
@@ -67,17 +92,65 @@ export function CvSidebar() {
           className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
           style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
         >
-          {t("skills")}
+          {t("skillsHeading")}
         </h3>
-        <div className="flex flex-col gap-5">
-          {skillGroups.map((group) => (
-            <div key={group.titleKey}>
-              <div className="text-xs font-semibold text-foreground/80 mb-2 tracking-wide">
-                {t(group.titleKey)}
-              </div>
-            </div>
+        <div className="flex flex-wrap gap-2">
+          {skillGroups.map(({ titleKey }) => (
+            <span
+              key={titleKey}
+              className="px-2.5 py-1 rounded-full bg-white border border-border text-foreground"
+              style={{ fontSize: "0.75rem" }}
+            >
+              {t(titleKey)}
+            </span>
           ))}
         </div>
+      </div>
+
+      {/* Tools */}
+      <div>
+        <h3
+          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
+          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+        >
+          {t("toolsHeading")}
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {cvToolsByFrequency.map((tool) => (
+            <span
+              key={tool}
+              className="px-2.5 py-1 rounded-full bg-white border border-border text-foreground"
+              style={{ fontSize: "0.75rem" }}
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Education */}
+      <div>
+        <h3
+          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
+          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+        >
+          {t("education")}
+        </h3>
+        <ul className="flex flex-col gap-4">
+          {education.map((edu) => (
+            <li key={edu.degreeKey}>
+              <p className="text-foreground" style={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.4 }}>
+                {t(edu.degreeKey)}
+              </p>
+              <p className="text-muted-foreground" style={{ fontSize: "0.8rem", lineHeight: 1.5 }}>
+                {t(edu.institutionKey)}
+              </p>
+              <p className="text-muted-foreground/80" style={{ fontSize: "0.75rem", lineHeight: 1.4 }}>
+                {edu.period}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* Personal projects */}
