@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "../language-context";
-import { LanguageToggle, DownloadButton } from "../cv-controls";
+import { DownloadButton } from "../cv-controls";
 import { useCvPdfDownload } from "../cv/useCvPdfDownload";
 import { cn } from "../ui/utils";
 
@@ -61,8 +61,6 @@ export function HeroNav() {
             onClick={() => void downloadCv()}
             variant="dark"
           />
-
-          <LanguageToggle variant="dark" />
         </div>
       </div>
     </header>

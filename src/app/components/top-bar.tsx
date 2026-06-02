@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "./language-context";
 import { FileText, Briefcase } from "lucide-react";
-import { LanguageToggle } from "./cv-controls";
 
 const navItems = [
   { path: "/", labelKey: "portfolio", icon: Briefcase },
@@ -51,8 +50,6 @@ export function TopBar() {
             );
           })}
         </div>
-
-        <LanguageToggle variant={isDarkHero ? "dark" : "light"} />
       </nav>
     </header>
   );

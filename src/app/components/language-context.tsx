@@ -31,7 +31,7 @@ const translations: Record<Lang, Record<string, string>> = {
     heroLine2: "the tools",
     heroLine3: "It is about",
     heroLine4: "Who is behind them.",
-    heroAccent: "Let's build things together.",
+    heroAccent: "Let's build together.",
     heroExploreCta: "Explore my work",
     heroPlayReel: "Play reel",
     heroNavWork: "Work",
