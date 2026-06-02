@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Maximize2 } from "lucide-react";
 import { useLanguage } from "../language-context";
 import { projects, type Project } from "../../data/portfolio";
@@ -9,6 +9,8 @@ import { usePortfolioGridColumns } from "./usePortfolioGridColumns";
 import { usePortfolioParallax } from "./usePortfolioParallax";
 import { PortfolioDetailPanel } from "./PortfolioDetailPanel";
 import { rectFromDOM, type PanelRect } from "./portfolioDetailTypes";
+import { Checkbox } from "../ui/checkbox";
+import { cn } from "../ui/utils";
 
 function PortfolioCard({
   item,
@@ -96,12 +98,18 @@ export function PortfolioSection() {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const columns = usePortfolioGridColumns();
+  const [selectedKinds, setSelectedKinds] = useState<("work" | "personal")[]>(["work", "personal"]);
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter((project) => selectedKinds.includes(project.kind));
+  }, [selectedKinds]);
+
   const gridPlacements = useMemo(
     () => getProjectPlacements(
-      projects.map((p) => p.grid),
+      filteredProjects.map((p) => p.grid),
       columns
     ),
-    [columns]
+    [columns, filteredProjects]
   );
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [originRect, setOriginRect] = useState<PanelRect | null>(null);
@@ -109,6 +117,15 @@ export function PortfolioSection() {
   const [lockedProjectSlug, setLockedProjectSlug] = useState<string | null>(null);
 
   usePortfolioParallax(sectionRef, columns);
+
+  useEffect(() => {
+    if (!activeProject) return;
+    if (filteredProjects.some((p) => p.slug === activeProject.slug)) return;
+    setPanelOpen(false);
+    setLockedProjectSlug(null);
+    setActiveProject(null);
+    setOriginRect(null);
+  }, [activeProject, filteredProjects]);
 
   const handleExitComplete = useCallback(() => {
     setLockedProjectSlug(null);
@@ -143,12 +160,71 @@ export function PortfolioSection() {
 
   return (
     <section id="portfolio-work" ref={sectionRef} className="portfolio-items-section">
+      <div className="pt-6 justify-center flex flex-wrap items-center gap-2">
+        {(() => {
+          const allChecked = selectedKinds.length === 2;
+          return (
+            <label
+              key="all"
+              className={cn(
+                "inline-flex cursor-pointer select-none items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-wide transition-colors",
+                allChecked
+                  ? "border-white/25 bg-white/12 text-white"
+                  : "border-white/12 bg-white/6 text-white/70 hover:bg-white/10 hover:text-white/85",
+              )}
+            >
+              <Checkbox
+                checked={allChecked}
+                onCheckedChange={(next) => {
+                  if (next === true) setSelectedKinds(["work", "personal"]);
+                }}
+                aria-label={t("filterAll")}
+                className="border-white/25 data-[state=checked]:bg-[rgba(var(--gold-rgb),0.9)] data-[state=checked]:border-[rgba(var(--gold-rgb),0.9)]"
+              />
+              <span>{t("filterAll")}</span>
+            </label>
+          );
+        })()}
+
+        {(["work", "personal"] as const).map((kind) => {
+          const checked = selectedKinds.includes(kind);
+          const label = kind === "work" ? t("workProjects") : t("personalProjects");
+
+          return (
+            <label
+              key={kind}
+              className={cn(
+                "inline-flex cursor-pointer select-none items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-wide transition-colors",
+                checked
+                  ? "border-white/25 bg-white/12 text-white"
+                  : "border-white/12 bg-white/6 text-white/70 hover:bg-white/10 hover:text-white/85",
+              )}
+            >
+              <Checkbox
+                checked={checked}
+                onCheckedChange={(next) => {
+                  const nextChecked = next === true;
+                  setSelectedKinds((prev) => {
+                    if (nextChecked) return prev.includes(kind) ? prev : [...prev, kind];
+                    const nextKinds = prev.filter((k) => k !== kind);
+                    // Keep at least one kind selected
+                    return nextKinds.length === 0 ? prev : nextKinds;
+                  });
+                }}
+                aria-label={label}
+                className="border-white/25 data-[state=checked]:bg-[rgba(var(--gold-rgb),0.9)] data-[state=checked]:border-[rgba(var(--gold-rgb),0.9)]"
+              />
+              <span>{label}</span>
+            </label>
+          );
+        })}
+      </div>
       <div className="portfolio-section__content">
         <div
           className="portfolio-section__grid"
           style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
         >
-          {projects.map((item, index) => {
+          {filteredProjects.map((item, index) => {
             const { speed, floatDelay, floatDuration } = getProjectGridLayout(index, item.slug);
             return (
               <div
