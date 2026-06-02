@@ -73,7 +73,7 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
         <a
           data-hero-cta
           href="#portfolio-work"
-          className="hero-cta cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/42 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-[0_14px_38px_rgba(0,0,0,0.32)] backdrop-blur-md transition-colors hover:bg-white/52 hover:border-white/55 sm:text-xs"
+          className="hero-cta cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] sm:text-xs"
           onClick={(e) => {
             e.preventDefault();
             scrollTo?.("#portfolio-work");
