@@ -50,7 +50,7 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <h1
-        className="hero-headline max-w-4xl text-[clamp(2rem,5.2vw,4rem)] uppercase leading-[1.06]"
+        className="hero-headline max-w-4xl text-[clamp(2rem,5.2vw,3.5rem)] uppercase leading-[1.06]"
         aria-label={fullHeadline}
       >
         <span className="sr-only">{fullHeadline}</span>
@@ -64,7 +64,7 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
       </h1>
       <span
         data-hero-accent
-        className="hero-accent-text hero-script-text mt-6 block w-fit max-w-full text-[clamp(1.75rem,4.5vw,3.25rem)] opacity-0"
+        className="hero-accent hero-accent-text hero-script-text mt-6 block w-fit max-w-full opacity-0"
         aria-hidden
       >
         {t("heroAccent")}
@@ -73,7 +73,7 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
         <a
           data-hero-cta
           href="#portfolio-work"
-          className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-white/70 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:text-xs"
+          className="hero-cta cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/42 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] shadow-[0_14px_38px_rgba(0,0,0,0.32)] backdrop-blur-md transition-colors hover:bg-white/52 hover:border-white/55 sm:text-xs"
           onClick={(e) => {
             e.preventDefault();
             scrollTo?.("#portfolio-work");

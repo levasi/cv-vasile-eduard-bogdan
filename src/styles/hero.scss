@@ -1,0 +1,25 @@
+.hero-accent {
+  // Extra glow to match warm theme palette.
+  // (The gradient fill is still handled by `.hero-script-text` in `theme.css`.)
+  filter: drop-shadow(0 2px 14px rgba(var(--primary-rgb), 0.32))
+    drop-shadow(0 10px 36px rgba(var(--gold-rgb), 0.18));
+  will-change: opacity, transform, filter;
+}
+
+.hero-cta {
+  // Keep high contrast over the glass fill.
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.5),
+    0 10px 26px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(var(--gold-rgb), 0.16);
+}
+
+.hero-cta:hover {
+  color: #fff;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    0 12px 30px rgba(0, 0, 0, 0.32),
+    0 0 26px rgba(var(--gold-rgb), 0.22);
+}
+
