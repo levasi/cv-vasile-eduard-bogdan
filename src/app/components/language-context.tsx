@@ -53,7 +53,7 @@ const translations: Record<Lang, Record<string, string>> = {
     skillsFrontend: "Frontend",
     skillsEcommerce: "Ecommerce",
     skillsUiDesign: "UI & Design",
-    skillsTools: "Tools",
+    skillsMotionDesign: "Motion design",
 
     // Main header
     jobTitle: "Senior Frontend Developer",
@@ -187,7 +187,7 @@ const translations: Record<Lang, Record<string, string>> = {
     skillsFrontend: "Frontend",
     skillsEcommerce: "E-commerce",
     skillsUiDesign: "UI & Design",
-    skillsTools: "Instrumente",
+    skillsMotionDesign: "Motion design",
 
     // Main header
     jobTitle: "Senior Frontend Developer",

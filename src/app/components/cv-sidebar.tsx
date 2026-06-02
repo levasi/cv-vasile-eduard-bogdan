@@ -75,17 +75,6 @@ export function CvSidebar() {
               <div className="text-xs font-semibold text-foreground/80 mb-2 tracking-wide">
                 {t(group.titleKey)}
               </div>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-2.5 py-1 rounded-full bg-white border border-border"
-                    style={{ fontSize: "0.75rem" }}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
             </div>
           ))}
         </div>
