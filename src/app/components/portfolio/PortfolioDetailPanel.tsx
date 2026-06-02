@@ -118,7 +118,14 @@ export function PortfolioDetailPanel({
         <div ref={contentRef} className="portfolio-detail-panel__body">
           <div className="portfolio-detail-panel__body-glass" aria-hidden />
           <div className="portfolio-detail-panel__body-inner">
-            <span className="portfolio-detail-panel__tag">{tagLabel}</span>
+            <div className="portfolio-detail-panel__meta-tags">
+              <span className="portfolio-detail-panel__tag">{tagLabel}</span>
+              {project.workInProgress ? (
+                <span className="portfolio-detail-panel__tag portfolio-detail-panel__tag--wip">
+                  {t("projectStatusWip")}
+                </span>
+              ) : null}
+            </div>
 
             <h3 className="portfolio-detail-panel__title">{project.title}</h3>
             <p className="portfolio-detail-panel__headline">{project.headline}</p>

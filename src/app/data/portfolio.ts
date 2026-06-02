@@ -27,6 +27,7 @@ export type Project = {
   technicalHighlights: string[];
   cta: string;
   featured?: boolean;
+  workInProgress?: boolean;
   /** Bento grid footprint — spans are relative to a 12-column desktop grid */
   grid: ProjectGrid;
 };
@@ -98,6 +99,33 @@ export const projects: Project[] = [
     technicalHighlights: ["Reading-first layout system", "Responsive typography", "Lightweight content browsing"],
     cta: "View live",
     grid: { columns: 6, rows: 4 },
+  },
+  {
+    slug: "music-visualizer",
+    kind: "personal",
+    title: "Music Visualizer",
+    headline: "Layer-based music visualizer studio with real-time audio reactivity.",
+    url: "https://musicvisualizer-one.vercel.app/",
+    screenshot: "/images/music-visualizer.png",
+    tags: ["Personal project", "Nuxt 3", "Vue 3", "TypeScript", "Tailwind CSS", "Web Audio API"],
+    short:
+      "Upload a track, compose image and text layers, tune audio reactivity, and export a synced WebM—or embed the visualizer anywhere.",
+    medium:
+      "A full studio editor with image and text layer stacks, custom frequency bands, beat detection, and audio-reactive modulations—backed by cloud project saves and guest mode.",
+    premium: [
+      "Built as a product, not a demo: projects persist to SQLite, layers bind to kick/snare/hi-hat bands, and export records the full visualization with synced audio.",
+      "Composable layer editor with drag-and-drop ordering, per-parameter easing, and embed routes via Vue component, iframe postMessage, and a web component.",
+      "Real-time FFT, BPM estimation, and optional Essentia.js analysis drive musical layer motion instead of generic waveform wobble.",
+    ],
+    role: "Personal build (design + full-stack frontend)",
+    technicalHighlights: [
+      "Layer-based editor with image/text stacks and audio-driven parameter modulations",
+      "Interactive frequency spectrum with custom bands driving layer modulations",
+      "Embeddable via Vue component, iframe, web component, and postMessage API",
+    ],
+    cta: "View live",
+    workInProgress: true,
+    grid: { columns: 6, rows: 5 },
   },
   {
     slug: "hofats",

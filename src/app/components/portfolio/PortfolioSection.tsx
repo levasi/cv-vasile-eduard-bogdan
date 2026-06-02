@@ -50,7 +50,12 @@ function PortfolioCard({
       }
     >
       <div ref={cardRef} className="portfolio-section__card group relative flex min-h-0 flex-1 flex-col">
-        <span className="portfolio-section__tag">{tagLabel}</span>
+        <div className="portfolio-section__tags">
+          <span className="portfolio-section__tag">{tagLabel}</span>
+          {item.workInProgress ? (
+            <span className="portfolio-section__tag portfolio-section__tag--wip">{t("projectStatusWip")}</span>
+          ) : null}
+        </div>
 
         <div className="portfolio-section__media">
           <div

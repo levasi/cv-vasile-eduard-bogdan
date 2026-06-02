@@ -20,6 +20,7 @@ const translations: Record<Lang, Record<string, string>> = {
     personalProjects: "Personal projects",
     projectTagPersonal: "Personal project",
     projectTagWork: "Work project",
+    projectStatusWip: "Work in progress",
     portfolioExpand: "Expand project details",
     portfolioClose: "Close project details",
 
@@ -156,6 +157,7 @@ const translations: Record<Lang, Record<string, string>> = {
     personalProjects: "Proiecte personale",
     projectTagPersonal: "Proiect personal",
     projectTagWork: "Proiect profesional",
+    projectStatusWip: "În lucru",
     portfolioExpand: "Deschide detaliile proiectului",
     portfolioClose: "Închide detaliile proiectului",
 
