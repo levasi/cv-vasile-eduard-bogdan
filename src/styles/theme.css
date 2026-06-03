@@ -826,7 +826,7 @@ html {
 .hero-accent {
   font-family: "Brittany Signature", cursive;
   font-weight: 400;
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1.8rem, 4vw, 2rem);
   color: var(--gold-bright);
   letter-spacing: 0.01em;
   line-height: 1.35;

@@ -15,7 +15,7 @@ export function HeroSkillsBar() {
         {skillGroups.map(({ icon: Icon, titleKey, items }) => (
           <div
             key={titleKey}
-            className="flex flex-col gap-2 px-5 py-4 sm:px-6 sm:py-5 lg:border-r lg:border-white/8 lg:last:border-r-0"
+            className="flex gap-2 sm:justify-center px-5 py-4 sm:px-6 sm:py-5 lg:border-r lg:border-white/8 lg:last:border-r-0"
             data-hero-skill
           >
             <div className="flex items-center gap-2 text-[#F5C76B] justify-center">
