@@ -58,7 +58,7 @@ export const projects: Project[] = [
     ],
     cta: "View product",
     featured: true,
-    grid: { columns: 6, rows: 4 },
+    grid: { columns: 6, rows: 3 },
   },
   {
     slug: "raw-beats",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     role: "Personal build (design + frontend)",
     technicalHighlights: ["Listing-first UX", "Media-heavy responsive UI", "Conversion-friendly contact flows"],
     cta: "View live",
-    grid: { columns: 6, rows: 5 },
+    grid: { columns: 6, rows: 3 },
   },
   {
     slug: "poetryhub",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     role: "Personal build (design + frontend)",
     technicalHighlights: ["Reading-first layout system", "Responsive typography", "Lightweight content browsing"],
     cta: "View live",
-    grid: { columns: 6, rows: 4 },
+    grid: { columns: 6, rows: 3 },
   },
   {
     slug: "music-visualizer",
@@ -125,7 +125,33 @@ export const projects: Project[] = [
     ],
     cta: "View live",
     workInProgress: true,
-    grid: { columns: 6, rows: 5 },
+    grid: { columns: 6, rows: 3 },
+  },
+  {
+    slug: "dacia-1310",
+    kind: "personal",
+    title: "Dacia 1310",
+    headline: "Romania's everyday icon, told as a scroll-driven 3D story.",
+    url: "https://animations-ashen-chi.vercel.app/",
+    screenshot: "/images/dacia-1310.png",
+    tags: ["Personal project", "Scroll-driven", "Three.js", "3D", "Interactive storytelling"],
+    short:
+      "A scroll-driven visual story about the car that carried families, workers, students, and memories across Romania for more than two decades.",
+    medium:
+      "An editorial experience pairing serif typography with a central 3D Dacia 1310 model—section timeline, orbit controls, and scroll-triggered storytelling from intro through decades of everyday use.",
+    premium: [
+      "Built as a cinematic landing page, not a static brochure: scroll progress drives the narrative while the car stays present as the visual anchor.",
+      "Minimal chrome keeps focus on typography and the model—timeline dots, section labels, and subtle UI for orbit and year context.",
+      "Designed to feel like a museum exhibit on the web: calm palette, strong hierarchy, and motion that supports reading rather than distracting from it.",
+    ],
+    role: "Personal build (design + frontend)",
+    technicalHighlights: [
+      "Scroll-driven section narrative with timeline navigation",
+      "Interactive 3D model presentation with optional orbit mode",
+      "Editorial typography and restrained UI for long-form storytelling",
+    ],
+    cta: "View live",
+    grid: { columns: 6, rows: 3 },
   },
   {
     slug: "hofats",
@@ -178,7 +204,7 @@ export const projects: Project[] = [
       "Responsive layouts for marketing and shop flows",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 6 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "awg-mode",
@@ -204,7 +230,7 @@ export const projects: Project[] = [
       "Responsive, media-heavy layouts with stable performance",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 6 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "ingun",
@@ -257,7 +283,7 @@ export const projects: Project[] = [
       "Responsive, image-rich layouts with a premium brand feel",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 4 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "collectif-mon-amour",
@@ -309,7 +335,7 @@ export const projects: Project[] = [
       "Responsive layouts for catalog-heavy pages",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 5 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "funken",
@@ -335,7 +361,7 @@ export const projects: Project[] = [
       "Responsive B2B layouts with clear hierarchy",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 4 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "cornelsen",
@@ -543,7 +569,7 @@ export const projects: Project[] = [
       "Responsive B2B UI for a scientific catalog",
     ],
     cta: "View live",
-    grid: { columns: 3, rows: 5 },
+    grid: { columns: 3, rows: 3 },
   },
   {
     slug: "outstand",
@@ -570,7 +596,7 @@ export const projects: Project[] = [
     ],
     cta: "View live",
     featured: true,
-    grid: { columns: 5, rows: 4 },
+    grid: { columns: 5, rows: 3 },
   },
   {
     slug: "web48",
@@ -596,7 +622,7 @@ export const projects: Project[] = [
       "Interaction polish with minimal UI noise",
     ],
     cta: "View live",
-    grid: { columns: 4, rows: 4 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "cej-buc",
@@ -622,7 +648,7 @@ export const projects: Project[] = [
       "Responsive behavior designed for dense pages",
     ],
     cta: "View live",
-    grid: { columns: 5, rows: 5 },
+    grid: { columns: 5, rows: 3 },
   },
   {
     slug: "eutron",
@@ -648,7 +674,7 @@ export const projects: Project[] = [
       "Maintainable structure for long-term updates",
     ],
     cta: "View live",
-    grid: { columns: 5, rows: 4 },
+    grid: { columns: 5, rows: 3 },
   },
   {
     slug: "juristfirme",
@@ -674,7 +700,7 @@ export const projects: Project[] = [
       "Maintainable sections for evolving content",
     ],
     cta: "View live",
-    grid: { columns: 2, rows: 4 },
+    grid: { columns: 2, rows: 3 },
   },
 ];
 
