@@ -78,7 +78,7 @@ export const projects: Project[] = [
     role: "Personal build (design + frontend)",
     technicalHighlights: ["Listing-first UX", "Media-heavy responsive UI", "Conversion-friendly contact flows"],
     cta: "View live",
-    grid: { columns: 6, rows: 3 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "poetryhub",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     role: "Personal build (design + frontend)",
     technicalHighlights: ["Reading-first layout system", "Responsive typography", "Lightweight content browsing"],
     cta: "View live",
-    grid: { columns: 6, rows: 3 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "music-visualizer",
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     ],
     cta: "View live",
     workInProgress: true,
-    grid: { columns: 6, rows: 3 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "dacia-1310",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       "Editorial typography and restrained UI for long-form storytelling",
     ],
     cta: "View live",
-    grid: { columns: 6, rows: 3 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "hofats",
