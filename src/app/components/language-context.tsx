@@ -53,7 +53,7 @@ const translations: Record<Lang, Record<string, string>> = {
     contact: "Contact",
     skillsHeading: "Skills",
     toolsHeading: "Tools",
-    skillsFrontend: "Frontend development",
+    skillsFrontend: "Frontend",
     skillsEcommerce: "Ecommerce",
     skillsUiDesign: "UI & Design",
     skillsMotionDesign: "Motion design",
