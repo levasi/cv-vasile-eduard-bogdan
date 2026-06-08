@@ -67,7 +67,19 @@ export const projects: Project[] = [
     headline: "Community-first beat marketplace for MCs and producers.",
     url: "https://rawbeats.ro/",
     screenshot: "/images/rawbeats.png",
-    tags: ["Personal project", "Community", "Marketplace"],
+    tags: [
+      "Personal project",
+      "Nuxt 3",
+      "Vue 3",
+      "TypeScript",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Stripe",
+      "Socket.io",
+      "WaveSurfer.js",
+    ],
     short: "Community-first beat marketplace for MCs and producers.",
     medium:
       "A marketplace-style experience focused on discovery, previews, and a clear path from browsing beats to contacting creators.",
@@ -87,7 +99,18 @@ export const projects: Project[] = [
     headline: "Typography-first poetry reading and discovery.",
     url: "https://poetryhub.ro/",
     screenshot: "/images/poetryhub.png",
-    tags: ["Personal project", "Reading", "Typography"],
+    tags: [
+      "Personal project",
+      "Nuxt 3",
+      "Vue 3",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Pinia",
+      "i18n",
+      "Vercel",
+    ],
     short: "Read, discover, and share poetry—clean typography-first reading experience.",
     medium:
       "A reading-focused product built around calm layouts, clear hierarchy, and a lightweight publishing flow for poems and authors.",
@@ -107,7 +130,18 @@ export const projects: Project[] = [
     headline: "Layer-based music visualizer studio with real-time audio reactivity.",
     url: "https://musicvisualizer-one.vercel.app/",
     screenshot: "/images/music-visualizer.png",
-    tags: ["Personal project", "Nuxt 3", "Vue 3", "TypeScript", "Tailwind CSS", "Web Audio API"],
+    tags: [
+      "Personal project",
+      "Nuxt 3",
+      "Vue 3",
+      "TypeScript",
+      "Tailwind CSS",
+      "SQLite",
+      "Web Audio API",
+      "Essentia.js",
+      "JWT",
+      "Vercel",
+    ],
     short:
       "Upload a track, compose image and text layers, tune audio reactivity, and export a synced WebM—or embed the visualizer anywhere.",
     medium:
@@ -134,7 +168,18 @@ export const projects: Project[] = [
     headline: "Romania's everyday icon, told as a scroll-driven 3D story.",
     url: "https://animations-ashen-chi.vercel.app/",
     screenshot: "/images/dacia-1310.png",
-    tags: ["Personal project", "Scroll-driven", "Three.js", "3D", "Interactive storytelling"],
+    tags: [
+      "Personal project",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Three.js",
+      "React Three Fiber",
+      "GSAP",
+      "Lenis",
+      "Vercel",
+    ],
     short:
       "A scroll-driven visual story about the car that carried families, workers, students, and memories across Romania for more than two decades.",
     medium:
@@ -569,7 +614,7 @@ export const projects: Project[] = [
       "Responsive B2B UI for a scientific catalog",
     ],
     cta: "View live",
-    grid: { columns: 3, rows: 3 },
+    grid: { columns: 4, rows: 3 },
   },
   {
     slug: "outstand",
@@ -674,7 +719,7 @@ export const projects: Project[] = [
       "Maintainable structure for long-term updates",
     ],
     cta: "View live",
-    grid: { columns: 5, rows: 3 },
+    grid: { columns: 7, rows: 3 },
   },
   {
     slug: "juristfirme",
@@ -700,7 +745,7 @@ export const projects: Project[] = [
       "Maintainable sections for evolving content",
     ],
     cta: "View live",
-    grid: { columns: 2, rows: 3 },
+    grid: { columns: 3, rows: 3 },
   },
 ];
 
