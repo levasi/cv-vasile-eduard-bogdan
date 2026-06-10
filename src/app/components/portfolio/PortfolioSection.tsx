@@ -91,8 +91,10 @@ function PortfolioCard({
           className="portfolio-section__title"
           aria-label={`${item.cta}: ${item.title}`}
         >
-          <ArrowUpRight className="h-4 w-4 shrink-0 text-white/55 transition-colors" aria-hidden />
-          <span>{item.title}</span>
+          <span className="portfolio-section__title-text">
+            <ArrowUpRight className="portfolio-section__title-icon h-4 w-4 shrink-0" aria-hidden />
+            <span>{item.title}</span>
+          </span>
         </a>
       </div>
     </div>
