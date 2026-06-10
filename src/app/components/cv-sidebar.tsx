@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "./language-context";
 import React from "react";
+import { cvLanguages } from "../data/languages";
 import { cvToolsByFrequency } from "../data/cv-tools";
 import { skillGroups } from "../data/skills";
 import { personalProjects, workProjects } from "../data/portfolio";
@@ -126,6 +127,28 @@ export function CvSidebar() {
             </span>
           ))}
         </div>
+      </div>
+
+      {/* Languages */}
+      <div>
+        <h3
+          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
+          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+        >
+          {t("languagesHeading")}
+        </h3>
+        <ul className="flex flex-col gap-3">
+          {cvLanguages.map((language) => (
+            <li key={language.nameKey} className="flex items-baseline justify-between gap-3">
+              <span className="text-foreground" style={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.4 }}>
+                {t(language.nameKey)}
+              </span>
+              <span className="text-muted-foreground text-right" style={{ fontSize: "0.8rem", lineHeight: 1.5 }}>
+                {t(language.levelKey)}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* Education */}

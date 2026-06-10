@@ -57,6 +57,11 @@ const translations: Record<Lang, Record<string, string>> = {
     skillsEcommerce: "Ecommerce",
     skillsUiDesign: "UI & Design",
     skillsMotionDesign: "Motion design",
+    languagesHeading: "Languages",
+    "lang.ro.name": "Romanian",
+    "lang.ro.level": "Native",
+    "lang.en.name": "English",
+    "lang.en.level": "Advanced",
 
     // Main header
     jobTitle: "Senior Frontend Developer",
@@ -194,6 +199,11 @@ const translations: Record<Lang, Record<string, string>> = {
     skillsEcommerce: "E-commerce",
     skillsUiDesign: "UI & Design",
     skillsMotionDesign: "Motion design",
+    languagesHeading: "Limbi",
+    "lang.ro.name": "Română",
+    "lang.ro.level": "Nativ",
+    "lang.en.name": "Engleză",
+    "lang.en.level": "Avansat",
 
     // Main header
     jobTitle: "Senior Frontend Developer",
