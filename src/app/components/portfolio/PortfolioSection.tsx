@@ -91,7 +91,7 @@ function PortfolioCard({
           className="portfolio-section__title"
           aria-label={`${item.cta}: ${item.title}`}
         >
-          <span className="portfolio-section__title-text">
+          <span className="portfolio-section__title-text text-sm">
             <ArrowUpRight className="portfolio-section__title-icon h-4 w-4 shrink-0" aria-hidden />
             <span>{item.title}</span>
           </span>

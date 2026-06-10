@@ -470,6 +470,8 @@ html {
   -webkit-backdrop-filter: blur(16px) saturate(1.15);
   backdrop-filter: blur(16px) saturate(1.15);
   color: white;
+  letter-spacing: 0.1em;
+  font-weight: 400;
   transition:
     background 200ms ease,
     box-shadow 200ms ease,
