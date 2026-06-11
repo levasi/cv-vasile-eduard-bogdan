@@ -85,11 +85,11 @@ export function CvMain() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className={cn("flex flex-col", isDesktopLayout ? "gap-8" : "gap-2 lg:gap-8")}>
+          <div className={cn("flex flex-col")}>
             {experiences.map((exp, index) => (
               <div key={index} className={cn("relative")}>
                 {/* Timeline dot */}
-                <div className="rounded-lg p-5 border border-border transition-shadow">
+                <div className="rounded-lg p-5 transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
                     <div>
                       <h3 className="text-foreground font-display" style={{ fontSize: "1.2rem", letterSpacing: "0.03em", fontWeight: 600 }}>
@@ -145,6 +145,7 @@ export function CvMain() {
                     </div>
                   )}
                 </div>
+                <hr className="my-4 border-border" />
               </div>
             ))}
           </div>
