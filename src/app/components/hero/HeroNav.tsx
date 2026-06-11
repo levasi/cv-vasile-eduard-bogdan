@@ -20,7 +20,7 @@ export function HeroNav() {
   return (
     <header
       data-hero-nav
-      className="relative z-20 py-3 header"
+      className="relative z-20 py-3 header px-2"
     >
       <div className="portfolio-container flex items-center justify-between gap-6">
         <Link to={brandTo} className="group flex min-w-0 items-center gap-3 sm:gap-4">

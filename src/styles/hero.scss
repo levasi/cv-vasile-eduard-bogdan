@@ -1,33 +1,47 @@
-.hero-accent {
-  filter: drop-shadow(0 2px 8px rgba(var(--dark-rgb), 0.12));
-  will-change: opacity, transform, filter;
-}
-
-.hero-cta {
-  background-color: var(--primary);
-  background-image: linear-gradient(
-    120deg,
-    var(--sunset-deep) 0%,
-    var(--primary) 42%,
-    var(--sunset) 72%,
-    var(--gold) 100%
-  );
-  color: var(--primary-foreground);
-  border-color: rgba(var(--gold-rgb), 0.35);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.14);
-  box-shadow:
-    0 14px 38px rgba(0, 0, 0, 0.32),
-    0 0 0 1px rgba(var(--primary-rgb), 0.2) inset;
+/* Hero CTA buttons — flat, understated, premium */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.72rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
   transition:
-    filter 220ms ease,
-    box-shadow 220ms ease;
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
-.hero-cta:hover {
-  filter: brightness(1.07);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  box-shadow:
-    0 16px 42px rgba(0, 0, 0, 0.36),
-    0 0 0 1px rgba(var(--gold-rgb), 0.28) inset;
+.hero-btn:focus-visible {
+  outline: 2px solid var(--dark);
+  outline-offset: 3px;
 }
 
+.hero-btn--primary {
+  background-color: var(--dark);
+  border: 1px solid var(--dark);
+  color: var(--cream);
+}
+
+.hero-btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -12px rgba(var(--dark-rgb), 0.55);
+}
+
+.hero-btn--ghost {
+  background-color: transparent;
+  border: 1px solid rgba(var(--dark-rgb), 0.28);
+  color: var(--dark);
+}
+
+.hero-btn--ghost:hover {
+  border-color: var(--dark);
+  transform: translateY(-1px);
+}

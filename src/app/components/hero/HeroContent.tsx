@@ -1,125 +1,95 @@
 import React, { forwardRef } from "react";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../language-context";
 import { useLenisScrollApi } from "./useLenisScroll";
-import { cvToolsByFrequency } from "../../data/cv-tools";
 
-const topTools = cvToolsByFrequency.slice(0, 7);
+const CONTACT_EMAIL = "vasileeduardbogdan@gmail.com";
 
-function HeroLetters({ text, lineIndex }: { text: string; lineIndex: number }) {
+function HeroVisual() {
   return (
-    <>
-      {text.split("").map((ch, idx) => {
-        const isSpace = ch === " ";
+    <div data-hero-visual className="hero-visual hidden opacity-0 lg:block" aria-hidden>
+      <div className="hero-visual__dots" />
 
-        if (isSpace) {
-          return (
-            <span
-              key={`${lineIndex}-${idx}`}
-              className="hero-headline-letter--space inline-block"
-              aria-hidden
-            >
-              {"\u00A0"}
-            </span>
-          );
-        }
+      <div className="hero-visual__browser">
+        <div className="hero-visual__chrome">
+          <span className="hero-visual__chrome-dot" />
+          <span className="hero-visual__chrome-dot" />
+          <span className="hero-visual__chrome-dot" />
+          <span className="hero-visual__chrome-address" />
+        </div>
+        <div className="hero-visual__canvas">
+          <span className="hero-visual__line hero-visual__line--heading" />
+          <span className="hero-visual__line" style={{ width: "86%" }} />
+          <span className="hero-visual__line" style={{ width: "64%" }} />
+          <div className="hero-visual__cta-row">
+            <span className="hero-visual__pill hero-visual__pill--solid" />
+            <span className="hero-visual__pill" />
+          </div>
+          <div className="hero-visual__cards">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+      </div>
 
-        return (
-          <span
-            key={`${lineIndex}-${idx}`}
-            data-hero-letter
-            data-line={lineIndex}
-            className="hero-headline-letter opacity-0 "
-          >
-            {ch}
-          </span>
-        );
-      })}
-    </>
+      <div className="hero-visual__card">
+        <span className="hero-visual__swatch" />
+        <span className="hero-visual__card-lines">
+          <span style={{ width: "5.5rem" }} />
+          <span style={{ width: "3.5rem" }} />
+        </span>
+      </div>
+    </div>
   );
 }
 
 export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_props, ref) {
   const { t } = useLanguage();
   const { scrollTo } = useLenisScrollApi() ?? {};
-  const lines = [t("heroLine1"), t("heroLine2"), t("heroLine3"), t("heroLine4")];
-  const fullHeadline = `${lines.join(" ")} ${t("heroAccent")}`;
 
   return (
     <div
       ref={ref}
-      className="flex min-h-0 flex-1 flex-col justify-center overflow-visible"
       data-hero-content
+      className="grid min-h-0 flex-1 content-center gap-12 py-10 lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-20"
     >
-      <span
-        data-hero-greeting
-        className="hero-greeting font-display inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] opacity-0 sm:text-xs"
-      >
-        <span className="hero-greeting__dot" aria-hidden />
-        {t("heroHello")}
-        <span className="hero-greeting__divider" aria-hidden />
-        <span className="hero-greeting__availability normal-case tracking-normal">
-          {t("heroAvailability")}
-        </span>
-      </span>
+      <div className="max-w-2xl">
+        <p data-hero-status className="hero-status opacity-0">
+          <span className="hero-status__dot" aria-hidden />
+          {t("heroStatus")}
+        </p>
 
-      <h1
-        className="hero-headline mt-5 max-w-4xl text-[clamp(2rem,5.2vw,3.5rem)] uppercase leading-[1.06]"
-        aria-label={fullHeadline}
-      >
-        <span className="sr-only">{fullHeadline}</span>
-        <span aria-hidden className="block">
-          {lines.map((line, lineIndex) => (
-            <span key={lineIndex} className="block">
-              <HeroLetters text={line} lineIndex={lineIndex} />
-            </span>
-          ))}
-        </span>
-      </h1>
+        <h1 data-hero-title className="hero-title mt-6 opacity-0">
+          {t("heroTitleLine1")}
+          <br />
+          <em className="hero-title__accent">{t("heroTitleLine2")}</em>
+        </h1>
 
-      <span
-        data-hero-accent
-        className="hero-accent hero-accent-text hero-script-text mt-6 block w-fit max-w-full opacity-0"
-        aria-hidden
-      >
-        {t("heroAccent")}
-      </span>
+        <p data-hero-intro className="hero-lede mt-7 opacity-0 font-mono">
+          {t("heroIntro")}
+        </p>
 
-      <p
-        data-hero-intro
-        className="hero-intro font-display mt-2 max-w-xl text-[0.95rem] leading-relaxed opacity-0 sm:text-base"
-      >
-        {t("heroIntro")}
-      </p>
-
-      <div data-hero-tools className="mt-7 opacity-0 sm:mt-8">
-        <span className="hero-tools-label font-display inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] sm:text-[11px]">
-          <Sparkles className="size-3.5 shrink-0" aria-hidden />
-          {t("heroToolsLabel")}
-        </span>
-        <ul className="mt-3 flex max-w-2xl flex-wrap gap-2 pl-0">
-          {topTools.map((tool) => (
-            <li key={tool} data-hero-tool className="hero-tool-chip list-none opacity-0">
-              {tool}
-            </li>
-          ))}
-        </ul>
+        <div data-hero-actions className="mt-10 flex flex-wrap items-center gap-3 opacity-0 sm:gap-4">
+          <a
+            href="#portfolio-work"
+            className="hero-btn hero-btn--primary"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo?.("#portfolio-work");
+            }}
+          >
+            {t("heroExploreCta")}
+            <ArrowDown className="size-4 shrink-0" aria-hidden />
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="hero-btn hero-btn--ghost">
+            {t("heroContactCta")}
+            <ArrowUpRight className="size-4 shrink-0" aria-hidden />
+          </a>
+        </div>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
-        <a
-          data-hero-cta
-          href="#portfolio-work"
-          className="hero-cta cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] sm:text-xs"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo?.("#portfolio-work");
-          }}
-        >
-          {t("heroExploreCta")}
-          <ArrowDown className="size-3.5 shrink-0 opacity-90" aria-hidden />
-        </a>
-      </div>
+      <HeroVisual />
     </div>
   );
 });

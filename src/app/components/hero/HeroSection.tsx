@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { HeroCanvas } from "./HeroCanvas";
 import { HeroContent } from "./HeroContent";
 import { HeroNav } from "./HeroNav";
 import { HeroSkillsBar } from "./HeroSkillsBar";
@@ -12,18 +11,10 @@ export function HeroSection() {
 
   return (
     <section className="relative z-10 flex min-h-[100svh] flex-col">
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <HeroCanvas />
-      </div>
-
-      <div
-        ref={heroScopeRef}
-        className="relative z-10 flex min-h-[100svh] flex-col"
-        style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
-      >
+      <div ref={heroScopeRef} className="relative z-10 flex min-h-[100svh] flex-col">
         <HeroNav />
 
-        <div className="portfolio-container flex flex-1 flex-col py-10 lg:py-14">
+        <div className="portfolio-container flex flex-1 flex-col py-10 lg:py-14 px-2">
           <HeroContent ref={heroContentRef} />
         </div>
 
