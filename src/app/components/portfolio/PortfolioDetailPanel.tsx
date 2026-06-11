@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, Maximize2 } from "lucide-react";
+import { ArrowUpRight, Minimize2 } from "lucide-react";
 import type { Project } from "../../data/portfolio";
 import { PortfolioScreenshot } from "../portfolio-screenshot";
 import { useLanguage } from "../language-context";
@@ -113,8 +113,7 @@ export function PortfolioDetailPanel({
           onClick={onBackdropClick}
         >
           <span className="portfolio-detail-panel__close-icon" aria-hidden>
-            <Maximize2 className="portfolio-detail-panel__close-arrow portfolio-detail-panel__close-arrow--tl" />
-            <Maximize2 className="portfolio-detail-panel__close-arrow portfolio-detail-panel__close-arrow--br" />
+            <Minimize2 className="h-5 w-5" aria-hidden />
           </span>
         </button>
 
@@ -146,7 +145,7 @@ export function PortfolioDetailPanel({
             </p>
 
             <div className="portfolio-detail-panel__highlights">
-              <span className="portfolio-detail-panel__label text-md mb-2 font-display">{t("technicalHighlightsLabel")}</span>
+              <h3 className="portfolio-detail-panel__label text-md mb-2 font-display">{t("technicalHighlightsLabel")}</h3>
               <ul className="pl-0">
                 {project.technicalHighlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>

@@ -409,9 +409,8 @@ html {
 
 .portfolio-section__expand:hover {
   transform: translate(-50%, -50%) scale(1.08);
-  background: rgba(var(--gold-rgb), 0.22);
   border-color: rgba(var(--gold-rgb), 0.55);
-  color: #fff;
+  color: rgba(var(--gold-rgb), 0.55);
 }
 
 .portfolio-section__expand:focus-visible {
@@ -491,7 +490,6 @@ html {
   -webkit-backdrop-filter: blur(16px) saturate(1.15);
   backdrop-filter: blur(16px) saturate(1.15);
   color: white;
-  letter-spacing: 0.1em;
   font-weight: 400;
   transition:
     background 200ms ease,
@@ -624,10 +622,8 @@ html {
 }
 
 .portfolio-detail-panel__close:hover {
-  transform: scale(1.08);
-  background: rgba(var(--gold-rgb), 0.22);
   border-color: rgba(var(--gold-rgb), 0.55);
-  color: #fff;
+  color: rgba(var(--gold-rgb), 0.55);
 }
 
 .portfolio-detail-panel__close:focus-visible {
