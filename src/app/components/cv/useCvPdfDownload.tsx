@@ -43,8 +43,12 @@ type CvPdfDownloadApi = {
 
 const CvPdfDownloadContext = createContext<CvPdfDownloadApi | null>(null);
 
+export function useCvPdfDownloadOptional() {
+  return useContext(CvPdfDownloadContext);
+}
+
 export function useCvPdfDownload() {
-  const ctx = useContext(CvPdfDownloadContext);
+  const ctx = useCvPdfDownloadOptional();
   if (!ctx) {
     throw new Error("useCvPdfDownload must be used within CvPdfDownloadProvider");
   }

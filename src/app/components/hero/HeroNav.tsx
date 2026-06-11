@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "../language-context";
 import { DownloadButton } from "../cv-controls";
-import { useCvPdfDownload } from "../cv/useCvPdfDownload";
+import { useCvPdfDownloadOptional } from "../cv/useCvPdfDownload";
 import { cn } from "../ui/utils";
 
 const navLinks = [
@@ -13,7 +13,7 @@ const navLinks = [
 export function HeroNav() {
   const { t } = useLanguage();
   const location = useLocation();
-  const { downloading, downloadCv } = useCvPdfDownload();
+  const cvPdf = useCvPdfDownloadOptional();
   const isCv = location.pathname === "/cv";
   const brandTo = isCv ? "/" : "/cv";
 
@@ -46,7 +46,7 @@ export function HeroNav() {
                   key={key}
                   to={href}
                   className={cn(
-                    "shrink-0 px-1.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em] lg:px-4 font-mono letter-spacing-0.006rem",
+                    "shrink-0 px-1.5 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.12em] transition-colors sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em] lg:px-4",
                     isActive
                       ? "text-[var(--dark)]"
                       : "text-[var(--dark)]/70 hover:text-[var(--dark)]",
@@ -59,11 +59,13 @@ export function HeroNav() {
             })}
           </nav>
 
-          <DownloadButton
-            downloading={downloading}
-            onClick={() => void downloadCv()}
-            variant="light"
-          />
+          {cvPdf ? (
+            <DownloadButton
+              downloading={cvPdf.downloading}
+              onClick={() => void cvPdf.downloadCv()}
+              variant="light"
+            />
+          ) : null}
         </div>
       </div>
     </header>

@@ -11,17 +11,15 @@ import { PortfolioProjectPage } from "./pages/portfolio-project-page";
 function Layout() {
   return (
     <LenisScrollProvider>
-      <CvPdfDownloadProvider>
-        <TopBar />
-        <Routes>
-          <Route path="/" element={<PortfolioPage />} />
-          <Route path="/portfolio" element={<Navigate to="/" replace />} />
-          <Route path="/cv" element={<CvPage />} />
-          <Route path="/portfolio/:slug" element={<PortfolioProjectPage />} />
-          <Route path="/personal-projects" element={<Navigate to="/#portfolio-work" replace />} />
-        </Routes>
-        <Footer />
-      </CvPdfDownloadProvider>
+      <TopBar />
+      <Routes>
+        <Route path="/" element={<PortfolioPage />} />
+        <Route path="/portfolio" element={<Navigate to="/" replace />} />
+        <Route path="/cv" element={<CvPage />} />
+        <Route path="/portfolio/:slug" element={<PortfolioProjectPage />} />
+        <Route path="/personal-projects" element={<Navigate to="/#portfolio-work" replace />} />
+      </Routes>
+      <Footer />
     </LenisScrollProvider>
   );
 }
@@ -29,7 +27,9 @@ function Layout() {
 export default function App() {
   return (
     <LanguageProvider>
-      <Layout />
+      <CvPdfDownloadProvider>
+        <Layout />
+      </CvPdfDownloadProvider>
     </LanguageProvider>
   );
 }
