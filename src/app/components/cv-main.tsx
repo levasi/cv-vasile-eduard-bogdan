@@ -85,14 +85,10 @@ export function CvMain() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-[11px] top-2 bottom-0 w-px bg-border" />
-
           <div className={cn("flex flex-col", isDesktopLayout ? "gap-8" : "gap-2 lg:gap-8")}>
             {experiences.map((exp, index) => (
-              <div key={index} className={cn("relative", isDesktopLayout ? "pl-8" : "pl-0 lg:pl-8")}>
+              <div key={index} className={cn("relative")}>
                 {/* Timeline dot */}
-                <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-sm" />
-
                 <div className="rounded-lg p-5 border border-border transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
                     <div>
