@@ -12,7 +12,7 @@ const contact = {
 export function Footer() {
   return (
     <footer
-      className="footer py-8 border-t-1"
+      className="footer py-8 px-2 border-t-1"
       style={{ borderTopColor: "rgba(255,255,255,0.1)" }}
 
     >

@@ -248,8 +248,6 @@ html {
 .portfolio-section__content {
   position: relative;
   z-index: 2;
-  padding-top: clamp(2.5rem, 6vh, 4rem);
-  padding-bottom: clamp(6rem, 8vh, 10rem);
   min-height: 100svh;
   display: flex;
   align-items: stretch;

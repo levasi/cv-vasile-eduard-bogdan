@@ -226,7 +226,7 @@ export function PortfolioSection() {
           );
         })}
       </div>
-      <div className="portfolio-section__content px-2">
+      <div className="portfolio-section__content px-2 py-8 lg:py-14">
         <div
           className="portfolio-section__grid"
           style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
