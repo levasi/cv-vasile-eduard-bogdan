@@ -132,7 +132,7 @@ export function CvMain() {
                   </ul>
 
                   {exp.tools && (
-                    <div className="flex items-start gap-2">
+                    <div className="flex flex-col lg:flex-row items-start gap-2">
                       <span
                         className="text-foreground shrink-0"
                         style={{ fontSize: "0.75rem", fontWeight: 600 }}
@@ -145,7 +145,7 @@ export function CvMain() {
                     </div>
                   )}
                 </div>
-                <hr className="my-4 border-border" />
+                <hr className="my-2 lg:my-4 border-border" />
               </div>
             ))}
           </div>
