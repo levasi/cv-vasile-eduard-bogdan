@@ -93,7 +93,7 @@ export function CvMain() {
                 {/* Timeline dot */}
                 <div className="absolute left-[6px] top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-sm" />
 
-                <div className="bg-white rounded-lg p-5 border border-border hover:shadow-md transition-shadow">
+                <div className="rounded-lg p-5 border border-border hover:shadow-md transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
                     <div>
                       <h3 className="text-foreground font-display" style={{ fontSize: "1.2rem", letterSpacing: "0.03em", fontWeight: 600 }}>

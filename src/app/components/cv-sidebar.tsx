@@ -99,7 +99,7 @@ export function CvSidebar() {
           {skillGroups.map(({ titleKey }) => (
             <span
               key={titleKey}
-              className="px-2.5 py-1 rounded-full bg-white border border-border text-foreground"
+              className="px-2.5 py-1 rounded-full border border-border text-foreground"
               style={{ fontSize: "0.75rem" }}
             >
               {t(titleKey)}
@@ -120,7 +120,7 @@ export function CvSidebar() {
           {cvToolsByFrequency.map((tool) => (
             <span
               key={tool}
-              className="px-2.5 py-1 rounded-full bg-white border border-border text-foreground"
+              className="px-2.5 py-1 rounded-full border border-border text-foreground"
               style={{ fontSize: "0.75rem" }}
             >
               {tool}
