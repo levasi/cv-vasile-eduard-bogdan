@@ -145,7 +145,9 @@ export function CvMain() {
                     </div>
                   )}
                 </div>
-                <hr className="my-2 lg:my-4 border-border" />
+                {index < experiences.length - 1 && (
+                  <hr className="my-2 lg:my-4 border-border" />
+                )}
               </div>
             ))}
           </div>
