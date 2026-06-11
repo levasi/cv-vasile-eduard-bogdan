@@ -46,10 +46,10 @@ export function HeroNav() {
                   key={key}
                   to={href}
                   className={cn(
-                    "shrink-0 px-1.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em] lg:px-4",
+                    "shrink-0 px-1.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em] lg:px-4 font-mono letter-spacing-0.006rem",
                     isActive
-                      ? "text-[var(--espresso)]"
-                      : "text-[var(--espresso)]/70 hover:text-[var(--espresso)]",
+                      ? "text-[var(--dark)]"
+                      : "text-[var(--dark)]/70 hover:text-[var(--dark)]",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >

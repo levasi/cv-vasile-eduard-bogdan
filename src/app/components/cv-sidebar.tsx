@@ -162,7 +162,7 @@ export function CvSidebar() {
         <ul className="flex flex-col gap-4">
           {education.map((edu) => (
             <li key={edu.degreeKey}>
-              <p className="text-foreground" style={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.4 }}>
+              <p className="text-foreground mb-1" style={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.4 }}>
                 {t(edu.degreeKey)}
               </p>
               <p className="text-muted-foreground" style={{ fontSize: "0.8rem", lineHeight: 1.5 }}>
