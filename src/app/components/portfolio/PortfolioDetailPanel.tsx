@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, Maximize2 } from "lucide-react";
 import type { Project } from "../../data/portfolio";
 import { PortfolioScreenshot } from "../portfolio-screenshot";
 import { useLanguage } from "../language-context";
@@ -112,10 +112,17 @@ export function PortfolioDetailPanel({
           aria-label={t("portfolioClose")}
           onClick={onBackdropClick}
         >
-          <X className="h-5 w-5" aria-hidden />
+          <span className="portfolio-detail-panel__close-icon" aria-hidden>
+            <Maximize2 className="portfolio-detail-panel__close-arrow portfolio-detail-panel__close-arrow--tl" />
+            <Maximize2 className="portfolio-detail-panel__close-arrow portfolio-detail-panel__close-arrow--br" />
+          </span>
         </button>
 
-        <div ref={contentRef} className="portfolio-detail-panel__body">
+        <div
+          ref={contentRef}
+          className="portfolio-detail-panel__body"
+          data-lenis-prevent
+        >
           <div className="portfolio-detail-panel__body-glass" aria-hidden />
           <div className="portfolio-detail-panel__body-inner">
             <div className="portfolio-detail-panel__meta-tags">
@@ -127,18 +134,20 @@ export function PortfolioDetailPanel({
               ) : null}
             </div>
 
-            <h3 className="portfolio-detail-panel__title">{project.title}</h3>
-            <p className="portfolio-detail-panel__headline">{project.headline}</p>
+            <div>
+              <h3 className="portfolio-detail-panel__title font-display mb-1">{project.title}</h3>
+              <p className="portfolio-detail-panel__headline">{project.headline}</p>
+            </div>
             <p className="portfolio-detail-panel__description">{project.medium}</p>
 
             <p className="portfolio-detail-panel__role">
-              <span className="portfolio-detail-panel__label">{t("roleLabel")}</span>
+              <h3 className="portfolio-detail-panel__label text-md mb-2 font-display">{t("roleLabel")}</h3>
               {project.role}
             </p>
 
             <div className="portfolio-detail-panel__highlights">
-              <span className="portfolio-detail-panel__label">{t("technicalHighlightsLabel")}</span>
-              <ul>
+              <span className="portfolio-detail-panel__label text-md mb-2 font-display">{t("technicalHighlightsLabel")}</span>
+              <ul className="pl-0">
                 {project.technicalHighlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>
                 ))}

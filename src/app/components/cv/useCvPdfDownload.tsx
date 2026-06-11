@@ -241,7 +241,7 @@ function CvPdfSnapshot({ snapshotRef }: { snapshotRef: RefObject<HTMLDivElement 
       aria-hidden
       data-cv-pdf-snapshot
       className="pointer-events-none fixed top-0 -left-[10000px] max-w-none overflow-visible"
-      style={{ fontFamily: "'Inter', sans-serif", width: CV_PDF_CAPTURE_WIDTH }}
+      style={{ fontFamily: "var(--font-family)", width: CV_PDF_CAPTURE_WIDTH }}
     >
       <CvDocument ref={snapshotRef} forceDesktopLayout />
     </div>

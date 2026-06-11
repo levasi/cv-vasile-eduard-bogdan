@@ -8,9 +8,9 @@ function hashSlug(slug: string): number {
 
 export function getProjectGridLayout(_index: number, slug: string) {
   const n = hashSlug(slug);
-  const speed = 0.12 + (n % 9) * 0.07;
+  const speed = 0 + (n % 9) * 0.005;
   const floatDelay = (n % 6) * 0.55;
-  const floatDuration = 4.2 + (n % 5) * 0.85;
+  const floatDuration = 6.2 + (n % 5) * 1.05;
 
   return { speed, floatDelay, floatDuration };
 }

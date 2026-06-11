@@ -1,10 +1,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-family: "Roboto Mono", ui-monospace, monospace;
+  --font-display: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono-tracking: 0.006rem;
   --font-size: 16px;
 
   /* Cozy balcony / sunset palette (from hero banner) */
   --espresso: #271b16;
+  --dark: #3d312b;
   --wood: #5d4037;
   --wood-deep: #4a3228;
   --forest: #2d4f1e;
@@ -20,6 +24,7 @@
   --gold-rgb: 249, 200, 70;
   --forest-rgb: 45, 79, 30;
   --espresso-rgb: 39, 27, 22;
+  --dark-rgb: 61, 49, 43;
   --wood-deep-rgb: 74, 50, 40;
 
   --background: var(--cream);
@@ -133,6 +138,9 @@ html {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-family);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -141,6 +149,17 @@ html {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer utilities {
+  .font-mono {
+    letter-spacing: var(--font-mono-tracking);
+  }
+
+  .font-display,
+  .font-sans {
+    letter-spacing: normal;
+  }
 }
 
 @layer base {
@@ -155,6 +174,11 @@ html {
 
   html {
     font-size: var(--font-size);
+  }
+
+  body {
+    font-family: var(--font-family);
+    letter-spacing: var(--font-mono-tracking);
   }
 
   h1 {
@@ -219,7 +243,6 @@ html {
 }
 
 .portfolio-items-section {
-  background-color: var(--espresso);
   min-height: 100svh;
 }
 
@@ -266,7 +289,7 @@ html {
   flex-direction: column;
   height: 100%;
   min-height: 0;
-  animation: portfolio-float var(--float-duration, 5s) ease-in-out infinite;
+  animation: portfolio-float var(--float-duration, 7s) ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
 }
 
@@ -278,7 +301,7 @@ html {
   }
 
   50% {
-    transform: translate3d(0, -6px, 0);
+    transform: translate3d(0, -4px, 0);
   }
 }
 
@@ -478,7 +501,7 @@ html {
     border-color 200ms ease;
 }
 
-.portfolio-section__card:hover .portfolio-section__title-text,
+.portfolio-section__title:hover .portfolio-section__title-text,
 .portfolio-section__title:focus-visible .portfolio-section__title-text {
   background: color-mix(in srgb, var(--espresso) 40%, transparent);
   box-shadow:
@@ -491,7 +514,8 @@ html {
   transition: color 200ms ease;
 }
 
-.portfolio-section__card:hover .portfolio-section__title-icon {
+.portfolio-section__title:hover .portfolio-section__title-icon,
+.portfolio-section__title:focus-visible .portfolio-section__title-icon {
   color: #fff;
 }
 
@@ -566,6 +590,7 @@ html {
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  opacity: 0.3;
   background:
     linear-gradient(180deg, rgba(var(--espresso-rgb), 0.1) 0%, rgba(var(--espresso-rgb), 0.15) 45%, rgba(var(--espresso-rgb), 0.22) 100%),
     linear-gradient(90deg, rgba(var(--espresso-rgb), 0.2) 0%, transparent 55%);
@@ -579,36 +604,61 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   margin: 0;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
   opacity: 0;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
   transition:
-    background 200ms ease,
-    border-color 200ms ease,
-    color 200ms ease,
-    transform 200ms ease;
+    opacity 220ms ease,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
 }
 
 .portfolio-detail-panel__close:hover {
-  background: rgba(var(--gold-rgb), 0.2);
-  border-color: rgba(var(--gold-rgb), 0.5);
+  transform: scale(1.08);
+  background: rgba(var(--gold-rgb), 0.22);
+  border-color: rgba(var(--gold-rgb), 0.55);
   color: #fff;
-  transform: scale(1.06);
 }
 
 .portfolio-detail-panel__close:focus-visible {
   outline: 2px solid rgba(var(--gold-rgb), 0.85);
   outline-offset: 3px;
+}
+
+.portfolio-detail-panel__close-icon {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.portfolio-detail-panel__close-arrow {
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  transform: rotate(180deg);
+}
+
+.portfolio-detail-panel__close-arrow--tl {
+  top: 0;
+  left: 0;
+}
+
+.portfolio-detail-panel__close-arrow--br {
+  right: 0;
+  bottom: 0;
 }
 
 .portfolio-detail-panel__body {
@@ -621,11 +671,14 @@ html {
   justify-content: flex-end;
   width: min(100%, 520px);
   max-width: 50%;
-  max-height: 92%;
-  padding: clamp(0.85rem, 3vw, 1.75rem);
+  max-height: 100%;
+  min-height: 0;
+  padding: 18px;
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
   color: color-mix(in srgb, var(--cream) 92%, transparent);
   visibility: hidden;
   opacity: 1;
@@ -648,8 +701,8 @@ html {
       color-mix(in srgb, var(--espresso) 40%, transparent) 0%,
       color-mix(in srgb, var(--wood-deep) 60%, transparent) 55%,
       color-mix(in srgb, var(--espresso) 80%, transparent) 100%);
-  -webkit-backdrop-filter: blur(4px) saturate(1.15);
-  backdrop-filter: blur(4px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  backdrop-filter: blur(18px) saturate(1.15);
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, var(--cream) 10%, transparent),
     inset 0 -12px 32px color-mix(in srgb, var(--espresso) 18%, transparent);
@@ -658,9 +711,26 @@ html {
 .portfolio-detail-panel__body-inner {
   position: relative;
   z-index: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5rem, 2vw, 0.75rem);
+  gap: clamp(0.6rem, 2vw, 1rem);
+  min-width: 0;
+  /* Dark halo — lifts text off busy screenshots without darkening the glass */
+  --panel-text-shadow:
+    0 0 1px rgba(var(--espresso-rgb), 0.9),
+    0 1px 3px rgba(var(--espresso-rgb), 0.62),
+    0 4px 14px rgba(var(--espresso-rgb), 0.4);
+}
+
+.portfolio-detail-panel__body-inner :is(.portfolio-detail-panel__title,
+  .portfolio-detail-panel__headline,
+  .portfolio-detail-panel__description,
+  .portfolio-detail-panel__label,
+  .portfolio-detail-panel__role,
+  .portfolio-detail-panel__highlights,
+  .portfolio-detail-panel__highlights li) {
+  text-shadow: var(--panel-text-shadow);
 }
 
 @media (max-width: 767px) {
@@ -706,7 +776,7 @@ html {
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
   font-weight: 600;
   line-height: 1.15;
-  color: #fff;
+  color: var(--muted);
 }
 
 .portfolio-detail-panel__headline {
@@ -724,11 +794,10 @@ html {
 .portfolio-detail-panel__label {
   display: block;
   margin-bottom: 0.25rem;
-  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(var(--gold-rgb), 0.92);
 }
 
 .portfolio-detail-panel__role {
@@ -739,7 +808,6 @@ html {
 
 .portfolio-detail-panel__highlights ul {
   margin: 0;
-  padding-left: 1.1rem;
   font-size: clamp(0.8rem, 2.4vw, 0.86rem);
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.9);
@@ -776,10 +844,10 @@ html {
   border-radius: 999px;
   border: 1px solid rgba(var(--gold-rgb), 0.45);
   background: rgba(var(--gold-rgb), 0.12);
-  padding: 0.55rem 1rem;
-  font-size: clamp(0.82rem, 2.5vw, 0.88rem);
+  padding: 0.3rem 0.6rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.8rem);
   font-weight: 600;
-  color: var(--gold-bright);
+  color: var(--muted);
   transition:
     background 200ms ease,
     border-color 200ms ease;
@@ -833,25 +901,131 @@ html {
   }
 }
 
-/* Hero banner background: cover on small screens, cropped on desktop */
+/* Hero banner background — blended into cream page */
+.hero-banner {
+  position: absolute;
+  inset: 0;
+  background-color: #f6eee3;
+}
+
 .hero-banner-bg {
+  position: absolute;
+  inset: 0;
   background-image: url("/images/coffe%20banner.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
+  mix-blend-mode: var(--hero-banner-blend, soft-light);
+  opacity: var(--hero-banner-opacity, 0.72);
+}
+
+/* Hero greeting badge — pulsing availability dot */
+.hero-greeting {
+  border: 1px solid color-mix(in srgb, var(--dark) 14%, transparent);
+  background: color-mix(in srgb, #fff 55%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--dark);
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--dark) 8%, transparent);
+}
+
+.hero-greeting__dot {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--forest);
+  flex-shrink: 0;
+}
+
+.hero-greeting__dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: hero-dot-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes hero-dot-ping {
+
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  70%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.hero-greeting__divider {
+  width: 1px;
+  height: 0.9em;
+  background: color-mix(in srgb, var(--dark) 22%, transparent);
+}
+
+.hero-greeting__availability {
+  font-weight: 500;
+  color: color-mix(in srgb, var(--dark) 72%, transparent);
+}
+
+/* Hero intro paragraph */
+.hero-intro {
+  color: color-mix(in srgb, var(--dark) 82%, transparent);
+}
+
+/* Hero tools — "tools I use the most" chips */
+.hero-tools-label {
+  color: var(--sunset-deep);
+}
+
+.hero-tool-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--dark) 16%, transparent);
+  background: color-mix(in srgb, #fff 45%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--dark) 88%, transparent);
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.hero-tool-chip:hover {
+  background: color-mix(in srgb, var(--primary) 12%, #fff 50%);
+  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+  color: var(--sunset-deep);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-greeting__dot::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 .hero-script-text {
   background-image: linear-gradient(120deg,
-      var(--gold-bright) 0%,
-      var(--gold) 35%,
-      var(--sunset) 65%,
-      var(--peach) 100%);
+      var(--dark) 0%,
+      color-mix(in srgb, var(--wood) 28%, var(--dark)) 52%,
+      var(--dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 14px rgba(var(--primary-rgb), 0.35));
+  filter: drop-shadow(0 2px 8px rgba(var(--dark-rgb), 0.1));
 }
 
 .hero-accent-text {
@@ -863,19 +1037,18 @@ html {
   line-height: 1.35;
   padding-block: 0.12em 0.4em;
   padding-inline: 0.08em;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .hero-accent {
   font-family: "Brittany Signature", cursive;
   font-weight: 400;
   font-size: clamp(1.8rem, 4vw, 2rem);
-  color: var(--gold-bright);
   letter-spacing: 0.01em;
   line-height: 1.35;
   padding-block: 0.12em 0.4em;
   padding-inline: 0.08em;
-  opacity: 0.7;
+  opacity: 1;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
@@ -890,10 +1063,9 @@ html {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   letter-spacing: 0.06em;
-  opacity: 0.7;
 }
 
-/* Headline letters — frosted glass fill (not a tile behind) */
+/* Headline letters — dark (#3D312B) + soft shadow */
 .hero-headline-letter {
   display: inline-block;
   vertical-align: top;
@@ -902,14 +1074,12 @@ html {
   line-height: 1;
   background-image:
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(255, 255, 255, 0.72) 38%,
-      rgba(220, 228, 236, 0.55) 62%,
-      rgba(255, 255, 255, 0.88) 100%),
+      var(--dark) 0%,
+      color-mix(in srgb, var(--wood) 22%, var(--dark)) 48%,
+      var(--dark) 100%),
     linear-gradient(105deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(255, 255, 255, 0.65) 100%);
+      var(--dark) 0%,
+      color-mix(in srgb, var(--wood-deep) 18%, var(--dark)) 100%);
   background-size: 100% 100%, 180% 100%;
   background-position: center, 30% 50%;
   -webkit-background-clip: text;
@@ -917,7 +1087,8 @@ html {
   color: transparent;
   -webkit-text-fill-color: transparent;
   filter:
-    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65)) drop-shadow(0 4px 16px rgba(8, 5, 3, 0.35));
+    drop-shadow(0 2px 6px rgba(var(--dark-rgb), 0.14))
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
 }
 
 .hero-headline-letter--space {
@@ -927,7 +1098,7 @@ html {
 
 .footer {
   position: relative;
-  background-color: var(--espresso);
+  background-color: var(--dark);
 }
 
 .header {

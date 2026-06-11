@@ -37,7 +37,7 @@ export function usePortfolioParallax(
           if (!cell) return;
 
           const speed = Number.parseFloat(layer.dataset.speed ?? "0.35");
-          const travel = 16 + speed * 36;
+          const travel = 12 + speed * 28;
 
           gsap.fromTo(
             layer,
@@ -51,7 +51,7 @@ export function usePortfolioParallax(
                 scroller,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 1.2,
+                scrub: 1.6,
                 invalidateOnRefresh: true,
               },
             }

@@ -1,7 +1,10 @@
 import React, { forwardRef } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 import { useLanguage } from "../language-context";
 import { useLenisScrollApi } from "./useLenisScroll";
+import { cvToolsByFrequency } from "../../data/cv-tools";
+
+const topTools = cvToolsByFrequency.slice(0, 7);
 
 function HeroLetters({ text, lineIndex }: { text: string; lineIndex: number }) {
   return (
@@ -47,10 +50,21 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
       ref={ref}
       className="flex min-h-0 flex-1 flex-col justify-center overflow-visible"
       data-hero-content
-      style={{ fontFamily: "'Inter', sans-serif" }}
     >
+      <span
+        data-hero-greeting
+        className="hero-greeting font-display inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] opacity-0 sm:text-xs"
+      >
+        <span className="hero-greeting__dot" aria-hidden />
+        {t("heroHello")}
+        <span className="hero-greeting__divider" aria-hidden />
+        <span className="hero-greeting__availability normal-case tracking-normal">
+          {t("heroAvailability")}
+        </span>
+      </span>
+
       <h1
-        className="hero-headline max-w-4xl text-[clamp(2rem,5.2vw,3.5rem)] uppercase leading-[1.06]"
+        className="hero-headline mt-5 max-w-4xl text-[clamp(2rem,5.2vw,3.5rem)] uppercase leading-[1.06]"
         aria-label={fullHeadline}
       >
         <span className="sr-only">{fullHeadline}</span>
@@ -62,6 +76,7 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
           ))}
         </span>
       </h1>
+
       <span
         data-hero-accent
         className="hero-accent hero-accent-text hero-script-text mt-6 block w-fit max-w-full opacity-0"
@@ -69,6 +84,28 @@ export const HeroContent = forwardRef<HTMLDivElement>(function HeroContent(_prop
       >
         {t("heroAccent")}
       </span>
+
+      <p
+        data-hero-intro
+        className="hero-intro font-display mt-2 max-w-xl text-[0.95rem] leading-relaxed opacity-0 sm:text-base"
+      >
+        {t("heroIntro")}
+      </p>
+
+      <div data-hero-tools className="mt-7 opacity-0 sm:mt-8">
+        <span className="hero-tools-label font-display inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] sm:text-[11px]">
+          <Sparkles className="size-3.5 shrink-0" aria-hidden />
+          {t("heroToolsLabel")}
+        </span>
+        <ul className="mt-3 flex max-w-2xl flex-wrap gap-2 pl-0">
+          {topTools.map((tool) => (
+            <li key={tool} data-hero-tool className="hero-tool-chip list-none opacity-0">
+              {tool}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
         <a
           data-hero-cta

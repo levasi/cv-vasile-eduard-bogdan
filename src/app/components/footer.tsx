@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer
       className="footer py-8 border-t-1"
-      style={{ fontFamily: "'Inter', sans-serif", borderTopColor: "rgba(255,255,255,0.1)" }}
+      style={{ borderTopColor: "rgba(255,255,255,0.1)" }}
 
     >
       <div className="portfolio-container">

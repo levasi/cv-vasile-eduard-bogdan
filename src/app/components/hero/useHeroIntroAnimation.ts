@@ -34,6 +34,13 @@ export function useHeroIntroAnimation(
         START_AT
       );
 
+      tl.fromTo(
+        q("[data-hero-greeting]"),
+        { opacity: 0, y: -14, filter: "blur(6px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6 },
+        START_AT
+      );
+
       const letters = q("[data-hero-letter]") as HTMLElement[];
       letters.forEach((el, i) => {
         const r1 = seeded(i + 1);
@@ -79,10 +86,38 @@ export function useHeroIntroAnimation(
       );
 
       tl.fromTo(
+        q("[data-hero-intro]"),
+        { opacity: 0, y: 16, filter: "blur(6px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7 },
+        START_AT + 0.25
+      );
+
+      tl.fromTo(
+        q("[data-hero-tools]"),
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        START_AT + 0.4
+      );
+
+      tl.fromTo(
+        q("[data-hero-tool]"),
+        { opacity: 0, y: 10, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.45,
+          ease: "back.out(1.6)",
+          stagger: { each: 0.06, from: "start" },
+        },
+        START_AT + 0.5
+      );
+
+      tl.fromTo(
         q("[data-hero-cta]"),
         { opacity: 0, y: 18, filter: "blur(6px)" },
         { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7 },
-        START_AT
+        START_AT + 0.55
       );
 
       tl.fromTo(

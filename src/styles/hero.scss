@@ -1,8 +1,5 @@
 .hero-accent {
-  // Extra glow to match warm theme palette.
-  // (The gradient fill is still handled by `.hero-script-text` in `theme.css`.)
-  filter: drop-shadow(0 2px 14px rgba(var(--primary-rgb), 0.32))
-    drop-shadow(0 10px 36px rgba(var(--gold-rgb), 0.18));
+  filter: drop-shadow(0 2px 8px rgba(var(--dark-rgb), 0.12));
   will-change: opacity, transform, filter;
 }
 

@@ -27,7 +27,7 @@ export function PortfolioProjectPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-neutral-50" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="min-h-screen w-full bg-neutral-50">
       <div className="w-full px-4 sm:px-6 lg:px-10 py-10 lg:py-14">
         <div className="flex items-center justify-between gap-4">
           <Link

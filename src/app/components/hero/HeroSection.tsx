@@ -3,7 +3,6 @@ import { HeroCanvas } from "./HeroCanvas";
 import { HeroContent } from "./HeroContent";
 import { HeroNav } from "./HeroNav";
 import { HeroSkillsBar } from "./HeroSkillsBar";
-import { HeroPulsingLight } from "./HeroPulsingLight";
 import { useHeroIntroAnimation } from "./useHeroIntroAnimation";
 
 export function HeroSection() {
@@ -12,21 +11,14 @@ export function HeroSection() {
   useHeroIntroAnimation(heroScopeRef, heroContentRef);
 
   return (
-    <section className="relative z-10 flex min-h-[100svh] flex-col overflow-hidden">
+    <section className="relative z-10 flex min-h-[100svh] flex-col">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <HeroCanvas />
       </div>
 
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[var(--espresso)]/72 via-[var(--espresso)]/28 to-transparent opacity-50"
-        aria-hidden
-      />
-
-      <HeroPulsingLight />
-
-      <div
         ref={heroScopeRef}
-        className="relative z-10 flex min-h-[100svh] flex-col overflow-hidden"
+        className="relative z-10 flex min-h-[100svh] flex-col"
         style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
       >
         <HeroNav />

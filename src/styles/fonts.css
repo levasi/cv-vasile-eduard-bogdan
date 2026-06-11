@@ -1,2 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/brittany-signature');
+
+/* SF Pro Display — resolves from the system on Apple platforms */
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  src: local("SF Pro Display"), local("SFProDisplay-Regular"), local(".SF NS Display");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  src: local("SF Pro Display Medium"), local("SFProDisplay-Medium");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  src: local("SF Pro Display Semibold"), local("SFProDisplay-Semibold");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 700;
+  src: local("SF Pro Display Bold"), local("SFProDisplay-Bold");
+  font-display: swap;
+}

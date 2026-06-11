@@ -23,7 +23,6 @@ export function TopBar() {
         ? "bg-[var(--espresso)]/90 text-[var(--cream)] border-white/10"
         : "bg-background/70 text-foreground border-border"
         }`}
-      style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <nav className="max-w-[1100px] mx-auto px-4 lg:px-8 h-14 flex items-center justify-between gap-4">
         <div className="flex items-center gap-1">

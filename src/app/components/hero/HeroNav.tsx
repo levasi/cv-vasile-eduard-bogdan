@@ -21,12 +21,15 @@ export function HeroNav() {
     <header
       data-hero-nav
       className="relative z-20 py-3 header"
-      style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <div className="portfolio-container flex items-center justify-between gap-6">
         <Link to={brandTo} className="group flex min-w-0 items-center gap-3 sm:gap-4">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-sm font-semibold tracking-tight text-white backdrop-blur-md sm:h-12 sm:w-12">
-            VB
+          <span className="relative flex h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[var(--espresso)]/15 bg-[var(--espresso)]/5 shadow-sm backdrop-blur-md transition-transform group-hover:scale-[1.03] sm:h-12 sm:w-12">
+            <img
+              src="/images/me.png"
+              alt="Vasile Eduard Bogdan"
+              className="h-full w-full object-cover object-[center_center]"
+            />
           </span>
         </Link>
 
@@ -45,8 +48,8 @@ export function HeroNav() {
                   className={cn(
                     "shrink-0 px-1.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.2em] lg:px-4",
                     isActive
-                      ? "text-white"
-                      : "text-white/75 hover:text-white",
+                      ? "text-[var(--espresso)]"
+                      : "text-[var(--espresso)]/70 hover:text-[var(--espresso)]",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -59,7 +62,7 @@ export function HeroNav() {
           <DownloadButton
             downloading={downloading}
             onClick={() => void downloadCv()}
-            variant="dark"
+            variant="light"
           />
         </div>
       </div>

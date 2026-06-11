@@ -167,17 +167,17 @@ export function PortfolioSection() {
 
   return (
     <section id="portfolio-work" ref={sectionRef} className="portfolio-items-section">
-      <div className="pt-6 justify-center flex flex-wrap items-center gap-2">
+      <div className="pt-6 justify-center flex flex-wrap items-center gap-4">
         {(() => {
           const allChecked = selectedKinds.length === 2;
           return (
             <label
               key="all"
               className={cn(
-                "inline-flex cursor-pointer select-none items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-wide transition-colors",
+                "inline-flex cursor-pointer select-none items-center gap-2 rounded-full text-[11px] font-semibold tracking-wide transition-colors",
                 allChecked
-                  ? "border-white/25 bg-white/12 text-white"
-                  : "border-white/12 bg-white/6 text-white/70 hover:bg-white/10 hover:text-white/85",
+                  ? "text-[var(--espresso)]"
+                  : "hover:text-[var(--espresso)]/90",
               )}
             >
               <Checkbox
@@ -186,7 +186,7 @@ export function PortfolioSection() {
                   if (next === true) setSelectedKinds(["work", "personal"]);
                 }}
                 aria-label={t("filterAll")}
-                className="border-white/25 data-[state=checked]:bg-[rgba(var(--gold-rgb),0.9)] data-[state=checked]:border-[rgba(var(--gold-rgb),0.9)]"
+                className="border-[var(--espresso)]/25 data-[state=checked]:bg-[rgba(var(--primary-rgb),0.95)] data-[state=checked]:border-[rgba(var(--primary-rgb),0.95)]"
               />
               <span>{t("filterAll")}</span>
             </label>
@@ -201,10 +201,10 @@ export function PortfolioSection() {
             <label
               key={kind}
               className={cn(
-                "inline-flex cursor-pointer select-none items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-semibold tracking-wide transition-colors",
+                "inline-flex cursor-pointer select-none items-center gap-2 text-[11px] font-semibold tracking-wide transition-colors",
                 checked
-                  ? "border-white/25 bg-white/12 text-white"
-                  : "border-white/12 bg-white/6 text-white/70 hover:bg-white/10 hover:text-white/85",
+                  ? "text-[var(--espresso)]"
+                  : "hover:text-[var(--espresso)]/90",
               )}
             >
               <Checkbox
@@ -219,7 +219,7 @@ export function PortfolioSection() {
                   });
                 }}
                 aria-label={label}
-                className="border-white/25 data-[state=checked]:bg-[rgba(var(--gold-rgb),0.9)] data-[state=checked]:border-[rgba(var(--gold-rgb),0.9)]"
+                className="border-[var(--espresso)]/25 data-[state=checked]:bg-[rgba(var(--primary-rgb),0.95)] data-[state=checked]:border-[rgba(var(--primary-rgb),0.95)]"
               />
               <span>{label}</span>
             </label>

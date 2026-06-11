@@ -32,6 +32,11 @@ const translations: Record<Lang, Record<string, string>> = {
     heroLine3: "Interactive ",
     heroLine4: "Web experiences",
     heroAccent: "Let's meet.",
+    heroHello: "Hi, I'm Eduard",
+    heroIntro:
+      "I blend code, motion and design to turn ideas into smooth, memorable interfaces — pixel-perfect by habit, creative by nature.",
+    heroToolsLabel: "Tools I use the most",
+    heroAvailability: "Open to senior frontend roles",
     heroExploreCta: "Explore my work",
     heroPlayReel: "Play reel",
     heroNavWork: "Work",
@@ -174,6 +179,11 @@ const translations: Record<Lang, Record<string, string>> = {
     heroLine3: "Ci de cine",
     heroLine4: "Le foloseste.",
     heroAccent: "Hai sa construim impreuna.",
+    heroHello: "Salut, sunt Eduard",
+    heroIntro:
+      "Îmbin codul, mișcarea și designul ca să transform idei în interfețe fluide și memorabile — pixel-perfect din obișnuință, creativ din fire.",
+    heroToolsLabel: "Uneltele pe care le folosesc cel mai des",
+    heroAvailability: "Disponibil pentru roluri senior frontend",
     heroExploreCta: "Vezi proiectele",
     heroPlayReel: "Vezi reel",
     heroNavWork: "Proiecte",
