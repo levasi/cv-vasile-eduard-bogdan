@@ -70,7 +70,7 @@ export function CvMain() {
       <div className="w-full h-px bg-gradient-to-r from-primary/40 via-primary/10 to-transparent mb-8" />
 
       {/* Work Experience */}
-      <section className="mb-10">
+      <section>
         <div className="flex items-center gap-3 mb-6">
           <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
             <Briefcase className="w-4 h-4 text-background" />
@@ -89,7 +89,7 @@ export function CvMain() {
             {experiences.map((exp, index) => (
               <div key={index} className={cn("relative")}>
                 {/* Timeline dot */}
-                <div className="rounded-lg p-5 transition-shadow">
+                <div className="rounded-lg lg:p-5 p-2 transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
                     <div>
                       <h3 className="text-foreground font-display" style={{ fontSize: "1.2rem", letterSpacing: "0.03em", fontWeight: 600 }}>
