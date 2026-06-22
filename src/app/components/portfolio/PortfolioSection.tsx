@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Maximize2 } from "lucide-react";
 import { useLanguage } from "../language-context";
-import { projects, type Project } from "../../data/portfolio";
+import { portfolioProjects, type Project } from "../../data/portfolio";
 import { PortfolioScreenshot } from "../portfolio-screenshot";
 import { getProjectGridLayout } from "./portfolioLayout";
 import { getProjectPlacements, placementStyle } from "./portfolioGrid";
@@ -108,7 +108,7 @@ export function PortfolioSection() {
   const [selectedKinds, setSelectedKinds] = useState<("work" | "personal")[]>(["work", "personal"]);
 
   const filteredProjects = useMemo(() => {
-    return projects.filter((project) => selectedKinds.includes(project.kind));
+    return portfolioProjects.filter((project) => selectedKinds.includes(project.kind));
   }, [selectedKinds]);
 
   const gridPlacements = useMemo(

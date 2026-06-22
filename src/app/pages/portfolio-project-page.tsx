@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { PortfolioScreenshot } from "../components/portfolio-screenshot";
-import { getProject } from "../data/portfolio";
+import { getPortfolioProject } from "../data/portfolio";
 import { useLanguage } from "../components/language-context";
 
 export function PortfolioProjectPage() {
   const { t } = useLanguage();
   const { slug } = useParams();
-  const project = slug ? getProject(slug) : undefined;
+  const project = slug ? getPortfolioProject(slug) : undefined;
 
   if (!project) {
     return (

@@ -28,6 +28,8 @@ export type Project = {
   cta: string;
   featured?: boolean;
   workInProgress?: boolean;
+  /** When false, hidden from the portfolio bento grid and project pages */
+  showInPortfolio?: boolean;
   /** Bento grid footprint — spans are relative to a 12-column desktop grid */
   grid: ProjectGrid;
 };
@@ -90,6 +92,7 @@ export const projects: Project[] = [
     role: "Personal build (design + frontend)",
     technicalHighlights: ["Listing-first UX", "Media-heavy responsive UI", "Conversion-friendly contact flows"],
     cta: "View live",
+    showInPortfolio: false,
     grid: { columns: 4, rows: 3 },
   },
   {
@@ -159,6 +162,7 @@ export const projects: Project[] = [
     ],
     cta: "View live",
     workInProgress: true,
+    showInPortfolio: false,
     grid: { columns: 4, rows: 3 },
   },
   {
@@ -749,9 +753,20 @@ export const projects: Project[] = [
   },
 ];
 
+export function isShownInPortfolio(project: Project): boolean {
+  return project.showInPortfolio !== false;
+}
+
+export const portfolioProjects = projects.filter(isShownInPortfolio);
+
 export const workProjects = projects.filter((p) => p.kind === "work");
 export const personalProjects = projects.filter((p) => p.kind === "personal");
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
+}
+
+export function getPortfolioProject(slug: string) {
+  const project = getProject(slug);
+  return project && isShownInPortfolio(project) ? project : undefined;
 }
