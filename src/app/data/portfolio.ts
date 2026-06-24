@@ -40,7 +40,7 @@ export const projects: Project[] = [
     kind: "work",
     title: "Zion Builder",
     headline: "Complex product UI, built to stay fast.",
-    url: "https://zionbuilder.io",
+    url: "https://zionbuilder.io/",
     screenshot: "/images/zion-screenshot.png",
     tags: ["JavaScript", "Vue.js", "Vuex", "WordPress", "Jira", "Bitbucket", "Git", "Webpack", "AJAX"],
     short:

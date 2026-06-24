@@ -2,9 +2,51 @@ import React from "react";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { useLanguage } from "./language-context";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { experiences } from "../data/experience";
+import { experiences, type ExperienceDescLink } from "../data/experience";
 import { useCvDesktopLayout } from "./cv/cv-layout-context";
 import { cn } from "./ui/utils";
+
+function CvExplicitLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary underline-offset-2 hover:underline cv-explicit-link"
+    >
+      {children}
+      <span className="cv-explicit-link__url"> ({href})</span>
+    </a>
+  );
+}
+
+function parseTools(tools: string) {
+  return tools
+    .split(",")
+    .map((tool) => tool.trim())
+    .filter(Boolean);
+}
+
+function renderDescWithLinks(text: string, links?: ExperienceDescLink[]) {
+  if (!links?.length) {
+    return text;
+  }
+
+  const pattern = new RegExp(
+    `(${links.map((link) => link.text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
+    "g",
+  );
+  const parts = text.split(pattern);
+
+  return parts.map((part, index) => {
+    const link = links.find((item) => item.text === part);
+    if (!link) {
+      return part;
+    }
+
+    return <CvExplicitLink key={index} href={link.url}>{part}</CvExplicitLink>;
+  });
+}
 
 export function CvMain() {
   const { t } = useLanguage();
@@ -96,7 +138,11 @@ export function CvMain() {
                         {t(exp.titleKey)}
                       </h3>
                       <p className="text-primary flex items-center gap-1.5" style={{ fontSize: "0.85rem", fontWeight: 500 }}>
-                        {exp.company}
+                        {exp.companyUrl ? (
+                          <CvExplicitLink href={exp.companyUrl}>{exp.company}</CvExplicitLink>
+                        ) : (
+                          exp.company
+                        )}
                         <span className="text-gray-400 flex items-center gap-1">
                           <MapPin className="w-3 h-3" />
                           <span style={{ fontSize: "0.78rem", fontWeight: 400 }}>{exp.location}</span>
@@ -114,7 +160,7 @@ export function CvMain() {
 
                   {exp.descKey && (
                     <p className="text-muted-foreground mb-2" style={{ fontSize: "0.82rem", lineHeight: 1.6 }}>
-                      {t(exp.descKey)}
+                      {renderDescWithLinks(t(exp.descKey), exp.descLinks)}
                     </p>
                   )}
 
@@ -132,16 +178,20 @@ export function CvMain() {
                   </ul>
 
                   {exp.tools && (
-                    <div className="flex flex-col lg:flex-row items-start gap-2">
+                    <div className="mt-1">
                       <span
-                        className="text-foreground shrink-0"
-                        style={{ fontSize: "0.75rem", fontWeight: 600 }}
+                        className="text-foreground block mb-2"
+                        style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.04em" }}
                       >
                         {t("technologies")}
                       </span>
-                      <span className="text-muted-foreground" style={{ fontSize: "0.75rem" }}>
-                        {exp.tools}
-                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {parseTools(exp.tools).map((tool) => (
+                          <span key={tool} className="cv-tool-pill">
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

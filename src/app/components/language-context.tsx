@@ -94,11 +94,17 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp2.title": "Frontend Developer",
     "exp2.period": "Mar 2020 — Apr 2021",
     "exp2.desc":
-      "Contributed to the development of an online dating platform, focusing on intuitive user experiences, frontend functionality, and performance optimization.",
+      "Web platform providing live, user-driven digital experiences.",
     "exp2.resp1":
-      "Implemented responsive user interfaces and application workflows focused on delivering seamless, intuitive, and engaging user experiences.",
+      "Developed and maintained responsive Vue.js/Nuxt applications for a large-scale consumer platform with a focus on performance, real-time interactions, and user engagement.",
     "exp2.resp2":
-      "Developed and maintained a scalable Storybook-based design system to streamline UI consistency and accelerate development.",
+      "Collaborated with designers, backend developers, and product stakeholders to build reusable UI components and application workflows for delivering new features.",
+    "exp2.resp3":
+      "Improved UI consistency, scalability, and development efficiency across the platform by contributing to a Storybook-based design system.",
+    "exp2.resp4":
+      "Optimized frontend performance for seamless user experiences across devices by integrating real-time functionality using WebSockets.",
+    "exp2.resp5":
+      "Ensured high-quality and reliable product through participation in code reviews, debugging, and continuous improvements.",
 
     // Experience 3
     "exp3.title": "Frontend Developer",
@@ -115,10 +121,10 @@ const translations: Record<Lang, Record<string, string>> = {
     // Experience 4
     "exp4.title": "Frontend Developer",
     "exp4.period": "May 2016 — Feb 2018",
-    "exp4.desc":
-      "Developed responsive front-end prototypes for web applications, turning business requirements and design specifications into functional user interfaces.",
     "exp4.resp1":
-      "Developed fully functional, responsive front-end prototypes aligned with business requirements and design specifications.",
+      "Converted business requirements and design specifications into responsive front-end prototypes for web applications.",
+    "exp4.resp2":
+      "Aligned fully functional, responsive front-end prototypes with business requirements and design specifications.",
 
     // Experience 5
     "exp5.title": "3D Designer",
@@ -239,11 +245,17 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp2.title": "Dezvoltator Frontend",
     "exp2.period": "Mar 2020 — Apr 2021",
     "exp2.desc":
-      "Am contribuit la dezvoltarea unei aplicații de dating online, concentrându-mă pe experiența utilizatorului, funcționalitate și optimizarea performanței.",
+      "Platformă web care oferă experiențe digitale live, conduse de utilizatori.",
     "exp2.resp1":
-      "Am implementat interfața aplicației și fluxul logic pentru a asigura o experiență fluidă și intuitivă.",
+      "Am dezvoltat și întreținut aplicații responsive Vue.js/Nuxt pentru o platformă consumer la scară largă, cu accent pe performanță, interacțiuni în timp real și implicarea utilizatorilor.",
     "exp2.resp2":
-      "Am dezvoltat și întreținut un sistem de design scalabil bazat pe Storybook, pentru a eficientiza consistența UI și a accelera dezvoltarea.",
+      "Am colaborat cu designeri, dezvoltatori backend și stakeholderi de produs pentru a construi componente UI reutilizabile și fluxuri de aplicație pentru livrarea de funcționalități noi.",
+    "exp2.resp3":
+      "Am îmbunătățit consistența UI, scalabilitatea și eficiența dezvoltării pe platformă prin contribuția la un sistem de design bazat pe Storybook.",
+    "exp2.resp4":
+      "Am optimizat performanța frontend pentru experiențe fluide pe toate dispozitivele, integrând funcționalitate în timp real folosind WebSockets.",
+    "exp2.resp5":
+      "Am asigurat un produs de înaltă calitate și fiabil prin participarea la code review-uri, debugging și îmbunătățiri continue.",
 
     // Experience 3
     "exp3.title": "Dezvoltator Frontend",
@@ -260,10 +272,10 @@ const translations: Record<Lang, Record<string, string>> = {
     // Experience 4
     "exp4.title": "Dezvoltator Frontend",
     "exp4.period": "Mai 2016 — Feb 2018",
-    "exp4.desc":
-      "Am dezvoltat prototipuri front-end responsive pentru aplicații web, transformând cerințele de business și specificațiile de design în interfețe funcționale.",
     "exp4.resp1":
-      "Am dezvoltat prototipuri front-end complet funcționale și responsive, aliniate cu cerințele de business și specificațiile de design.",
+      "Am transformat cerințele de business și specificațiile de design în prototipuri front-end responsive pentru aplicații web.",
+    "exp4.resp2":
+      "Am aliniat prototipurile front-end complet funcționale și responsive cu cerințele de business și specificațiile de design.",
 
     // Experience 5
     "exp5.title": "Designer 3D",
