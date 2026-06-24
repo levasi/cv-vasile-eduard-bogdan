@@ -82,7 +82,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp1.title": "Senior Frontend Developer",
     "exp1.period": "Jun 2021 — Jun 2026",
     "exp1.desc":
-      "Valantic is a software development and digital transformation company that builds web applications, e-commerce platforms, business software, and digital solutions for large international clients. They also provide IT consulting, UX/UI, cloud, SAP, and process automation services.",
+      "Valantic is a software development and digital transformation company that builds web applications, e-commerce platforms, business software, and digital solutions for large international clients.",
     "exp1.resp1":
       "Delivered scalable ecommerce solutions using Shopware and Shopify for enterprise clients with a focus on storefront performance and custom extensions.",
     "exp1.resp2":
