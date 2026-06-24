@@ -110,17 +110,21 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp3.title": "Frontend Developer",
     "exp3.period": "May 2018 — Mar 2020",
     "exp3.desc":
-      "Contributed to the development of Zion Builder, a custom page builder plugin for WordPress, emphasizing flexibility and user-friendliness.",
+      "Digital agency developing custom WordPress solutions, including Zion Builder, a visual page builder focused on flexible website creation and user experience.",
     "exp3.resp1":
-      "Implemented new features and enhanced existing functionality to align with user requirements.",
+      "Contributed to the development of Zion Builder, a custom page builder plugin for WordPress, emphasizing flexibility and user-friendliness.",
     "exp3.resp2":
-      "Created responsive interfaces based on design requirements.",
+      "Implemented new features and enhanced existing functionality to align with user requirements.",
     "exp3.resp3":
+      "Created responsive interfaces based on design requirements.",
+    "exp3.resp4":
       "Enhanced application performance and user engagement.",
 
     // Experience 4
     "exp4.title": "Frontend Developer",
     "exp4.period": "May 2016 — Feb 2018",
+    "exp4.desc":
+      "Custom software development company building web and mobile applications for businesses across multiple industries.",
     "exp4.resp1":
       "Converted business requirements and design specifications into responsive front-end prototypes for web applications.",
     "exp4.resp2":
@@ -261,17 +265,21 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp3.title": "Dezvoltator Frontend",
     "exp3.period": "Mai 2018 — Mar 2020",
     "exp3.desc":
-      "Am contribuit la dezvoltarea Zion Builder, un plugin personalizat de page builder pentru WordPress, punând accent pe flexibilitate și ușurința în utilizare.",
+      "Agenție digitală care dezvoltă soluții WordPress personalizate, inclusiv Zion Builder, un page builder vizual axat pe crearea flexibilă de site-uri web și experiența utilizatorului.",
     "exp3.resp1":
-      "Am implementat funcționalități noi și am îmbunătățit funcționalitățile existente pentru a răspunde cerințelor utilizatorilor.",
+      "Am contribuit la dezvoltarea Zion Builder, un plugin personalizat de page builder pentru WordPress, punând accent pe flexibilitate și ușurința în utilizare.",
     "exp3.resp2":
-      "Am creat interfețe responsive conform cerințelor de design.",
+      "Am implementat funcționalități noi și am îmbunătățit funcționalitățile existente pentru a răspunde cerințelor utilizatorilor.",
     "exp3.resp3":
+      "Am creat interfețe responsive conform cerințelor de design.",
+    "exp3.resp4":
       "Am îmbunătățit performanța aplicației și implicarea utilizatorilor.",
 
     // Experience 4
     "exp4.title": "Dezvoltator Frontend",
     "exp4.period": "Mai 2016 — Feb 2018",
+    "exp4.desc":
+      "Companie de dezvoltare software personalizat care construiește aplicații web și mobile pentru afaceri din multiple industrii.",
     "exp4.resp1":
       "Am transformat cerințele de business și specificațiile de design în prototipuri front-end responsive pentru aplicații web.",
     "exp4.resp2":

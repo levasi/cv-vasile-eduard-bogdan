@@ -7,6 +7,7 @@ export interface ExperienceItem {
   titleKey: string;
   company: string;
   companyUrl?: string;
+  projectLink?: ExperienceDescLink;
   location: string;
   periodKey: string;
   descKey?: string;
@@ -42,8 +43,8 @@ export const experiences: ExperienceItem[] = [
     location: "Bucharest",
     periodKey: "exp3.period",
     descKey: "exp3.desc",
-    descLinks: [{ text: "Zion Builder", url: "https://zionbuilder.io/" }],
-    respKeys: ["exp3.resp1", "exp3.resp2", "exp3.resp3"],
+    projectLink: { text: "Zion Builder", url: "https://zionbuilder.io/" },
+    respKeys: ["exp3.resp1", "exp3.resp2", "exp3.resp3", "exp3.resp4"],
     tools: "JavaScript, Vue.js, Vuex, WordPress, Jira, Bitbucket, Git, Adobe Photoshop, Adobe XD, Webpack, AJAX",
   },
   {
@@ -52,6 +53,7 @@ export const experiences: ExperienceItem[] = [
     companyUrl: "https://xfactorapp.com/",
     location: "Bucharest",
     periodKey: "exp4.period",
+    descKey: "exp4.desc",
     respKeys: ["exp4.resp1", "exp4.resp2"],
     tools: "HTML/HTML5, CSS3, SCSS, Bootstrap, JavaScript, jQuery",
   },

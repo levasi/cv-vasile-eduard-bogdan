@@ -134,19 +134,29 @@ export function CvMain() {
                 <div className="rounded-lg lg:p-5 p-2 transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
                     <div>
-                      <h3 className="text-foreground font-display" style={{ fontSize: "1.2rem", letterSpacing: "0.03em", fontWeight: 600 }}>
-                        {t(exp.titleKey)}
-                      </h3>
-                      <p className="text-primary flex items-center gap-1.5" style={{ fontSize: "0.85rem", fontWeight: 500 }}>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-0.5">
+                        <h3 className="text-foreground font-display" style={{ fontSize: "1.2rem", letterSpacing: "0.03em", fontWeight: 600 }}>
+                          {t(exp.titleKey)}
+                        </h3>
+                        <span className="text-muted-foreground flex items-center gap-1">
+                          <MapPin className="w-3 h-3 shrink-0" />
+                          <span style={{ fontSize: "0.78rem", fontWeight: 400 }}>{exp.location}</span>
+                        </span>
+                      </div>
+                      <p className="text-primary flex flex-wrap items-center gap-x-1.5 gap-y-1" style={{ fontSize: "0.85rem", fontWeight: 500 }}>
                         {exp.companyUrl ? (
                           <CvExplicitLink href={exp.companyUrl}>{exp.company}</CvExplicitLink>
                         ) : (
                           exp.company
                         )}
-                        <span className="text-gray-400 flex items-center gap-1">
-                          <MapPin className="w-3 h-3" />
-                          <span style={{ fontSize: "0.78rem", fontWeight: 400 }}>{exp.location}</span>
-                        </span>
+                        {exp.projectLink && (
+                          <>
+                            <span className="text-muted-foreground" aria-hidden>
+                              ·
+                            </span>
+                            <CvExplicitLink href={exp.projectLink.url}>{exp.projectLink.text}</CvExplicitLink>
+                          </>
+                        )}
                       </p>
                     </div>
                     <span
