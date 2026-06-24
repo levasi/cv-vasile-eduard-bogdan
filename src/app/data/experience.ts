@@ -15,8 +15,8 @@ export const experiences: ExperienceItem[] = [
     location: "Bucharest",
     periodKey: "exp1.period",
     descKey: "exp1.desc",
-    respKeys: ["exp1.resp1", "exp1.resp2"],
-    tools: "Shopware, Shopify, JavaScript, TypeScript, Twig Templates, Vue.js, HTML, SCSS, Jira",
+    respKeys: ["exp1.resp1", "exp1.resp2", "exp1.resp3"],
+    tools: "Shopware, Shopify, JavaScript, Twig Templates, Vue.js, HTML, SCSS, Jira",
   },
   {
     titleKey: "exp2.title",

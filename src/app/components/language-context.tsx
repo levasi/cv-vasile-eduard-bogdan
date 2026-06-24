@@ -82,11 +82,13 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp1.title": "Senior Frontend Developer",
     "exp1.period": "Jun 2021 — Jun 2026",
     "exp1.desc":
-      "Delivered scalable ecommerce solutions across Shopware and Shopify for enterprise clients, focusing on storefront performance, custom platform extensions, and maintainable frontend architecture.",
+      "Valantic is a software development and digital transformation company that builds web applications, e-commerce platforms, business software, and digital solutions for large international clients. They also provide IT consulting, UX/UI, cloud, SAP, and process automation services.",
     "exp1.resp1":
-      "Built scalable ecommerce interfaces for high-traffic Shopware storefronts with focus on performance, UX consistency, and maintainable component architecture.",
+      "Delivered scalable ecommerce solutions using Shopware and Shopify for enterprise clients with a focus on storefront performance and custom extensions.",
     "exp1.resp2":
-      "Developed and maintained custom Shopware plugins, CMS components, and scalable ecommerce features to extend platform functionality and improve content management workflows.",
+      "Built high-traffic Shopware storefronts with scalable interfaces emphasizing performance, UX consistency, and maintainable component architecture.",
+    "exp1.resp3":
+      "Developed custom Shopware plugins, CMS components, and scalable ecommerce features to enhance platform functionality and streamline content management workflows.",
 
     // Experience 2
     "exp2.title": "Frontend Developer",
@@ -94,7 +96,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp2.desc":
       "Contributed to the development of an online dating platform, focusing on intuitive user experiences, frontend functionality, and performance optimization.",
     "exp2.resp1":
-      "Implemented responsive user interfaces and application workflows focused on delivering seamless, intuitive, and engaging user experiences",
+      "Implemented responsive user interfaces and application workflows focused on delivering seamless, intuitive, and engaging user experiences.",
     "exp2.resp2":
       "Developed and maintained a scalable Storybook-based design system to streamline UI consistency and accelerate development.",
 
@@ -102,13 +104,13 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp3.title": "Frontend Developer",
     "exp3.period": "May 2018 — Mar 2020",
     "exp3.desc":
-      "Contributed to the development of Zion Builder, a custom page builder plugin for WordPress, focused on delivering a flexible and user-friendly site-building experience.",
+      "Contributed to the development of Zion Builder, a custom page builder plugin for WordPress, emphasizing flexibility and user-friendliness.",
     "exp3.resp1":
-      "Implemented new features and enhanced existing functionality to meet evolving user needs.",
+      "Implemented new features and enhanced existing functionality to align with user requirements.",
     "exp3.resp2":
-      "Translated UI/UX designs into responsive and interactive interfaces.",
+      "Created responsive interfaces based on design requirements.",
     "exp3.resp3":
-      "Optimized application performance for faster load times and improved user experience.",
+      "Enhanced application performance and user engagement.",
 
     // Experience 4
     "exp4.title": "Frontend Developer",
@@ -227,9 +229,11 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp1.desc":
       "Am livrat soluții e-commerce scalabile pe Shopware și Shopify pentru clienți enterprise, cu focus pe performanța magazinelor, extensii personalizate ale platformei și arhitectură frontend ușor de întenținut.",
     "exp1.resp1":
-      "Am construit interfețe e-commerce scalabile pentru magazine Shopware cu trafic ridicat, cu focus pe performanță, consistență UX și arhitectură de componente ușor de întenținut.",
+      "Am livrat soluții e-commerce scalabile folosind Shopware și Shopify pentru clienți enterprise, cu focus pe performanța magazinelor și extensii personalizate.",
     "exp1.resp2":
-      "Am extins administrarea magazinelor Shopware prin dezvoltarea de noi componente, elemente și funcționalități CMS.",
+      "Am construit magazine Shopware cu trafic ridicat și interfețe scalabile, cu accent pe performanță, consistență UX și arhitectură de componente ușor de întenținut.",
+    "exp1.resp3":
+      "Am dezvoltat plugin-uri Shopware personalizate, componente CMS și funcționalități e-commerce scalabile pentru a extinde funcționalitatea platformei și a eficientiza fluxurile de management al conținutului.",
 
     // Experience 2
     "exp2.title": "Dezvoltator Frontend",
@@ -245,13 +249,13 @@ const translations: Record<Lang, Record<string, string>> = {
     "exp3.title": "Dezvoltator Frontend",
     "exp3.period": "Mai 2018 — Mar 2020",
     "exp3.desc":
-      "Am contribuit la dezvoltarea Zion Builder, un plugin personalizat de page builder pentru WordPress, axat pe oferirea unei experiențe flexibile și ușor de utilizat pentru construirea de site-uri.",
+      "Am contribuit la dezvoltarea Zion Builder, un plugin personalizat de page builder pentru WordPress, punând accent pe flexibilitate și ușurința în utilizare.",
     "exp3.resp1":
-      "Am implementat funcționalități noi și am îmbunătățit funcționalitățile existente pentru a răspunde nevoilor tot mai diverse ale utilizatorilor.",
+      "Am implementat funcționalități noi și am îmbunătățit funcționalitățile existente pentru a răspunde cerințelor utilizatorilor.",
     "exp3.resp2":
-      "Am transpus design-urile UI/UX în interfețe responsive și interactive.",
+      "Am creat interfețe responsive conform cerințelor de design.",
     "exp3.resp3":
-      "Am optimizat performanța aplicației pentru timpi de încărcare mai rapizi și o experiență îmbunătățită a utilizatorului.",
+      "Am îmbunătățit performanța aplicației și implicarea utilizatorilor.",
 
     // Experience 4
     "exp4.title": "Dezvoltator Frontend",
