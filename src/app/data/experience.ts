@@ -25,7 +25,7 @@ export const experiences: ExperienceItem[] = [
     periodKey: "exp2.period",
     descKey: "exp2.desc",
     respKeys: ["exp2.resp1", "exp2.resp2"],
-    tools: "JavaScript, Vue.js, Vuex, Nuxt, Bootstrap-Vue, Storybook, WebSockets, Figma, Nanocosmos",
+    tools: "JavaScript, React, Next.js, Bootstrap UI, Storybook, WebSockets, Figma, Nanocosmos",
   },
   {
     titleKey: "exp3.title",
