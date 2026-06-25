@@ -63,39 +63,6 @@ export const projects: Project[] = [
     grid: { columns: 6, rows: 3 },
   },
   {
-    slug: "raw-beats",
-    kind: "personal",
-    title: "Raw Beats",
-    headline: "Community-first beat marketplace for MCs and producers.",
-    url: "https://rawbeats.ro/",
-    screenshot: "/images/rawbeats.png",
-    tags: [
-      "Personal project",
-      "Nuxt 3",
-      "Vue 3",
-      "TypeScript",
-      "Express",
-      "Prisma",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "Stripe",
-      "Socket.io",
-      "WaveSurfer.js",
-    ],
-    short: "Community-first beat marketplace for MCs and producers.",
-    medium:
-      "A marketplace-style experience focused on discovery, previews, and a clear path from browsing beats to contacting creators.",
-    premium: [
-      "Built around fast scanning: strong cards, clear metadata, and a UI that supports repeat visits.",
-      "Prioritized mobile usability and performance for media-heavy listings.",
-    ],
-    role: "Personal build (design + frontend)",
-    technicalHighlights: ["Listing-first UX", "Media-heavy responsive UI", "Conversion-friendly contact flows"],
-    cta: "View live",
-    showInPortfolio: false,
-    grid: { columns: 4, rows: 3 },
-  },
-  {
     slug: "poetryhub",
     kind: "personal",
     title: "PoetryHub",
@@ -109,10 +76,6 @@ export const projects: Project[] = [
       "TypeScript",
       "Prisma",
       "PostgreSQL",
-      "Tailwind CSS",
-      "Pinia",
-      "i18n",
-      "Vercel",
     ],
     short: "Read, discover, and share poetry—clean typography-first reading experience.",
     medium:
@@ -127,45 +90,6 @@ export const projects: Project[] = [
     grid: { columns: 4, rows: 3 },
   },
   {
-    slug: "music-visualizer",
-    kind: "personal",
-    title: "Music Visualizer",
-    headline: "Layer-based music visualizer studio with real-time audio reactivity.",
-    url: "https://musicvisualizer-one.vercel.app/",
-    screenshot: "/images/music-visualizer.png",
-    tags: [
-      "Personal project",
-      "Nuxt 3",
-      "Vue 3",
-      "TypeScript",
-      "Tailwind CSS",
-      "SQLite",
-      "Web Audio API",
-      "Essentia.js",
-      "JWT",
-      "Vercel",
-    ],
-    short:
-      "Upload a track, compose image and text layers, tune audio reactivity, and export a synced WebM—or embed the visualizer anywhere.",
-    medium:
-      "A full studio editor with image and text layer stacks, custom frequency bands, beat detection, and audio-reactive modulations—backed by cloud project saves and guest mode.",
-    premium: [
-      "Built as a product, not a demo: projects persist to SQLite, layers bind to kick/snare/hi-hat bands, and export records the full visualization with synced audio.",
-      "Composable layer editor with drag-and-drop ordering, per-parameter easing, and embed routes via Vue component, iframe postMessage, and a web component.",
-      "Real-time FFT, BPM estimation, and optional Essentia.js analysis drive musical layer motion instead of generic waveform wobble.",
-    ],
-    role: "Personal build (design + full-stack frontend)",
-    technicalHighlights: [
-      "Layer-based editor with image/text stacks and audio-driven parameter modulations",
-      "Interactive frequency spectrum with custom bands driving layer modulations",
-      "Embeddable via Vue component, iframe, web component, and postMessage API",
-    ],
-    cta: "View live",
-    workInProgress: true,
-    showInPortfolio: false,
-    grid: { columns: 4, rows: 3 },
-  },
-  {
     slug: "dacia-1310",
     kind: "personal",
     title: "Dacia 1310",
@@ -177,12 +101,9 @@ export const projects: Project[] = [
       "Next.js",
       "React",
       "TypeScript",
-      "Tailwind CSS",
       "Three.js",
       "React Three Fiber",
       "GSAP",
-      "Lenis",
-      "Vercel",
     ],
     short:
       "A scroll-driven visual story about the car that carried families, workers, students, and memories across Romania for more than two decades.",
@@ -200,6 +121,71 @@ export const projects: Project[] = [
       "Editorial typography and restrained UI for long-form storytelling",
     ],
     cta: "View live",
+    grid: { columns: 4, rows: 3 },
+  },
+  {
+    slug: "raw-beats",
+    kind: "personal",
+    title: "Raw Beats",
+    headline: "Community-first beat marketplace for MCs and producers.",
+    url: "https://rawbeats.ro/",
+    screenshot: "/images/rawbeats.png",
+    tags: [
+      "Personal project",
+      "Nuxt 3",
+      "Vue 3",
+      "TypeScript",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    short: "Community-first beat marketplace for MCs and producers.",
+    medium:
+      "A marketplace-style experience focused on discovery, previews, and a clear path from browsing beats to contacting creators.",
+    premium: [
+      "Built around fast scanning: strong cards, clear metadata, and a UI that supports repeat visits.",
+      "Prioritized mobile usability and performance for media-heavy listings.",
+    ],
+    role: "Personal build (design + frontend)",
+    technicalHighlights: ["Listing-first UX", "Media-heavy responsive UI", "Conversion-friendly contact flows"],
+    cta: "View live",
+    showInPortfolio: false,
+    grid: { columns: 4, rows: 3 },
+  },
+  {
+    slug: "music-visualizer",
+    kind: "personal",
+    title: "Music Visualizer",
+    headline: "Layer-based music visualizer studio with real-time audio reactivity.",
+    url: "https://musicvisualizer-one.vercel.app/",
+    screenshot: "/images/music-visualizer.png",
+    tags: [
+      "Personal project",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Three.js",
+      "Web Audio API",
+      "SQLite",
+    ],
+    short:
+      "Upload a track, compose image and text layers, tune audio reactivity, and export a synced WebM—or embed the visualizer anywhere.",
+    medium:
+      "A full studio editor with image and text layer stacks, custom frequency bands, beat detection, and audio-reactive modulations—backed by cloud project saves and guest mode.",
+    premium: [
+      "Built as a product, not a demo: projects persist to SQLite, layers bind to kick/snare/hi-hat bands, and export records the full visualization with synced audio.",
+      "Composable layer editor with drag-and-drop ordering, per-parameter easing, and embed routes via React component, iframe postMessage, and a web component.",
+      "Real-time FFT, BPM estimation, and optional Essentia.js analysis drive musical layer motion instead of generic waveform wobble.",
+    ],
+    role: "Personal build (design + full-stack)",
+    technicalHighlights: [
+      "Layer-based editor with image/text stacks and audio-driven parameter modulations",
+      "Interactive frequency spectrum with custom bands driving layer modulations",
+      "Embeddable via React component, iframe, web component, and postMessage API",
+    ],
+    cta: "View live",
+    workInProgress: true,
+    showInPortfolio: false,
     grid: { columns: 4, rows: 3 },
   },
   {
@@ -760,7 +746,21 @@ export function isShownInPortfolio(project: Project): boolean {
 export const portfolioProjects = projects.filter(isShownInPortfolio);
 
 export const workProjects = projects.filter((p) => p.kind === "work");
-export const personalProjects = projects.filter((p) => p.kind === "personal");
+const PERSONAL_PROJECT_ORDER = ["poetryhub", "dacia-1310", "raw-beats", "music-visualizer"] as const;
+
+export const personalProjects = projects
+  .filter((p) => p.kind === "personal")
+  .sort(
+    (a, b) =>
+      PERSONAL_PROJECT_ORDER.indexOf(a.slug as (typeof PERSONAL_PROJECT_ORDER)[number]) -
+      PERSONAL_PROJECT_ORDER.indexOf(b.slug as (typeof PERSONAL_PROJECT_ORDER)[number]),
+  );
+
+const PROJECT_META_TAGS = new Set(["Personal project"]);
+
+export function getProjectTechTags(tags: string[]) {
+  return tags.filter((tag) => !PROJECT_META_TAGS.has(tag));
+}
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

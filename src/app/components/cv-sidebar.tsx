@@ -5,7 +5,7 @@ import React from "react";
 import { cvLanguages } from "../data/languages";
 import { cvToolsByFrequency } from "../data/cv-tools";
 import { skillGroups } from "../data/skills";
-import { personalProjects, workProjects } from "../data/portfolio";
+import { personalProjects, workProjects, getProjectTechTags } from "../data/portfolio";
 import { useCvDesktopLayout } from "./cv/cv-layout-context";
 import { cn } from "./ui/utils";
 
@@ -188,9 +188,9 @@ export function CvSidebar() {
             </Link>
           </h3>
 
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-3">
             {personalProjects.map((p) => (
-              <li key={p.slug}>
+              <li key={p.slug} className="flex flex-col gap-1.5">
                 <a
                   href={p.url}
                   target="_blank"
@@ -200,6 +200,15 @@ export function CvSidebar() {
                 >
                   {p.title}
                 </a>
+                {getProjectTechTags(p.tags).length > 0 && (
+                  <div className="flex flex-wrap gap-1">
+                    {getProjectTechTags(p.tags).map((tag) => (
+                      <span key={tag} className="cv-tool-pill cv-tool-pill--compact">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>

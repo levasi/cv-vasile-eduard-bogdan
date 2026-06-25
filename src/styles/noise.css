@@ -6,10 +6,6 @@
   --body-noise-blend: soft-light;
 }
 
-body {
-  background-color: #f6eee3;
-}
-
 body::after {
   content: "";
   position: absolute;
