@@ -49,7 +49,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     titleKey: "exp4.title",
-    company: "SC XFACTORAPP SRL",
+    company: "XfactorApp",
     companyUrl: "https://xfactorapp.com/",
     location: "Bucharest",
     periodKey: "exp4.period",
