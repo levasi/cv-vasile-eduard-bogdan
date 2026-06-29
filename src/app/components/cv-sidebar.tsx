@@ -195,7 +195,7 @@ export function CvSidebar() {
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground underline underline-offset-2 hover:text-primary transition-colors"
                   style={{ fontSize: "0.85rem", lineHeight: 1.4 }}
                 >
                   {p.title}
@@ -225,9 +225,9 @@ export function CvSidebar() {
         </h3>
 
         {projects.length > 0 && (
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {projects.map((p) => (
-              <li key={p.slug} className="">
+          <ul className="flex flex-wrap items-center gap-y-2">
+            {projects.map((p, index) => (
+              <li key={p.slug} className="flex items-center">
                 <a
                   href={p.url}
                   target="_blank"
@@ -237,6 +237,14 @@ export function CvSidebar() {
                 >
                   {p.title}
                 </a>
+                {index < projects.length - 1 && (
+                  <span
+                    className="mx-1 text-muted-foreground/40 select-none"
+                    aria-hidden
+                  >
+                    |
+                  </span>
+                )}
               </li>
             ))}
           </ul>

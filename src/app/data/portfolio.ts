@@ -63,6 +63,39 @@ export const projects: Project[] = [
     grid: { columns: 6, rows: 3 },
   },
   {
+    slug: "web-dev-training",
+    kind: "personal",
+    title: "Web Dev Training",
+    headline: "Technical interview prep with quizzes, coding challenges, and progress tracking.",
+    url: "https://webdevtraining-three.vercel.app/",
+    screenshot: "/images/web-dev-training.png",
+    tags: [
+      "Personal project",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    short:
+      "Practice questions, quizzes, and coding challenges across 18 categories—from JavaScript to system design.",
+    medium:
+      "A learning platform with quiz mode, a JavaScript coding playground, per-category progress dashboards, notes, and study history for interview preparation.",
+    premium: [
+      "Built as a full product flow—not a static question list: authenticated users track progress, bookmark content, and resume where they left off.",
+      "Coding challenges run solutions against test cases in-browser, with hints and explanations alongside traditional quiz mode.",
+      "Admin tooling and content proposals support growing the question bank without redeploying the app.",
+    ],
+    role: "Personal build (design + full-stack)",
+    technicalHighlights: [
+      "18-category question bank with quiz and coding challenge modes",
+      "In-browser JavaScript playground with test-case validation",
+      "Progress dashboards, notes, bookmarks, and Better Auth sessions",
+    ],
+    cta: "View live",
+    grid: { columns: 4, rows: 3 },
+  },
+  {
     slug: "poetryhub",
     kind: "personal",
     title: "PoetryHub",
@@ -746,7 +779,13 @@ export function isShownInPortfolio(project: Project): boolean {
 export const portfolioProjects = projects.filter(isShownInPortfolio);
 
 export const workProjects = projects.filter((p) => p.kind === "work");
-const PERSONAL_PROJECT_ORDER = ["poetryhub", "dacia-1310", "raw-beats", "music-visualizer"] as const;
+const PERSONAL_PROJECT_ORDER = [
+  "web-dev-training",
+  "poetryhub",
+  "dacia-1310",
+  "raw-beats",
+  "music-visualizer",
+] as const;
 
 export const personalProjects = projects
   .filter((p) => p.kind === "personal")
