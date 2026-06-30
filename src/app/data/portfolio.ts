@@ -93,6 +93,7 @@ export const projects: Project[] = [
       "Progress dashboards, notes, bookmarks, and Better Auth sessions",
     ],
     cta: "View live",
+    workInProgress: true,
     grid: { columns: 4, rows: 3 },
   },
   {
