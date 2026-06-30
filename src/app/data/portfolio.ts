@@ -67,7 +67,7 @@ export const projects: Project[] = [
     kind: "personal",
     title: "Web Dev Training",
     headline: "Technical interview prep with quizzes, coding challenges, and progress tracking.",
-    url: "https://webdevtraining-three.vercel.app/",
+    url: "https://webdevtraining-three-kappa.vercel.app/",
     screenshot: "/images/web-dev-training.png",
     tags: [
       "Personal project",
