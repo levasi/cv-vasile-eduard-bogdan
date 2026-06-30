@@ -108,27 +108,6 @@ export function CvSidebar() {
         </div>
       </div>
 
-      {/* Tools */}
-      <div>
-        <h3
-          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
-          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
-        >
-          {t("toolsHeading")}
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {cvToolsByFrequency.map((tool) => (
-            <span
-              key={tool}
-              className="px-2.5 py-1 rounded-full border border-border text-foreground"
-              style={{ fontSize: "0.75rem" }}
-            >
-              {tool}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* Languages */}
       <div>
         <h3
@@ -268,6 +247,27 @@ export function CvSidebar() {
         >
           cv-vasile-eduard-bogdan.vercel.app
         </a>
+      </div>
+
+      {/* Tools */}
+      <div>
+        <h3
+          className="text-primary tracking-widest mb-4 pb-2 border-b border-border"
+          style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em" }}
+        >
+          {t("toolsHeading")}
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {cvToolsByFrequency.map((tool) => (
+            <span
+              key={tool}
+              className="px-2.5 py-1 rounded-full border border-border text-foreground"
+              style={{ fontSize: "0.75rem" }}
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
       </div>
     </aside>
   );
