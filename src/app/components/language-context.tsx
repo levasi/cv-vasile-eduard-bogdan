@@ -67,7 +67,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Main header
     jobTitle: "Senior Frontend Developer",
     summary:
-      "Frontend developer focused on building high-performance web experiences, scalable UI systems, and modern applications with Vue, React, JavaScript, and AI-assisted development tools.",
+      "Creative frontend developer focused on building high-performance web experiences, scalable UI systems, and modern applications with Vue, React, JavaScript, and AI-assisted development tools.",
 
     // Section titles
     workExperience: "Work Experience",
